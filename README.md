@@ -1,4 +1,4 @@
-# gwj-93
+# Ceres
 Godot Wild Jam #93
 
 ## Theme 
