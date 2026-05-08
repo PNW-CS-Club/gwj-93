@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://yg5xwhneu13j"]
+
+[node name="PopupMenu" type="PopupMenu" unique_id=1171652677]
+oversampling_override = 1.0
+visible = true
+
+[node name="RichTextLabel" type="RichTextLabel" parent="." unique_id=309875184]
+offset_right = 100.0
+offset_bottom = 40.0
+text = "Shop"
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=88263564]
+offset_right = 101.0
+offset_bottom = 99.0

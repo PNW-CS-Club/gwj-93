@@ -19,3 +19,8 @@ offset_bottom = 679.0
 [node name="Icon" type="Sprite2D" parent="." unique_id=1551098448]
 position = Vector2(568, 221)
 texture = ExtResource("1_80nbo")
+
+[node name="TextEdit" type="TextEdit" parent="." unique_id=994903181]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Hi"
