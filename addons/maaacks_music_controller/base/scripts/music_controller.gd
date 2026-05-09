@@ -1,4 +1,4 @@
-class_name MusicController
+class_name MusicControllerMaaack
 extends Node
 ## Controller for music playback across scenes.
 ##
