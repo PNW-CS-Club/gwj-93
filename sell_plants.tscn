@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://cysgscx71nb1d"]
+
+[ext_resource type="Script" uid="uid://nc38c8b1pjuf" path="res://sell_plants.gd" id="1_k75s8"]
+[ext_resource type="Texture2D" uid="uid://dgfa0pf1dmi2t" path="res://PlantFolder/PlantTest-Photoroom.png" id="1_xouhy"]
+
+[node name="SellPlants" type="Control" unique_id=1085367252 node_paths=PackedStringArray("plant_frame")]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_k75s8")
+plant_frame = NodePath("TextureRect")
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=864598821]
+layout_mode = 0
+offset_right = 48.0
+offset_bottom = 48.0
+texture = ExtResource("1_xouhy")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="TextureRect" unique_id=1428003234]
+layout_mode = 0
+offset_left = -8.0
+offset_top = 48.0
+offset_right = 66.0
+offset_bottom = 71.0
+theme_override_colors/font_color = Color(0.011764706, 0.011764706, 0.011764706, 1)
+theme_override_colors/font_outline_color = Color(18.892157, 18.892157, 18.892157, 1)
+theme_override_constants/outline_size = 1
+theme_override_font_sizes/font_size = 7
+text = "$100"
+horizontal_alignment = 1

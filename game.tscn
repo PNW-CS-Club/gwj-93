@@ -1,7 +1,10 @@
 [gd_scene format=3 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_80nbo"]
-[ext_resource type="PackedScene" uid="uid://drqkx56h5vqpm" path="res://shop_ui.tscn" id="1_e2o6t"]
+[ext_resource type="Script" uid="uid://oy03hior360" path="res://buttonclikc.gd" id="2_e2o6t"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_feb5d"]
+load_path = "res://.godot/imported/shop-icon-svg-download-png-2534765.webp-a1971f82e8d2d0764ca519032a03bd5f.ctex"
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 
@@ -14,15 +17,19 @@ offset_left = -31.0
 offset_top = -16.0
 offset_right = 1170.0
 offset_bottom = 679.0
-
-[node name="ColorRect2" type="ColorRect" parent="CanvasLayer" unique_id=2015136760]
-offset_left = -31.0
-offset_top = -16.0
-offset_right = 1170.0
-offset_bottom = 679.0
-
-[node name="ShopUI" parent="CanvasLayer" unique_id=1559110609 instance=ExtResource("1_e2o6t")]
+metadata/_edit_lock_ = true
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1551098448]
-position = Vector2(88, -139)
+position = Vector2(-114, 253)
 texture = ExtResource("1_80nbo")
+
+[node name="Button" type="Button" parent="." unique_id=1857959329]
+offset_left = 1056.0
+offset_top = 9.0
+offset_right = 1144.0
+offset_bottom = 91.0
+icon = SubResource("CompressedTexture2D_feb5d")
+expand_icon = true
+script = ExtResource("2_e2o6t")
+
+[connection signal="pressed" from="Button" to="Button" method="_on_pressed"]

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cn0krs47tx3eg"
-path="res://.godot/imported/2021808-200.png-98192ae069563c8bec40561d149178d3.ctex"
+uid="uid://b3arhxuevtg4u"
+path="res://.godot/imported/BluePlantTest.jpg-2807c59928ddceb2be3baabe8a5c67af.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://2021808-200.png"
-dest_files=["res://.godot/imported/2021808-200.png-98192ae069563c8bec40561d149178d3.ctex"]
+source_file="res://PlantFolder/BluePlantTest.jpg"
+dest_files=["res://.godot/imported/BluePlantTest.jpg-2807c59928ddceb2be3baabe8a5c67af.ctex"]
 
 [params]
 

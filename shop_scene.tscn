@@ -1,0 +1,23 @@
+[gd_scene format=3 uid="uid://w2p3h3qgqf1c"]
+
+[ext_resource type="Texture2D" uid="uid://b8wnjj5k20alo" path="res://simple_pixel_game_background_with_trees1.png" id="1_42hh6"]
+
+[node name="ShopScene" type="Control" unique_id=666468361]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=1348317932]
+layout_mode = 0
+offset_right = 256.0
+offset_bottom = 128.0
+texture = ExtResource("1_42hh6")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=481448914]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 232.0
+offset_bottom = 104.0
