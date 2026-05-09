@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://cogguqq17no2"]
+
+[ext_resource type="Texture2D" uid="uid://cn0krs47tx3eg" path="res://2021808-200.png" id="1_khy13"]
+
+[node name="PanelContainer" type="PanelContainer" unique_id=277276254]
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=642088317]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=1759486268]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer/VBoxContainer" unique_id=1833395249]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(80, 80)
+layout_mode = 2
+texture = ExtResource("1_khy13")
+expand_mode = 1
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer" unique_id=557283246]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Test"
+horizontal_alignment = 1
+
+[node name="Button" type="Button" parent="." unique_id=1493439182]
+unique_name_in_owner = true
+layout_mode = 2
