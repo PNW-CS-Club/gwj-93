@@ -1,8 +1,7 @@
 [gd_scene format=3 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_80nbo"]
-[ext_resource type="Texture2D" uid="uid://dqjbo8n0kw6ev" path="res://pngtree-shopping-cart-convenient-icon-image_1287807.jpg" id="2_feb5d"]
-[ext_resource type="Script" uid="uid://lt7v658dwpnv" path="res://shop_button.gd" id="3_fc0e3"]
+[ext_resource type="PackedScene" uid="uid://drqkx56h5vqpm" path="res://shop_ui.tscn" id="1_e2o6t"]
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 
@@ -22,18 +21,8 @@ offset_top = -16.0
 offset_right = 1170.0
 offset_bottom = 679.0
 
+[node name="ShopUI" parent="CanvasLayer" unique_id=1559110609 instance=ExtResource("1_e2o6t")]
+
 [node name="Icon" type="Sprite2D" parent="." unique_id=1551098448]
-position = Vector2(568, 221)
+position = Vector2(88, -139)
 texture = ExtResource("1_80nbo")
-
-[node name="ShopButton" type="MenuButton" parent="." unique_id=614408929]
-offset_left = -3.0
-offset_top = 287.0
-offset_right = 365.0
-offset_bottom = 655.0
-icon = ExtResource("2_feb5d")
-item_count = 1
-popup/item_0/id = 0
-script = ExtResource("3_fc0e3")
-
-[connection signal="pressed" from="ShopButton" to="ShopButton" method="_on_pressed"]
