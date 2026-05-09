@@ -333,7 +333,7 @@ parameters/conditions/intro_done = false
 modulate = Color(1, 1, 1, 0)
 
 [node name="TitleLabel" parent="MenuContainer/TitleMargin/TitleContainer" index="0" unique_id=359406872]
-text = "GWJ93"
+text = "Ceres"
 
 [node name="SubTitleContainer" parent="MenuContainer/SubTitleMargin" parent_id_path=PackedInt32Array(1510335937) index="0" unique_id=930520368]
 modulate = Color(1, 1, 1, 0)

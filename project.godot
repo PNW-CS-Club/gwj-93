@@ -25,6 +25,7 @@ AppConfig="*uid://cjke6crjg14a0"
 SceneLoader="*uid://cbwmrnp0af35y"
 ProjectMusicController="*uid://r5t485lr3p7t"
 ProjectUISoundController="*uid://cc37235kj4384"
+Cursor="*uid://djwpw33d4d8u7"
 
 [dotnet]
 
@@ -32,12 +33,11 @@ project/assembly_name="GWJ93"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/gwj_accessibility_scripts/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/maaacks_music_controller/plugin.cfg")
+enabled=PackedStringArray("res://addons/awesome_custom_cursor/plugin.cfg", "res://addons/gwj_accessibility_scripts/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/maaacks_music_controller/plugin.cfg")
 
 [gui]
 
 theme/custom="uid://rukmwvvkkebp"
-theme/custom_font="uid://rukmwvvkkebp"
 
 [internationalization]
 
