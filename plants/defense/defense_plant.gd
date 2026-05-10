@@ -1,4 +1,4 @@
-extends Node2D
-class_name DefensePlant
+class_name DefensePlant extends Plant
+
 
 @export var stats: Stats

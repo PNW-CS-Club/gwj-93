@@ -24,3 +24,5 @@ func put(x: int, y: int, type: Node) -> void:
 	grid[y * width + x] = type
 	if type.is_class("Plant"):
 		plants.append([x,y])
+
+# TODO: Change dead plants to debris
