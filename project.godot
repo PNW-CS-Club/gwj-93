@@ -35,6 +35,18 @@ project/assembly_name="GWJ93"
 
 enabled=PackedStringArray("res://addons/awesome_custom_cursor/plugin.cfg", "res://addons/gwj_accessibility_scripts/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/maaacks_music_controller/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "gray",
+"res://examples/": "gray",
+"res://plants/": "green",
+"res://resources/": "blue",
+"res://scenes/": "purple",
+"res://scripts/": "yellow"
+}
+
 [gui]
 
 theme/custom="uid://rukmwvvkkebp"
