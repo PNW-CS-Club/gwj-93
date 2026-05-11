@@ -2,6 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_80nbo"]
 [ext_resource type="PackedScene" uid="uid://bqit33tsaoeyg" path="res://shop_scence_full.tscn" id="1_e2o6t"]
+[ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="2_feb5d"]
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 
@@ -17,6 +18,17 @@ offset_bottom = 679.0
 metadata/_edit_lock_ = true
 
 [node name="ShopScenceFull" parent="CanvasLayer" unique_id=23313038 instance=ExtResource("1_e2o6t")]
+visible = false
+
+[node name="ShopScenceFull2" parent="CanvasLayer" unique_id=539268894 instance=ExtResource("1_e2o6t")]
+visible = false
+offset_left = -8.0
+offset_top = 4.0
+offset_right = -8.0
+offset_bottom = 4.0
+size_flags_horizontal = 4
+
+[node name="CanvasLayer" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("2_feb5d")]
 
 [node name="Icon" type="Sprite2D" parent="." unique_id=1551098448]
 position = Vector2(-114, 253)

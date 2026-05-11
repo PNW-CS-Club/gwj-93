@@ -17,7 +17,7 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-PlantManager="*uid://vp5qww6co388"
+AllPlants="*uid://si4wyijg34in"
 
 [physics]
 
