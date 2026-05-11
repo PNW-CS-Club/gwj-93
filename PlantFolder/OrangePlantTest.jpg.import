@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b8wnjj5k20alo"
-path="res://.godot/imported/simple_pixel_game_background_with_trees1.png-4a863f58206ea065a3932207154b40e3.ctex"
+uid="uid://duh2xfd1gack2"
+path="res://.godot/imported/OrangePlantTest.jpg-1faa773a3e3f719d74d848cba32c5b84.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://simple_pixel_game_background_with_trees1.png"
-dest_files=["res://.godot/imported/simple_pixel_game_background_with_trees1.png-4a863f58206ea065a3932207154b40e3.ctex"]
+source_file="res://PlantFolder/OrangePlantTest.jpg"
+dest_files=["res://.godot/imported/OrangePlantTest.jpg-1faa773a3e3f719d74d848cba32c5b84.ctex"]
 
 [params]
 

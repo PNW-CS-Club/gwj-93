@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://cogguqq17no2"]
 
-[ext_resource type="Script" uid="uid://dwdmglprv1jxh" path="res://shop_item.gd" id="1_4eib6"]
+[ext_resource type="Script" uid="uid://dwdmglprv1jxh" path="res://shopItem.gd" id="1_4eib6"]
 [ext_resource type="Texture2D" uid="uid://dgfa0pf1dmi2t" path="res://PlantFolder/PlantTest-Photoroom.png" id="1_vfou5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4eib6"]
@@ -47,6 +47,8 @@ corner_radius_bottom_left = 3
 corner_detail = 5
 
 [node name="ShopItem" type="PanelContainer" unique_id=62956555]
+offset_right = 86.0
+offset_bottom = 113.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_4eib6")
 script = ExtResource("1_4eib6")
 
