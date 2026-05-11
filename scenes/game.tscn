@@ -1,10 +1,13 @@
 [gd_scene format=4 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="Script" path="res://tile_map_layer_ground.gd" id="3_7jktm"]
+[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scenes/canvas_layer.gd" id="2_u5sy4"]
+[ext_resource type="Script" uid="uid://b7e6d755x11m6" path="res://tile_map_layer_ground.gd" id="3_7jktm"]
 [ext_resource type="Texture2D" uid="uid://b3fl23e266bvp" path="res://tile-highlight-front.png" id="3_fc0e3"]
 [ext_resource type="Texture2D" uid="uid://f7em7xifv1d5" path="res://iso_tileset.png" id="3_feb5d"]
+[ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
 [ext_resource type="Texture2D" uid="uid://bfq31e6id781e" path="res://tile-highlight-back.png" id="5_7jktm"]
+[ext_resource type="PackedScene" uid="uid://di466h6rogbbx" path="res://scenes/game_scene/player.tscn" id="8_gee14"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
 texture = ExtResource("3_feb5d")
@@ -56,11 +59,23 @@ script = ExtResource("1_e2o6t")
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
 layer = -1
 follow_viewport_enabled = true
+script = ExtResource("2_u5sy4")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=508646703]
 visible = false
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
+clip_contents = true
+anchors_preset = 5
+anchor_top = 0.0
+anchor_bottom = 0.0
+offset_left = 276.0
+offset_top = 158.0
+offset_right = 406.0
+offset_bottom = 240.0
+grow_vertical = 1
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 scale = Vector2(2, 2)
@@ -92,3 +107,5 @@ texture_repeat = 1
 texture = ExtResource("5_7jktm")
 offset = Vector2(0, -8)
 region_rect = Rect2(0, 0, 32, 32)
+
+[node name="CharacterBody2D" parent="." unique_id=393970893 instance=ExtResource("8_gee14")]
