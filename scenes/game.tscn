@@ -2,6 +2,22 @@
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
 [ext_resource type="PackedScene" uid="uid://du3y15t3wsiqu" path="res://scenes/grid.tscn" id="2_yqjtg"]
+[ext_resource type="PackedScene" uid="uid://cj5dv7qg2wly8" path="res://plants/defense/defense_plant.tscn" id="3_iywne"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="4_p57ef"]
+[ext_resource type="PackedScene" uid="uid://bjt226jcukvyh" path="res://plants/heal/heal_plant.tscn" id="5_u5sy4"]
+
+[sub_resource type="Resource" id="Resource_gee14"]
+resource_local_to_scene = true
+script = ExtResource("4_p57ef")
+base_max_health = 200
+base_dodge_chance = 0.1
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
+
+[sub_resource type="Resource" id="Resource_0tnpc"]
+resource_local_to_scene = true
+script = ExtResource("4_p57ef")
+base_dodge_chance = 0.1
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 script = ExtResource("1_e2o6t")
@@ -16,3 +32,25 @@ offset_right = 1152.0
 offset_bottom = 648.0
 
 [node name="Grid" parent="." unique_id=191355062 instance=ExtResource("2_yqjtg")]
+
+[node name="defense_plant" parent="." unique_id=1424423727 instance=ExtResource("3_iywne")]
+position = Vector2(157, 504)
+stats = SubResource("Resource_gee14")
+
+[node name="HealPlant" parent="." unique_id=572577544 instance=ExtResource("5_u5sy4")]
+position = Vector2(275, 505)
+stats = SubResource("Resource_0tnpc")
+
+[node name="defense" type="Label" parent="." unique_id=1724935128]
+offset_left = 127.0
+offset_top = 481.0
+offset_right = 189.0
+offset_bottom = 504.0
+text = "defense"
+
+[node name="heal" type="Label" parent="." unique_id=523555500]
+offset_left = 258.0
+offset_top = 481.0
+offset_right = 295.0
+offset_bottom = 504.0
+text = "heal"

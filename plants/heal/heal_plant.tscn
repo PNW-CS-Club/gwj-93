@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://bjt226jcukvyh"]
+
+[ext_resource type="Script" uid="uid://ot5pbsk4rcyk" path="res://plants/heal/heal_plant.gd" id="1_qcl3s"]
+[ext_resource type="PackedScene" uid="uid://dlyqdykejr4bl" path="res://scenes/health_bar.tscn" id="2_3ms3h"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_8b2xu"]
+
+[sub_resource type="Resource" id="Resource_umjr2"]
+resource_local_to_scene = true
+script = ExtResource("2_8b2xu")
+base_dodge_chance = 0.1
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
+
+[node name="HealPlant" type="Node2D" unique_id=572577544]
+script = ExtResource("1_qcl3s")
+stats = SubResource("Resource_umjr2")
+
+[node name="HealthBar" parent="." unique_id=2131838447 instance=ExtResource("2_3ms3h")]
+unique_name_in_owner = true
+offset_left = -42.0
+offset_top = 4.0
+offset_right = 43.821426
+offset_bottom = 31.0

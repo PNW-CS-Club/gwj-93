@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://ckcxqvx2t4s8s" path="res://plants/defense/defense_plant.gd" id="1_3twyc"]
 [ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_2m0b1"]
+[ext_resource type="PackedScene" uid="uid://dlyqdykejr4bl" path="res://scenes/health_bar.tscn" id="3_x8mqw"]
 
 [sub_resource type="Resource" id="Resource_x8mqw"]
 resource_local_to_scene = true
@@ -10,32 +11,9 @@ base_max_health = 200
 base_dodge_chance = 0.1
 metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m0b1"]
-bg_color = Color(0.6431373, 0.7411765, 0.52156866, 0.36862746)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8mqw"]
-bg_color = Color(0.44555992, 0.63904446, 0.16994262, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
-
-[node name="defense_plant" type="Node2D" unique_id=1424423727]
+[node name="DefensePlant" type="Node2D" unique_id=1424423727]
 script = ExtResource("1_3twyc")
 stats = SubResource("Resource_x8mqw")
 
-[node name="HealthBar" type="ProgressBar" parent="." unique_id=910633440]
+[node name="HealthBar" parent="." unique_id=2131838447 instance=ExtResource("3_x8mqw")]
 unique_name_in_owner = true
-offset_left = -43.0
-offset_top = 3.0
-offset_right = 42.821426
-offset_bottom = 30.0
-theme_override_styles/background = SubResource("StyleBoxFlat_2m0b1")
-theme_override_styles/fill = SubResource("StyleBoxFlat_x8mqw")
-value = 55.12
-rounded = true
-metadata/_edit_use_anchors_ = true
