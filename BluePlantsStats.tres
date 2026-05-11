@@ -1,9 +1,0 @@
-[gd_resource type="Resource" script_class="PlantResource" format=3 uid="uid://dw5cjiitfxhrw"]
-
-[ext_resource type="Script" uid="uid://0fbqq4anrdvo" path="res://PlantResource.gd" id="1_o3x0v"]
-
-[resource]
-script = ExtResource("1_o3x0v")
-growthRate = 20.0
-bonus = 15
-metadata/_custom_type_script = "uid://0fbqq4anrdvo"

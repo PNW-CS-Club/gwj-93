@@ -1,12 +1,7 @@
-[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cx2n77vanowi3"]
+[gd_resource type="Resource" script_class="plantItem" format=3 uid="uid://cx2n77vanowi3"]
 
-[ext_resource type="Resource" uid="uid://6c8owuntgyl8" path="res://OrangePlantStats.tres" id="1_n3x2y"]
-[ext_resource type="Script" uid="uid://dc58q2i0dxrxa" path="res://Item.gd" id="2_ovvxs"]
-[ext_resource type="Texture2D" uid="uid://duh2xfd1gack2" path="res://PlantFolder/OrangePlantTest.jpg" id="3_ovvxs"]
+[ext_resource type="Script" uid="uid://k2g5savt7s5d" path="res://plant_item_creation.gd" id="1_n3x2y"]
 
 [resource]
-script = ExtResource("2_ovvxs")
-itemName = "Orange Plant"
-texture = ExtResource("3_ovvxs")
-plantResource = ExtResource("1_n3x2y")
-metadata/_custom_type_script = "uid://dc58q2i0dxrxa"
+script = ExtResource("1_n3x2y")
+metadata/_custom_type_script = "uid://k2g5savt7s5d"

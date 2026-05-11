@@ -1,12 +1,7 @@
-[gd_resource type="Resource" script_class="item" format=3 uid="uid://cdkkkspd5ldbl"]
+[gd_resource type="Resource" script_class="plantItem" format=3 uid="uid://bcrhnyuwuv5hk"]
 
-[ext_resource type="Resource" uid="uid://dw5cjiitfxhrw" path="res://BluePlantsStats.tres" id="1_hlul8"]
-[ext_resource type="Script" uid="uid://dc58q2i0dxrxa" path="res://Item.gd" id="2_tlqal"]
-[ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://PlantFolder/BluePlantTest.jpg" id="3_tlqal"]
+[ext_resource type="Script" uid="uid://k2g5savt7s5d" path="res://plant_item_creation.gd" id="1_jv6cs"]
 
 [resource]
-script = ExtResource("2_tlqal")
-itemName = "Blue Plant"
-texture = ExtResource("3_tlqal")
-plantResource = ExtResource("1_hlul8")
-metadata/_custom_type_script = "uid://dc58q2i0dxrxa"
+script = ExtResource("1_jv6cs")
+metadata/_custom_type_script = "uid://k2g5savt7s5d"
