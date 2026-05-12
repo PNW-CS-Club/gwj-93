@@ -3,9 +3,15 @@ extends CanvasLayer
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
 
+#three random plants
 @onready var firstRandomPlant: Control = $seedPanel/firstRandomPlant
 @onready var secondRandomPlant: Control = $seedPanel/secondRandomPlant
 @onready var thirdRandomPlant: Control = $seedPanel/thirdRandomPlant
+
+#buy button
+@onready var firstBuyButton: Button = %firstButton
+@onready var secondBuyButton: Button = %secondButton
+@onready var thirdBuyButton: Button = %thirdButton
 
 var rng = RandomNumberGenerator.new()
 
@@ -18,12 +24,12 @@ func _ready() -> void:
 func _on_shop_button_pressed():
 	seedPanel.visible = not seedPanel.visible
 	
-	diplayPlants()
+	displayPlants()
 	displayPotions()
 	#display health potion and evasion poition 
 	
 
-func diplayPlants() -> void:
+func displayPlants() -> void:
 	
 	var duplicateDict = Global.buyablePlants.duplicate()
 	var i = 0

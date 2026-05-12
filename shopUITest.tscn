@@ -119,6 +119,7 @@ texture = ExtResource("3_grq1j")
 expand_mode = 1
 
 [node name="firstButton" type="Button" parent="seedPanel/firstRandomPlant" unique_id=1568575159]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -197,6 +198,7 @@ texture = ExtResource("3_grq1j")
 expand_mode = 1
 
 [node name="secondButton" type="Button" parent="seedPanel/secondRandomPlant" unique_id=1480855056]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -275,6 +277,7 @@ texture = ExtResource("3_grq1j")
 expand_mode = 1
 
 [node name="thirdButton" type="Button" parent="seedPanel/thirdRandomPlant" unique_id=73797048]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
