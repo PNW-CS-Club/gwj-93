@@ -26,3 +26,11 @@ offset_bottom = 20.0
 layout_mode = 2
 
 [node name="Item" type="Sprite2D" parent="CenterContainer/Panel" unique_id=919125769]
+
+[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=681531069]
+custom_minimum_size = Vector2(10, 12)
+layout_mode = 0
+offset_right = 10.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 8
+text = "99"

@@ -57,25 +57,24 @@ sources/0 = SubResource("TileSetAtlasSource_fc0e3")
 script = ExtResource("1_e2o6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
-layer = -1
 follow_viewport_enabled = true
 script = ExtResource("2_u5sy4")
-
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=508646703]
-visible = false
-offset_right = 1152.0
-offset_bottom = 648.0
 
 [node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
 clip_contents = true
 anchors_preset = 5
 anchor_top = 0.0
 anchor_bottom = 0.0
-offset_left = 276.0
-offset_top = 158.0
-offset_right = 406.0
-offset_bottom = 240.0
+offset_left = -82.0
+offset_top = 137.0
+offset_right = 48.0
+offset_bottom = 219.0
 grow_vertical = 1
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=508646703]
+visible = false
+offset_right = 1152.0
+offset_bottom = 648.0
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 scale = Vector2(2, 2)
