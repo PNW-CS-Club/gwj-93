@@ -8,6 +8,8 @@ signal confirmed(boolean: bool)
 @onready var confirm_button: Button = %confirmButton
 @onready var cancel_button: Button = %cancelButton
 
+
+
 func _ready() -> void:
 	visibility_changed.connect(_on_visibility_changed)
 	

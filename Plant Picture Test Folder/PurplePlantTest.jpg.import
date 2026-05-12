@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bw710hej8n1vr"
-path="res://.godot/imported/PurplePlantTest.jpg-1328f720159c6631cbdad458785ba945.ctex"
+path="res://.godot/imported/PurplePlantTest.jpg-da2b2d6d0c071affb1f2cdff1ea36ad9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://PlantFolder/PurplePlantTest.jpg"
-dest_files=["res://.godot/imported/PurplePlantTest.jpg-1328f720159c6631cbdad458785ba945.ctex"]
+source_file="res://Plant Picture Test Folder/PurplePlantTest.jpg"
+dest_files=["res://.godot/imported/PurplePlantTest.jpg-da2b2d6d0c071affb1f2cdff1ea36ad9.ctex"]
 
 [params]
 
