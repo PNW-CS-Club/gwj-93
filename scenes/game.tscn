@@ -1,4 +1,4 @@
-[gd_scene format=4 uid="uid://b1k7q2homxg7t"]
+[gd_scene format=3 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="2_u5sy4"]

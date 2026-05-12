@@ -1,0 +1,45 @@
+[gd_scene format=3 uid="uid://dlyqdykejr4bl"]
+
+[ext_resource type="Script" uid="uid://bv0c8scgvgcs0" path="res://scripts/health_bar.gd" id="1_1bvlm"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2m0b1"]
+bg_color = Color(0.6431373, 0.7411765, 0.52156866, 0.36862746)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x8mqw"]
+bg_color = Color(0.44555992, 0.63904446, 0.16994262, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HealthBar" type="Node2D" unique_id=1205027271]
+script = ExtResource("1_1bvlm")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=2131838447]
+unique_name_in_owner = true
+offset_left = -43.0
+offset_top = 2.0
+offset_right = 42.821426
+offset_bottom = 29.0
+theme_override_styles/background = SubResource("StyleBoxFlat_2m0b1")
+theme_override_styles/fill = SubResource("StyleBoxFlat_x8mqw")
+value = 50.0
+rounded = true
+show_percentage = false
+metadata/_edit_use_anchors_ = true
+
+[node name="Label" type="Label" parent="ProgressBar" unique_id=1018555010]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 1.0
+offset_top = 2.0
+offset_right = 85.0
+offset_bottom = 25.0
+text = "50"
+horizontal_alignment = 1
+vertical_alignment = 1
+metadata/_edit_use_anchors_ = true

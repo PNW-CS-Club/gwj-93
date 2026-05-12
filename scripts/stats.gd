@@ -1,5 +1,4 @@
-extends Resource
-class_name Stats
+class_name Stats extends Resource
 
 enum BuffableStats {MAX_HEALTH, DODGE_CHANCE, PRICE}
 

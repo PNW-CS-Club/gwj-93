@@ -2,12 +2,18 @@
 
 [ext_resource type="Script" uid="uid://ckcxqvx2t4s8s" path="res://plants/defense/defense_plant.gd" id="1_3twyc"]
 [ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_2m0b1"]
+[ext_resource type="PackedScene" uid="uid://dlyqdykejr4bl" path="res://scenes/health_bar.tscn" id="3_x8mqw"]
 
 [sub_resource type="Resource" id="Resource_x8mqw"]
 resource_local_to_scene = true
 script = ExtResource("2_2m0b1")
+base_max_health = 200
+base_dodge_chance = 0.1
 metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
-[node name="defense_plant" type="Node2D" unique_id=1424423727]
+[node name="DefensePlant" type="Node2D" unique_id=1424423727]
 script = ExtResource("1_3twyc")
 stats = SubResource("Resource_x8mqw")
+
+[node name="HealthBar" parent="." unique_id=2131838447 instance=ExtResource("3_x8mqw")]
+unique_name_in_owner = true
