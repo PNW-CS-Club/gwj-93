@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bfq31e6id781e"
-path="res://.godot/imported/tile-highlight-back.png-96373541fd6958bb82ebc3adef8f5f7d.ctex"
+uid="uid://d2jp8dabrylw7"
+path="res://.godot/imported/ground-tiles-extra.png-1f4453ab1a9e557730c5b2f1c8be03b3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile-highlight-back.png"
-dest_files=["res://.godot/imported/tile-highlight-back.png-96373541fd6958bb82ebc3adef8f5f7d.ctex"]
+source_file="res://ground-tiles-extra.png"
+dest_files=["res://.godot/imported/ground-tiles-extra.png-1f4453ab1a9e557730c5b2f1c8be03b3.ctex"]
 
 [params]
 
