@@ -1,6 +1,6 @@
-[gd_scene load_steps=23 format=3 uid="uid://djwpw33d4d8u7"]
+[gd_scene format=3 uid="uid://djwpw33d4d8u7"]
 
-[ext_resource type="Script" path="res://addons/awesome_custom_cursor/Autoloads/Cursor.gd" id="1_7wdif"]
+[ext_resource type="Script" uid="uid://bgakmdm8ljni5" path="res://addons/awesome_custom_cursor/Autoloads/Cursor.gd" id="1_7wdif"]
 [ext_resource type="Texture2D" uid="uid://dysds1io0tcfl" path="res://addons/awesome_custom_cursor/assets/cursors/pointer_c.png" id="2_lqolq"]
 [ext_resource type="Texture2D" uid="uid://ip0st1klll38" path="res://addons/awesome_custom_cursor/assets/cursors/busy_circle_fade1.png" id="3_8soyp"]
 [ext_resource type="Texture2D" uid="uid://cuons632q5n3" path="res://addons/awesome_custom_cursor/assets/cursors/resize_a_diagonal.png" id="3_33y7y"]
@@ -170,16 +170,16 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="Cursor" type="Node2D" node_paths=PackedStringArray("sprite")]
+[node name="Cursor" type="Node2D" unique_id=331937394 node_paths=PackedStringArray("sprite")]
 process_mode = 3
 script = ExtResource("1_7wdif")
 sprite = NodePath("CanvasLayer/Sprite")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=1562898074]
 layer = 128
 follow_viewport_enabled = true
 
-[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="Sprite" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1777478569]
 sprite_frames = SubResource("SpriteFrames_it6wn")
 animation = &"arrow"
 autoplay = "arrow"
