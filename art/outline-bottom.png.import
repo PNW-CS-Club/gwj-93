@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bcngug00fieej"
-path="res://.godot/imported/outline-top.png-21220a5016a588207be52f8e24fbfdaf.ctex"
+uid="uid://c8pnr85o7wt45"
+path="res://.godot/imported/outline-bottom.png-d282b917a7177e59a4011758e05f362d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://outline-top.png"
-dest_files=["res://.godot/imported/outline-top.png-21220a5016a588207be52f8e24fbfdaf.ctex"]
+source_file="res://art/outline-bottom.png"
+dest_files=["res://.godot/imported/outline-bottom.png-d282b917a7177e59a4011758e05f362d.ctex"]
 
 [params]
 
