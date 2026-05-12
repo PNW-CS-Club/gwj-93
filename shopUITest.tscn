@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://shop_ui_test.gd" id="1_owsua"]
 [ext_resource type="Texture2D" uid="uid://cc1hkowr4obj5" path="res://shop-icon-svg-download-png-2534765.webp" id="2_grq1j"]
+[ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://PlantFolder/BluePlantTest.jpg" id="3_grq1j"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ep55i"]
 bg_color = Color(0.014660836, 0.014660836, 0.014660836, 1)
@@ -31,10 +32,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -192.0
-offset_top = -68.0
-offset_right = 192.0
-offset_bottom = 124.0
+offset_left = -248.0
+offset_top = -140.0
+offset_right = 202.0
+offset_bottom = 140.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_ep55i")
@@ -42,14 +43,228 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ep55i")
 [node name="Label" type="Label" parent="seedPanel" unique_id=2087617659]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.49
-anchor_top = 0.185
-anchor_right = 0.49
-anchor_bottom = 0.185
-offset_left = -20.160004
-offset_top = -11.52
-offset_right = 19.839996
-offset_bottom = 11.48
+anchor_left = 0.492
+anchor_top = 0.076000005
+anchor_right = 0.492
+anchor_bottom = 0.076000005
+offset_left = -18.959991
+offset_top = -13.279989
+offset_right = 21.040009
+offset_bottom = 9.720011
 grow_horizontal = 2
 grow_vertical = 2
 text = "Shop"
+
+[node name="firstRandomPlant2" type="Control" parent="seedPanel" unique_id=1612342478]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="Label" parent="seedPanel/firstRandomPlant2" unique_id=1099537785]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -116.0
+offset_right = -122.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name
+"
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="seedPanel/firstRandomPlant2" unique_id=1672726779]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -28.0
+offset_right = -89.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "jfkdajfoweurowuroeur
+"
+horizontal_alignment = 1
+
+[node name="firstPlant" type="TextureRect" parent="seedPanel/firstRandomPlant2" unique_id=1713908467]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("3_grq1j")
+expand_mode = 1
+
+[node name="buy" type="Button" parent="seedPanel/firstRandomPlant2" unique_id=1942729963]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -4.0
+offset_right = -105.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purchase"
+
+[node name="secondRandomPlant" type="Control" parent="seedPanel" unique_id=1082649193]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 63.0
+offset_top = -132.0
+offset_right = 513.0
+offset_bottom = 139.88
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="name" type="Label" parent="seedPanel/secondRandomPlant" unique_id=594868246]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -116.0
+offset_right = -122.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name
+"
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="seedPanel/secondRandomPlant" unique_id=1138756226]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -28.0
+offset_right = -89.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "jfkdajfoweurowuroeur
+"
+horizontal_alignment = 1
+
+[node name="firstPlant" type="TextureRect" parent="seedPanel/secondRandomPlant" unique_id=417850508]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("3_grq1j")
+expand_mode = 1
+
+[node name="buy" type="Button" parent="seedPanel/secondRandomPlant" unique_id=1889424781]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -4.0
+offset_right = -105.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purchase"
+
+[node name="thirdRandomPlant" type="Control" parent="seedPanel" unique_id=376214044]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 136.0
+offset_top = 8.0
+offset_right = 136.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_lock_ = true
+
+[node name="name" type="Label" parent="seedPanel/thirdRandomPlant" unique_id=978407716]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -116.0
+offset_right = -122.0
+offset_bottom = -67.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Name
+"
+horizontal_alignment = 1
+
+[node name="desc" type="Label" parent="seedPanel/thirdRandomPlant" unique_id=1674571486]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.0
+offset_top = -28.0
+offset_right = -89.0
+offset_bottom = 21.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 11
+text = "jfkdajfoweurowuroeur
+"
+horizontal_alignment = 1
+
+[node name="firstPlant" type="TextureRect" parent="seedPanel/thirdRandomPlant" unique_id=1708726008]
+layout_mode = 0
+offset_left = 56.0
+offset_top = 56.0
+offset_right = 106.0
+offset_bottom = 106.0
+texture = ExtResource("3_grq1j")
+expand_mode = 1
+
+[node name="buy" type="Button" parent="seedPanel/thirdRandomPlant" unique_id=340419635]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -185.0
+offset_top = -4.0
+offset_right = -105.0
+offset_bottom = 27.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Purchase"
+
+[connection signal="pressed" from="seedPanel/secondRandomPlant/buy" to="." method="_on_buy_pressed"]
