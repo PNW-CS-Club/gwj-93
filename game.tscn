@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://b1k7q2homxg7t"]
+
+[ext_resource type="Texture2D" uid="uid://6doqh7b10ivf" path="res://icon.svg" id="1_80nbo"]
+[ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://game.gd" id="1_e2o6t"]
+
+[node name="Game" type="Node2D" unique_id=1390331388]
+script = ExtResource("1_e2o6t")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
+layer = -1
+follow_viewport_enabled = true
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=508646703]
+offset_left = -31.0
+offset_top = -16.0
+offset_right = 1170.0
+offset_bottom = 679.0
+
+[node name="Icon" type="Sprite2D" parent="." unique_id=1551098448]
+position = Vector2(568, 221)
+texture = ExtResource("1_80nbo")

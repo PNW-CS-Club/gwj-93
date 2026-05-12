@@ -1,3 +1,0 @@
-OpenDyslexic
-Copyright (c) Abbie Gonzalez
-Licensed under SIL OFL Version 1.1 : https://openfontlicense.org/documents/OFL.txt
