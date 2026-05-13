@@ -1,8 +1,9 @@
 [gd_scene format=4 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="Script" path="res://scenes/canvas_layer.gd" id="2_u5sy4"]
+[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scenes/canvas_layer.gd" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
@@ -22,6 +23,8 @@ offset_top = -206.0
 offset_right = -163.0
 offset_bottom = -124.0
 scale = Vector2(4, 4)
+
+[node name="ShopOverlay" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 
