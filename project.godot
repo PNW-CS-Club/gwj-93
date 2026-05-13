@@ -10,10 +10,62 @@ config_version=5
 
 [application]
 
-config/name="GWJ93"
-run/main_scene="uid://b1k7q2homxg7t"
+config/name="Ceres"
+run/main_scene="res://scenes/opening/opening.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[audio]
+
+buses/default_bus_layout="uid://d1y3n5e46iju"
+
+[autoload]
+
+AppConfig="*uid://cjke6crjg14a0"
+SceneLoader="*uid://cbwmrnp0af35y"
+ProjectMusicController="*uid://r5t485lr3p7t"
+ProjectUISoundController="*uid://cc37235kj4384"
+Cursor="*uid://djwpw33d4d8u7"
+
+[dotnet]
+
+project/assembly_name="GWJ93"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/awesome_custom_cursor/plugin.cfg", "res://addons/gwj_accessibility_scripts/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/maaacks_music_controller/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://addons/": "gray",
+"res://assets/": "gray",
+"res://examples/": "gray",
+"res://plants/": "green",
+"res://resources/": "blue",
+"res://scenes/": "purple",
+"res://scripts/": "yellow"
+}
+
+[gui]
+
+theme/custom="uid://rukmwvvkkebp"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://addons/maaacks_game_template/base/translations/menus_translations.en.translation", "res://addons/maaacks_game_template/base/translations/menus_translations.fr.translation")
+
+[maaacks_game_template]
+
+disable_install_audio_busses=true
+disable_update_check=false
+disable_install_wizard=true
+copy_path="res://"
+
+[maaacks_music_controller]
+
+disable_install_audio_busses=true
+disable_update_check=false
 
 [physics]
 
