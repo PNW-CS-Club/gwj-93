@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="2_u5sy4"]
-[ext_resource type="Script" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
+[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 
