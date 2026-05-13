@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://y2ykxljq76q8"
-path="res://.godot/imported/BuffSeed.png-094c806713e39ff3602649249b6d5937.ctex"
+uid="uid://b4e8se78i1b0f"
+path="res://.godot/imported/seeds.png-6939849356a6ca5895cf67363a5a1c08.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Inventory/Items/BuffSeed.png"
-dest_files=["res://.godot/imported/BuffSeed.png-094c806713e39ff3602649249b6d5937.ctex"]
+source_file="res://scenes/Inventory/Items/seeds.png"
+dest_files=["res://.godot/imported/seeds.png-6939849356a6ca5895cf67363a5a1c08.ctex"]
 
 [params]
 

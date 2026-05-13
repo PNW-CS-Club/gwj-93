@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://b6v0vvq6roomx" path="res://scenes/Inventory/inventorySlot.png" id="1_cajta"]
 [ext_resource type="Script" uid="uid://bali8os513yo0" path="res://scenes/Inventory/slot.gd" id="1_v65n6"]
 
-[node name="Slot" type="Panel" unique_id=1952221929]
+[node name="Slot" type="Button" unique_id=1268060743]
 self_modulate = Color(1, 1, 1, 0)
 custom_minimum_size = Vector2(20, 20)
 offset_right = 20.0
@@ -21,16 +21,3 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
-
-[node name="Panel" type="Panel" parent="CenterContainer" unique_id=2016591744]
-layout_mode = 2
-
-[node name="Item" type="Sprite2D" parent="CenterContainer/Panel" unique_id=919125769]
-
-[node name="Label" type="Label" parent="CenterContainer/Panel" unique_id=681531069]
-custom_minimum_size = Vector2(10, 12)
-layout_mode = 0
-offset_right = 10.0
-offset_bottom = 12.0
-theme_override_font_sizes/font_size = 8
-text = "99"

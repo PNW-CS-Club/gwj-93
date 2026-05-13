@@ -1,13 +1,24 @@
-extends Panel
+extends Button
 
 @onready var backgroundSprite: Sprite2D = $Background
-@onready var itemSprite: Sprite2D = $CenterContainer/Panel/Item
+@onready var container: CenterContainer = $CenterContainer
 
-func update(slot: InventorySlot):
-	if !slot.item:
+var itemStackGui: ItemStackGui
+
+func insert(isg: ItemStackGui):
+	itemStackGui = isg
+	backgroundSprite.frame = 1
+	container.add_child(itemStackGui)
+	
+func takeItem():
+		var item = itemStackGui
+		
+		container.remove_child(itemStackGui)
+		itemStackGui = null
 		backgroundSprite.frame = 0
-		itemSprite.visible = false
-	else:
-		backgroundSprite.frame = 1
-		itemSprite.visible = true
-		itemSprite.texture = slot.item.texture
+		
+		return item
+
+
+func isEmpty():
+	return !itemStackGui
