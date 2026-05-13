@@ -5,17 +5,71 @@
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scenes/canvas_layer.gd" id="2_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://di466h6rogbbx" path="res://scenes/game_scene/player.tscn" id="8_gee14"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_feb5d"]
+texture = ExtResource("3_feb5d")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -8)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, 8)
+
+[sub_resource type="TileSet" id="TileSet_fc0e3"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_feb5d")
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_fc0e3"]
+texture = ExtResource("3_feb5d")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+0:0/0/texture_origin = Vector2i(0, -8)
+1:0/0 = 0
+1:0/0/texture_origin = Vector2i(0, -8)
+2:0/0 = 0
+2:0/0/texture_origin = Vector2i(0, -8)
+3:0/0 = 0
+3:0/0/texture_origin = Vector2i(0, -8)
+4:0/0 = 0
+4:0/0/texture_origin = Vector2i(0, -8)
+6:0/0 = 0
+6:0/0/texture_origin = Vector2i(0, -8)
+
+[sub_resource type="TileSet" id="TileSet_e2o6t"]
+tile_shape = 1
+tile_layout = 5
+tile_size = Vector2i(32, 16)
+sources/0 = SubResource("TileSetAtlasSource_fc0e3")
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 script = ExtResource("1_e2o6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
-layer = -1
 follow_viewport_enabled = true
+script = ExtResource("2_u5sy4")
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=508646703]
 offset_right = 1152.0
 offset_bottom = 648.0
+
+[node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
+offset_left = -293.0
+offset_top = -206.0
+offset_right = -163.0
+offset_bottom = -124.0
+scale = Vector2(4, 4)
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 
@@ -44,3 +98,5 @@ region_rect = Rect2(0, 0, 32, 32)
 z_index = 1
 tile_map_data = PackedByteArray("AAABAP//CQAEAAIAAAABAAAACQAAAAEAAAABAAEACQAAAAEAAAACAP//CQAAAAEAAAAEAPz/CQAAAAEAAAAGAPn/CQACAAAAAAAGAPr/CQAFAAAAAAAGAPv/CQABAAEAAAAHAPn/CQADAAAAAAAHAPr/CQAEAAAAAAAHAPv/CQAAAAEAAAAIAPn/CQAAAAEAAAAIAPr/CQAAAAEAAAAIAPf/CQAAAAEAAAAIAPj/CQAAAAEAAAAEAPr/CQAAAAEAAAAEAPv/CQADAAEAAAAFAPr/CQAAAAEAAAABAP3/CQAAAAEAAAABAP7/CQAAAAEAAAACAP3/CQABAAEAAAACAP7/CQAAAAEAAAADAP3/CQAAAAEAAAD+/wAACQAAAAEAAAD+/wEACQAAAAEAAAD/////CQAAAAEAAAD//wAACQAAAAEAAAD//wEACQAAAAEAAAAAAP7/CQAAAAEAAAAAAP//CQAAAAEAAAAAAAAACQABAAEAAAAAAAEACQAAAAEAAAAAAAIACQABAAEAAAADAPv/CQAAAAEAAAADAPz/CQACAAEAAAAFAPn/CQAAAAEAAAAGAPj/CQAAAAEAAAAHAPf/CQAAAAEAAAAHAPj/CQAAAAEAAAAFAPv/CQAAAAEAAAACAPv/CQABAAEAAAACAPz/CQAAAAEAAAAJAPb/CQAAAAEAAAAIAPb/CQAAAAEAAAAHAPb/CQABAAEAAAAEAP3/CQAAAAEAAAA=")
 tile_set = ExtResource("2_u5sy4")
+
+[node name="CharacterBody2D" parent="." unique_id=393970893 instance=ExtResource("8_gee14")]
