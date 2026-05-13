@@ -33,15 +33,15 @@ enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 [file_customization]
 
 folder_colors={
+"res://Plant Picture Test Folder/": "green",
+"res://Potion Picture Test Folder/": "blue",
 "res://addons/": "gray",
 "res://assets/": "gray",
 "res://examples/": "gray",
 "res://plants/": "green",
 "res://resources/": "blue",
 "res://scenes/": "purple",
-"res://scripts/": "yellow",
-"res://Plant Picture Test Folder/": "green",
-"res://Potion Picture Test Folder/": "blue"
+"res://scripts/": "yellow"
 }
 
 [gui]
