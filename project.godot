@@ -33,7 +33,7 @@ project/assembly_name="GWJ93"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/awesome_custom_cursor/plugin.cfg", "res://addons/gwj_accessibility_scripts/plugin.cfg", "res://addons/maaacks_game_template/plugin.cfg", "res://addons/maaacks_music_controller/plugin.cfg")
+enabled=PackedStringArray("res://addons/maaacks_game_template/plugin.cfg")
 
 [file_customization]
 
