@@ -18,6 +18,12 @@ var buyablePlants = {
 		"Cost": 20,
 		"Desc": "The stats?",
 		"Icon": preload("res://Plant Picture Test Folder/PurplePlantTest.jpg")
+	},
+	3: {
+		"Name": "Pink Flower",
+		"Cost": 20,
+		"Desc": "The stats?",
+		"Icon": preload("res://Plant Picture Test Folder/PlantTest-Photoroom.png")
 	}
 }
 

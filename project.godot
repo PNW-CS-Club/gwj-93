@@ -17,7 +17,14 @@ config/icon="res://icon.svg"
 
 [autoload]
 
-Global="*uid://c1axomrf6k36d"
+DataDict="uid://c1axomrf6k36d"
+
+[file_customization]
+
+folder_colors={
+"res://Plant Picture Test Folder/": "green",
+"res://Potion Picture Test Folder/": "blue"
+}
 
 [physics]
 

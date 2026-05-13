@@ -1,17 +1,20 @@
 extends CanvasLayer
 
+@onready var dataDict = $"/root/DataDict"
+
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
+
 
 #three random plants
 @onready var firstRandomPlant: Control = $seedPanel/firstRandomPlant
 @onready var secondRandomPlant: Control = $seedPanel/secondRandomPlant
 @onready var thirdRandomPlant: Control = $seedPanel/thirdRandomPlant
 
-#buy button
-@onready var firstBuyButton: Button = %firstButton
-@onready var secondBuyButton: Button = %secondButton
-@onready var thirdBuyButton: Button = %thirdButton
+#potions
+@onready var healthPotion: Control = $seedPanel/healthPotion
+@onready var evasPotion: Control = $seedPanel/evasionPotion
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -27,56 +30,65 @@ func _on_shop_button_pressed():
 	displayPlants()
 	displayPotions()
 	#display health potion and evasion poition 
-	
 
 func displayPlants() -> void:
-	
-	var duplicateDict = Global.buyablePlants.duplicate()
+
+	var duplicateDict = dataDict.buyablePlants.duplicate()
 	var i = 0
+	var empty = []
 	
-	displayPlantsHelper(duplicateDict, i)
+	var plantResults = displayPlantsHelper(duplicateDict, i, empty)
 
 #recursive function that will display our random plants each time the player clicks on the shop
-func displayPlantsHelper(duplicateDict: Dictionary, i: int) -> void:
-	var randNum = randi_range(0, 2)
+func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array) -> Array:
+	var randNum = rng.randi_range(0,3)
+	
+	#firstRandomPlant.text = duplicateDict[randNum]["Name"]
 	
 	if i > 2:
-		return
+		return plantResults
 		
 	elif !duplicateDict.has(randNum):
-		displayPlantsHelper(duplicateDict, i)
+		displayPlantsHelper(duplicateDict, i, plantResults)
 	
 	elif duplicateDict.has(randNum):
 		if i == 0:
-			get_node("seedPanel/firstRandomPlant/name1").text = duplicateDict[randNum]["Name"]
-			get_node("seedPanel/firstRandomPlant/firstPlantPicture").texture = duplicateDict[randNum]["Icon"]
-			get_node("seedPanel/firstRandomPlant/desc1").text = duplicateDict[randNum]["Desc"]
+			firstRandomPlant.get_node("name1").text = duplicateDict[randNum]["Name"]
+			firstRandomPlant.get_node("firstPlantPicture").texture = duplicateDict[randNum]["Icon"]
+			firstRandomPlant.get_node("desc1").text = duplicateDict[randNum]["Desc"]
 			duplicateDict.erase(randNum)
-			displayPlantsHelper(duplicateDict, i+1)
+			plantResults.append(randNum)
+			displayPlantsHelper(duplicateDict, i+1, plantResults)
 		elif i == 1:
-			get_node("seedPanel/secondRandomPlant/name2").text = duplicateDict[randNum]["Name"]
-			get_node("seedPanel/secondRandomPlant/secondPlantPicture").texture = duplicateDict[randNum]["Icon"]
-			get_node("seedPanel/secondRandomPlant/desc2").text = duplicateDict[randNum]["Desc"]
+			secondRandomPlant.get_node("name2").text = duplicateDict[randNum]["Name"]
+			secondRandomPlant.get_node("secondPlantPicture").texture = duplicateDict[randNum]["Icon"]
+			secondRandomPlant.get_node("desc2").text = duplicateDict[randNum]["Desc"]
 			duplicateDict.erase(randNum)
-			displayPlantsHelper(duplicateDict, i+1)
+			plantResults.append(randNum)
+			displayPlantsHelper(duplicateDict, i+1,plantResults)
 	
 		elif i == 2:
-			get_node("seedPanel/thirdRandomPlant/name3").text = duplicateDict[randNum]["Name"]
-			get_node("seedPanel/thirdRandomPlant/thirdPlantPicture").texture = duplicateDict[randNum]["Icon"]
-			get_node("seedPanel/thirdRandomPlant/desc3").text = duplicateDict[randNum]["Desc"]
+			thirdRandomPlant.get_node("name3").text = duplicateDict[randNum]["Name"]
+			thirdRandomPlant.get_node("thirdPlantPicture").texture = duplicateDict[randNum]["Icon"]
+			thirdRandomPlant.get_node("desc3").text = duplicateDict[randNum]["Desc"]
 			duplicateDict.erase(randNum)
-			displayPlantsHelper(duplicateDict, i+1)
+			plantResults.append(randNum)
+			displayPlantsHelper(duplicateDict, i+1, plantResults)
+	
+	return []
 
 func displayPotions() -> void:
 	
-	for i in range(Global.buyablePotions.size()):
+	for i in range(dataDict.buyablePotions.size()):
 		
 		if i == 0:
-			get_node("seedPanel/healthPotion/healthPotionName").text = Global.buyablePotions[i]["Name"]
-			get_node("seedPanel/healthPotion/healthPicture").texture = Global.buyablePotions[i]["Icon"]
+			healthPotion.get_node("healthPotionName").text = dataDict.buyablePotions[i]["Name"]
+			healthPotion.get_node("healthPicture").texture = dataDict.buyablePotions[i]["Icon"]
+			
 		elif i == 1:
-			get_node("seedPanel/evasionPotion/evasionPotionName").text = Global.buyablePotions[i]["Name"]
-			get_node("seedPanel/evasionPotion/evasionPicture").texture = Global.buyablePotions[i]["Icon"]
+			evasPotion.get_node("evasionPotionName").text = dataDict.buyablePotions[i]["Name"]
+			evasPotion.get_node("evasionPicture").texture = dataDict.buyablePotions[i]["Icon"]
+			
 
 #func _on_buy_pressed() -> void:
 	#TYPE_NIL
