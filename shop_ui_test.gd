@@ -1,10 +1,10 @@
 extends CanvasLayer
 
+#path used to access the data in the dictionaries
 @onready var dataDict = $"/root/DataDict"
 
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
-
 
 #three random plants
 @onready var firstRandomPlant: Control = $seedPanel/firstRandomPlant
@@ -15,6 +15,11 @@ extends CanvasLayer
 @onready var healthPotion: Control = $seedPanel/healthPotion
 @onready var evasPotion: Control = $seedPanel/evasionPotion
 
+#purchase buttons
+@onready var firstButton: Button = $seedPanel/firstRandomPlant/firstButton
+@onready var secondButton: Button = $seedPanel/secondRandomPlant/secondButton
+@onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
+
 
 var rng = RandomNumberGenerator.new()
 
@@ -23,6 +28,7 @@ func _ready() -> void:
 	seedPanel.hide()
 	
 	shopButton.pressed.connect(_on_shop_button_pressed)
+	
 
 func _on_shop_button_pressed():
 	seedPanel.visible = not seedPanel.visible
@@ -38,12 +44,24 @@ func displayPlants() -> void:
 	var empty = []
 	
 	var plantResults = displayPlantsHelper(duplicateDict, i, empty)
+	
+	#send a value as a parameter 
+	firstButton.pressed.connect(_on_pressed_Purchase.bind(0, plantResults))
+	secondButton.pressed.connect(_on_pressed_Purchase.bind(1, plantResults))
+	thirdButton.pressed.connect(_on_pressed_Purchase.bind(2, plantResults))
+
+func _on_pressed_Purchase(index: int, plantResults: Array) -> void:
+	
+	if index == 0:
+		print(0)
+	elif index == 1:
+		print(1)
+	else:
+		print(2)
 
 #recursive function that will display our random plants each time the player clicks on the shop
 func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array) -> Array:
 	var randNum = rng.randi_range(0,3)
-	
-	#firstRandomPlant.text = duplicateDict[randNum]["Name"]
 	
 	if i > 2:
 		return plantResults
@@ -59,6 +77,7 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 			duplicateDict.erase(randNum)
 			plantResults.append(randNum)
 			displayPlantsHelper(duplicateDict, i+1, plantResults)
+			
 		elif i == 1:
 			secondRandomPlant.get_node("name2").text = duplicateDict[randNum]["Name"]
 			secondRandomPlant.get_node("secondPlantPicture").texture = duplicateDict[randNum]["Icon"]
@@ -66,6 +85,7 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 			duplicateDict.erase(randNum)
 			plantResults.append(randNum)
 			displayPlantsHelper(duplicateDict, i+1,plantResults)
+			
 	
 		elif i == 2:
 			thirdRandomPlant.get_node("name3").text = duplicateDict[randNum]["Name"]
@@ -74,9 +94,11 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 			duplicateDict.erase(randNum)
 			plantResults.append(randNum)
 			displayPlantsHelper(duplicateDict, i+1, plantResults)
+			
 	
 	return []
 
+#this function will display all the potions
 func displayPotions() -> void:
 	
 	for i in range(dataDict.buyablePotions.size()):
