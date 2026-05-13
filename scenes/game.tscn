@@ -3,9 +3,11 @@
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
 [ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scenes/canvas_layer.gd" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
+[ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
+[ext_resource type="PackedScene" uid="uid://j74cggjvrr25" path="res://money_overlay.tscn" id="5_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://di466h6rogbbx" path="res://scenes/game_scene/player.tscn" id="8_gee14"]
 
@@ -22,6 +24,10 @@ offset_top = -206.0
 offset_right = -163.0
 offset_bottom = -124.0
 scale = Vector2(4, 4)
+
+[node name="Control" parent="CanvasLayer" unique_id=1098571293 instance=ExtResource("5_vtaks")]
+
+[node name="CanvasLayer" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 

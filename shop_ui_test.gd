@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 #path used to access the data in the dictionaries
-var dataDictionary = preload("res://dataDict.gd").new
+var dataDictionary = preload("res://dataDict.gd").new()
 
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
@@ -19,6 +19,9 @@ var dataDictionary = preload("res://dataDict.gd").new
 @onready var firstButton: Button = $seedPanel/firstRandomPlant/firstButton
 @onready var secondButton: Button = $seedPanel/secondRandomPlant/secondButton
 @onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
+
+@onready var moneyOverlay = get_node("Control/MarginContainer")
+
 
 
 var rng = RandomNumberGenerator.new()
@@ -54,15 +57,20 @@ func _on_pressed_Purchase(index: int, plantResults: Array) -> void:
 	
 	if index == 0:
 		print(0)
+		var arrayIndex = plantResults[index]
+		moneyOverlay._subtract_amount(dataDictionary.buyablePlants[arrayIndex]["Cost"])
+		print(moneyOverlay.coins-10)
+		
 	elif index == 1:
 		print(1)
 	else:
 		print(2)
 
-#recursive function that will display our random plants each time the player clicks on the shop
+#recursive function that will display our random plants each time the player clicks on the shop and will an array of the keys the plants can buy
 func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array) -> Array:
 	var randNum = rng.randi_range(0,3)
 	
+	#fix this code segment
 	if i > 2:
 		return plantResults
 		
@@ -96,7 +104,7 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 			displayPlantsHelper(duplicateDict, i+1, plantResults)
 			
 	
-	return []
+	return plantResults
 
 #this function will display all the potions
 func displayPotions() -> void:
