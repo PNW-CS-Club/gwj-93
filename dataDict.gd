@@ -1,5 +1,7 @@
 extends Resource
 
+#resource is used to store data
+
 var buyablePlants = {
 	0: {
 		"Name": "Blue Flower",

@@ -1,3 +1,9 @@
-# Godot 4+ specific ignores
+# standard Godot v4 ignores
 .godot/
 /android/
+
+# files that change every time you view them
+*.translation
+
+# temporary files
+*.tmp
