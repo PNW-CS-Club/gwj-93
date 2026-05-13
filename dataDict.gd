@@ -1,4 +1,4 @@
-extends Node
+extends Resource
 
 var buyablePlants = {
 	0: {

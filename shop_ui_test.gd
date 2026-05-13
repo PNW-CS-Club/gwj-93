@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 #path used to access the data in the dictionaries
-@onready var dataDict = $"/root/DataDict"
+var dataDictionary = preload("res://dataDict.gd").new
 
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
@@ -39,7 +39,7 @@ func _on_shop_button_pressed():
 
 func displayPlants() -> void:
 
-	var duplicateDict = dataDict.buyablePlants.duplicate()
+	var duplicateDict = dataDictionary.buyablePlants.duplicate()
 	var i = 0
 	var empty = []
 	
@@ -101,15 +101,15 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 #this function will display all the potions
 func displayPotions() -> void:
 	
-	for i in range(dataDict.buyablePotions.size()):
+	for i in range(dataDictionary.buyablePotions.size()):
 		
 		if i == 0:
-			healthPotion.get_node("healthPotionName").text = dataDict.buyablePotions[i]["Name"]
-			healthPotion.get_node("healthPicture").texture = dataDict.buyablePotions[i]["Icon"]
+			healthPotion.get_node("healthPotionName").text = dataDictionary.buyablePotions[i]["Name"]
+			healthPotion.get_node("healthPicture").texture = dataDictionary.buyablePotions[i]["Icon"]
 			
 		elif i == 1:
-			evasPotion.get_node("evasionPotionName").text = dataDict.buyablePotions[i]["Name"]
-			evasPotion.get_node("evasionPicture").texture = dataDict.buyablePotions[i]["Icon"]
+			evasPotion.get_node("evasionPotionName").text = dataDictionary.buyablePotions[i]["Name"]
+			evasPotion.get_node("evasionPicture").texture = dataDictionary.buyablePotions[i]["Icon"]
 			
 
 #func _on_buy_pressed() -> void:
