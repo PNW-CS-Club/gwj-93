@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b3fl23e266bvp"
-path="res://.godot/imported/tile-highlight-front.png-246dc04ca53fd1dc0d04609cabc08294.ctex"
+uid="uid://bcngug00fieej"
+path="res://.godot/imported/outline-top.png-9e9515075e07c74293711734803a81be.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://tile-highlight-front.png"
-dest_files=["res://.godot/imported/tile-highlight-front.png-246dc04ca53fd1dc0d04609cabc08294.ctex"]
+source_file="res://art/outline-top.png"
+dest_files=["res://.godot/imported/outline-top.png-9e9515075e07c74293711734803a81be.ctex"]
 
 [params]
 
