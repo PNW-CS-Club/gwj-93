@@ -81,7 +81,10 @@ metadata/_edit_lock_ = true
 
 [node name="CharacterBody2D" parent="." unique_id=393970893 instance=ExtResource("8_gee14")]
 
-[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=2020226036]
+[node name="DayAndNightCycle" type="Node2D" parent="." unique_id=430856441]
+
+[node name="CanvasModulate" type="CanvasModulate" parent="DayAndNightCycle" unique_id=2020226036]
+unique_name_in_owner = true
 color = Color(0.36078432, 0.35686275, 0.7921569, 1)
 script = ExtResource("13_trtic")
 gradient = SubResource("GradientTexture1D_ir15t")

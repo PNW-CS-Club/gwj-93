@@ -4,6 +4,8 @@ const MINUTES_PER_DAY = 1440
 const MINUTES_PER_HOUR = 60 
 const INGAME_TO_REAL_MINUTE_DURATION = (2 * PI) / MINUTES_PER_DAY
 
+signal time_tick(day:int, hour: int, minute: int)
+
 var time:float = 0.0
 
 @export var gradient: GradientTexture1D
@@ -24,3 +26,5 @@ func recalulateTime() -> void:
 	
 	var hour = int(currentDayMinutes / MINUTES_PER_HOUR)
 	var minute = int(currentDayMinutes % MINUTES_PER_HOUR)
+	
+	time_tick.emit(day, hour, minute)
