@@ -2,7 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://b6v0vvq6roomx" path="res://scenes/Inventory/inventorySlot.png" id="1_cajta"]
 [ext_resource type="Script" uid="uid://bali8os513yo0" path="res://scenes/Inventory/inventory_slot.gd" id="1_v65n6"]
-[ext_resource type="PackedScene" uid="uid://2r4xhwexho8e" path="res://scenes/Inventory/ItemStack.tscn" id="3_j8x6a"]
 
 [node name="Slot" type="Button" unique_id=1268060743]
 self_modulate = Color(1, 1, 1, 0)
@@ -22,6 +21,3 @@ custom_minimum_size = Vector2(20, 20)
 layout_mode = 0
 offset_right = 20.0
 offset_bottom = 20.0
-
-[node name="ItemStackGUI" parent="." unique_id=1321099942 instance=ExtResource("3_j8x6a")]
-layout_mode = 0

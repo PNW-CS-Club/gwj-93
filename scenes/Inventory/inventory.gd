@@ -4,11 +4,18 @@ class_name Inventory
 @onready var ItemStackScene = preload("res://scenes/Inventory/ItemStack.tscn")
 @onready var slot_nodes: Array[Node] = $NinePatchRect/GridContainer.get_children()
 
+const BUFF_SEED: InventoryItem = preload("uid://2enc8i11rwcn")
+const DEFENSE_SEED: InventoryItem = preload("uid://bmuyyjk7ba5o6")
+const HP_SEED: InventoryItem = preload("uid://gad4q5m7vacj")
+
 var stack_in_hand: ItemStack
 
 
 func _ready():
 	_connect_slots()
+	add_item(BUFF_SEED, 3)
+	add_item(DEFENSE_SEED, 2)
+	add_item(HP_SEED)
 
 func _connect_slots():
 	for i in range(slot_nodes.size()):
@@ -18,9 +25,6 @@ func _connect_slots():
 		# causes on_slot_clicked(slot) to be called when slot is clicked
 		var callable = Callable(_on_slot_clicked).bind(slot_node)
 		slot_node.pressed.connect(callable)
-
-func open(): visible = true
-func close(): visible = false
 
 
 func _on_slot_clicked(slot: InventorySlot):
@@ -68,8 +72,9 @@ func _put_stack_in_slot(slot: InventorySlot):
 
 
 # adds a given amount of the given item to the inventory
-func add_item(item: InventoryItem, amount: int):
+func add_item(item: InventoryItem, amount: int = 1):
 	for slot in slot_nodes:
+		if !slot.stack: continue
 		if slot.stack.item.name == item.name:
 			slot.stack.amount += amount
 			return
@@ -79,7 +84,7 @@ func add_item(item: InventoryItem, amount: int):
 			var new_stack = ItemStackScene.instantiate()
 			new_stack.item = item
 			new_stack.amount = amount
-			slot.stack = new_stack
+			slot.put_stack(new_stack)
 			return
 	
 	printerr("Could not insert " + str(amount) + "x " + item.name + " into inventory")
