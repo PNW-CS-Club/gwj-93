@@ -20,7 +20,6 @@ follow_viewport_enabled = true
 script = ExtResource("2_u5sy4")
 
 [node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
-visible = false
 offset_left = -293.0
 offset_top = -206.0
 offset_right = -163.0
@@ -28,10 +27,8 @@ offset_bottom = -124.0
 scale = Vector2(4, 4)
 
 [node name="CoinOverlay" parent="CanvasLayer" unique_id=1098571293 instance=ExtResource("5_vtaks")]
-visible = false
 
 [node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
-visible = false
 
 [node name="ObjectiveUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 

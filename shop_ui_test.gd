@@ -22,7 +22,7 @@ var dataDictionary = preload("res://dataDict.gd").new()
 @onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
 
 #path used to access our currency
-@onready var moneyOverlay = get_node("../ShopUI")
+@onready var moneyOverlay = get_node("../CoinOverlay")
 
 var rng = RandomNumberGenerator.new()
 
