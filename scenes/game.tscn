@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 [ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scenes/cabin.gd" id="7_trtic"]
 [ext_resource type="PackedScene" uid="uid://di466h6rogbbx" path="res://scenes/game_scene/player.tscn" id="8_gee14"]
+[ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="8_ir15t"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scenes/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Gradient" uid="uid://c1xmyu8tefwbo" path="res://testGradient.tres" id="14_trtic"]
 
@@ -36,8 +37,6 @@ metadata/_edit_lock_ = true
 [node name="CoinOverlay" parent="CanvasLayer" unique_id=1098571293 instance=ExtResource("5_vtaks")]
 metadata/_edit_lock_ = true
 
-[node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
-
 [node name="ChallengeUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 metadata/_edit_lock_ = true
 
@@ -53,10 +52,15 @@ script = ExtResource("7_trtic")
 [node name="transCabinButton" type="TextureButton" parent="CanvasLayer/Cabin" unique_id=191152626]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 96.0
+offset_left = 112.0
 offset_top = 8.0
-offset_right = 192.0
-offset_bottom = 96.0
+offset_right = 216.0
+offset_bottom = 112.0
+texture_normal = ExtResource("8_ir15t")
+ignore_texture_size = true
+stretch_mode = 0
+
+[node name="ShopUI" parent="." unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 metadata/_edit_lock_ = true
