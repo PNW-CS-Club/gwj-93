@@ -10,9 +10,14 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	var mouse_pos = get_local_mouse_position()
-	var cell_pos = local_to_map(mouse_pos)
-	highlight_cell(cell_pos)
+	var mouse_pos: Vector2 = get_local_mouse_position()
+	var cell_pos: Vector2i = local_to_map(mouse_pos)
+	var tile_data: TileData = get_cell_tile_data(cell_pos)
 	
-func highlight_cell(cell_position: Vector2i) -> void:
-	marker.position = map_to_local(cell_position)
+	if tile_data:
+		# highlight map cell
+		marker.position = map_to_local(cell_pos)
+		marker.visible = true
+	else: 
+		marker.visible = false
+	

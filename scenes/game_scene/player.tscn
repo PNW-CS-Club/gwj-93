@@ -1,8 +1,0 @@
-[gd_scene format=3 uid="uid://di466h6rogbbx"]
-
-[ext_resource type="Script" uid="uid://dnmm30t32vdwp" path="res://player.gd" id="1_idrlb"]
-[ext_resource type="Resource" uid="uid://5yf2kkn2acso" path="res://scenes/Inventory/playerInventory.tres" id="2_fcv6w"]
-
-[node name="CharacterBody2D" type="CharacterBody2D" unique_id=393970893]
-script = ExtResource("1_idrlb")
-inventory = ExtResource("2_fcv6w")

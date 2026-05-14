@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://by2ppivwfwvod"]
 
 [ext_resource type="Texture2D" uid="uid://b6v0vvq6roomx" path="res://scenes/Inventory/inventorySlot.png" id="1_cajta"]
-[ext_resource type="Script" uid="uid://bali8os513yo0" path="res://scenes/Inventory/slot.gd" id="1_v65n6"]
+[ext_resource type="Script" uid="uid://bali8os513yo0" path="res://scenes/Inventory/inventory_slot.gd" id="1_v65n6"]
 
 [node name="Slot" type="Button" unique_id=1268060743]
 self_modulate = Color(1, 1, 1, 0)

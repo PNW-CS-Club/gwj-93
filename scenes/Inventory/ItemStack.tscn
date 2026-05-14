@@ -1,13 +1,15 @@
 [gd_scene format=3 uid="uid://2r4xhwexho8e"]
 
-[ext_resource type="Script" uid="uid://dn61npxicag4c" path="res://scenes/Inventory/item_stack_gui.gd" id="1_y3e6u"]
+[ext_resource type="Script" uid="uid://dn61npxicag4c" path="res://scenes/Inventory/item_stack.gd" id="1_y3e6u"]
 
-[node name="Panel" type="Panel" unique_id=1321099942]
+[node name="ItemStack" type="Panel" unique_id=1321099942]
 script = ExtResource("1_y3e6u")
 
 [node name="Item" type="Sprite2D" parent="." unique_id=200965955]
+unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="." unique_id=214522659]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
 offset_right = 10.0
