@@ -1,7 +1,7 @@
 [gd_scene format=4 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scripts/canvas_layer.gd" id="2_u5sy4"]
+y[ext_resource tpe="Script" uid="uid://dr6un1j11jqgs" path="res://scripts/canvas_layer.gd" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
@@ -14,10 +14,8 @@ script = ExtResource("1_e2o6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
 follow_viewport_enabled = true
-script = ExtResource("2_u5sy4")
 
 [node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
-visible = false
 offset_left = -293.0
 offset_top = -206.0
 offset_right = -163.0
@@ -25,7 +23,6 @@ offset_bottom = -124.0
 scale = Vector2(4, 4)
 
 [node name="ShopOverlay" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
-visible = false
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 

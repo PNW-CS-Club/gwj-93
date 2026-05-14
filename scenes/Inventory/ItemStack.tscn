@@ -6,8 +6,10 @@
 script = ExtResource("1_y3e6u")
 
 [node name="Item" type="Sprite2D" parent="." unique_id=200965955]
+unique_name_in_owner = true
 
 [node name="Label" type="Label" parent="." unique_id=214522659]
+unique_name_in_owner = true
 custom_minimum_size = Vector2(10, 12)
 layout_mode = 0
 offset_right = 10.0
