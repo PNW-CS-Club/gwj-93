@@ -30,7 +30,7 @@ scale = Vector2(4, 4)
 
 [node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
-[node name="ObjectiveUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
+[node name="ChallengeUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 metadata/_edit_lock_ = true
