@@ -8,7 +8,7 @@ class_name Grid extends Node2D
 @export var width = 5
 @export var height = 5
 var grid = Array([], TYPE_OBJECT, "Node", null) #Array[Node]
-var plants: Array[Array] # Array that marks squares with living plants
+var plants: Array[Array] # Array of pairs that marks squares with living plants
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -20,9 +20,9 @@ func _ready() -> void:
 func at(x: int, y: int) -> Node: 
 	return grid[y * width + x]
 
-func put(x: int, y: int, type: Node) -> void: 
-	grid[y * width + x] = type
-	if type.is_class("Plant"):
+func put(x: int, y: int, node: Node) -> void: 
+	grid[y * width + x] = node
+	if node.is_class("Plant"):
 		plants.append([x,y])
 
 # TODO: Change dead plants to debris
