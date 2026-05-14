@@ -1,78 +1,106 @@
 extends Control
+class_name Inventory
 
-var isOpen: bool = false
+@onready var ItemStackScene = preload("res://scenes/Inventory/ItemStack.tscn")
+@onready var slot_nodes: Array[Node] = $NinePatchRect/GridContainer.get_children()
 
-@onready var inventory: Inventory = preload("res://scenes/Inventory/playerInventory.tres")
-@onready var ItemStackGuiClass = preload("res://scenes/Inventory/ItemStackGUI.tscn")
-@onready var slots: Array = $NinePatchRect/GridContainer.get_children()
+var stack_in_hand: ItemStack
 
-var itemInHand: ItemStackGui
 
 func _ready():
-	connectSlots()
-	update()
+	_connect_slots()
 
-func connectSlots():
-	for i in range(slots.size()):
-		var slot = slots[i]
-		slot.index = i
+func _connect_slots():
+	for i in range(slot_nodes.size()):
+		var slot_node: InventorySlot = slot_nodes[i]
+		slot_node.index = i
 		
-		var callable = Callable(onSlotClicked)
-		callable = callable.bind(slot)
-		slot.pressed.connect(callable)
+		# causes on_slot_clicked(slot) to be called when slot is clicked
+		var callable = Callable(_on_slot_clicked).bind(slot_node)
+		slot_node.pressed.connect(callable)
 
-func update():
-	for i in range(min(inventory.slots.size(), slots.size())):
-		var inventorySlot: InventorySlot = inventory.slots[i]
-		
-		if !inventorySlot.item: continue
-		
-		var itemStackGui: ItemStackGui = slots[i].itemStackGui
-		if !itemStackGui:
-			itemStackGui = ItemStackGuiClass.instantiate()
-			slots[i].insert(itemStackGui)
-			
-		itemStackGui.inventorySlot = inventorySlot
-		itemStackGui.update()
-
-func open():
-	visible = true
-	isOpen = true
-	
-func close():
-	visible = false
-	isOpen = false
+func open(): visible = true
+func close(): visible = false
 
 
-func onSlotClicked(slot):
-	if slot.isEmpty() && itemInHand:
-		insertItemInSlot(slot)
+func _on_slot_clicked(slot: InventorySlot):
+	if !stack_in_hand && !slot.is_empty():
+		_take_stack_from_slot(slot)
 		return
-		
-	if !itemInHand:
-		takeItemFromSlot(slot)
+	if slot.is_empty() && stack_in_hand:
+		_put_stack_in_slot(slot)
+		return
+	if !slot.is_empty() && stack_in_hand:
+		if stack_in_hand.item.name == slot.stack.item.name:
+			_stack_onto_slot(slot)
+		else:
+			_swap_with_hand(slot)
+		return
+
+func _stack_onto_slot(slot: InventorySlot):
+	# combine stacks
+	if stack_in_hand.item.name == slot.stack.item.name:
+		slot.stack.amount += stack_in_hand.amount
+		remove_child(stack_in_hand)
+
+func _swap_with_hand(slot: InventorySlot):
+	var tmp_amt = stack_in_hand.amount
+	var tmp_item = stack_in_hand.item
+	stack_in_hand.amount = slot.stack.amount
+	stack_in_hand.item = slot.stack.item
+	slot.stack.amount = tmp_amt
+	slot.stack.item = tmp_item
 	
-	
-func takeItemFromSlot(slot):
-	itemInHand = slot.takeItem()
-	add_child(itemInHand)
-	updateItemInHand()
+func _take_stack_from_slot(slot: InventorySlot):
+	stack_in_hand = slot.take_stack()
+	if stack_in_hand:
+		add_child(stack_in_hand)
+		_update_stack_in_hand()
 
 # Inserts an Item
-func insertItemInSlot(slot):
-	var item = itemInHand
+func _put_stack_in_slot(slot: InventorySlot):
+	var item = stack_in_hand
 	
-	remove_child(itemInHand)
-	itemInHand = null
+	remove_child(stack_in_hand)
+	stack_in_hand = null
 	
-	slot.insert(item)
+	slot.put_stack(item)
+
+
+# adds a given amount of the given item to the inventory
+func add_item(item: InventoryItem, amount: int):
+	for slot in slot_nodes:
+		if slot.stack.item.name == item.name:
+			slot.stack.amount += amount
+			return
+	
+	for slot in slot_nodes:
+		if slot.is_empty():
+			var new_stack = ItemStackScene.instantiate()
+			new_stack.item = item
+			new_stack.amount = amount
+			slot.stack = new_stack
+			return
+	
+	printerr("Could not insert " + str(amount) + "x " + item.name + " into inventory")
+
+
+# removes the given number of items (default 1) from the stack_in_hand, and returns whether it was successful
+func remove_from_hand(amount: int = 1) -> bool:
+	if stack_in_hand && stack_in_hand.amount >= amount:
+		stack_in_hand.amount -= amount
+		if stack_in_hand.amount == 0:
+			remove_child(stack_in_hand)
+			stack_in_hand = null
+		return true
+	else:
+		return false
 
 
 # Centers the item on the cursor
-func updateItemInHand():
-	if !itemInHand: return
-	itemInHand.global_position = get_global_mouse_position() - itemInHand.size / 2
+func _update_stack_in_hand():
+	if !stack_in_hand: return
+	stack_in_hand.global_position = get_global_mouse_position() - stack_in_hand.size / 2
 
-# calls updateIteminhand
 func _input(event):
-	updateItemInHand()
+	_update_stack_in_hand()
