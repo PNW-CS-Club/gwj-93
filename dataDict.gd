@@ -1,7 +1,6 @@
 extends Resource
 
-#resource is used to store data
-
+#The dictionary for all our seeds that will be buyable
 var buyablePlants = {
 	0: {
 		"Name": "Blue Flower",
@@ -29,6 +28,7 @@ var buyablePlants = {
 	}
 }
 
+#The dictionary for all of our potions that will be buyable
 var buyablePotions = {
 	0: {
 		"Name": "Health Potion",
