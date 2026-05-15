@@ -2,7 +2,7 @@
 
 [ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_cdk8i"]
 [ext_resource type="Script" uid="uid://dn61npxicag4c" path="res://scenes/Inventory/item_stack.gd" id="1_y3e6u"]
-[ext_resource type="Texture2D" uid="uid://dc080d3u3chak" path="res://art/def seed packet.png" id="2_d7khe"]
+[ext_resource type="Texture2D" uid="uid://dc080d3u3chak" path="res://art/items/def seed packet.png" id="2_d7khe"]
 
 [node name="ItemStack" type="Panel" unique_id=1373645742]
 custom_minimum_size = Vector2(40, 40)
