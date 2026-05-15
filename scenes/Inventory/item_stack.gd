@@ -1,8 +1,6 @@
-extends Panel
+class_name ItemStack extends Panel
 
-class_name ItemStack
-
-@onready var item_sprite: Sprite2D = %Item
+@onready var item_sprite: TextureRect = %Item
 @onready var amount_label: Label = %Label
 
 # item and amount automatically update the gui when they are set

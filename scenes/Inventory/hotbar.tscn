@@ -1,185 +1,69 @@
-[gd_scene format=3 uid="uid://bguygx7mcq41m"]
+[gd_scene format=3 uid="uid://8qtvq6m7yo0l"]
 
-[ext_resource type="Theme" uid="uid://cypwejh121o8o" path="res://game_ui_theme.tres" id="1_mjyg7"]
-[ext_resource type="Script" uid="uid://b1dr4g750angc" path="res://scenes/Inventory/hotbar.gd" id="2_l6vt0"]
-[ext_resource type="Texture2D" uid="uid://dc080d3u3chak" path="res://art/def seed packet.png" id="2_qbt7h"]
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_xokwt"]
+[ext_resource type="Script" uid="uid://chwbchmmhth5" path="res://scenes/Inventory/inventory.gd" id="2_xokwt"]
+[ext_resource type="PackedScene" uid="uid://by2ppivwfwvod" path="res://scenes/Inventory/slot.tscn" id="3_p1p7y"]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_l6vt0"]
-atlas = ExtResource("2_qbt7h")
+[node name="Hotbar" type="PanelContainer" unique_id=1750629207]
+custom_minimum_size = Vector2(100, 20)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -389.0
+offset_top = -100.0
+offset_right = 389.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_xokwt")
+script = ExtResource("2_xokwt")
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_0tjp8"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_8yape"]
-atlas = SubResource("CompressedTexture2D_0tjp8")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_siatk"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_o4ofg"]
-atlas = SubResource("CompressedTexture2D_siatk")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_u48fq"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_66258"]
-atlas = SubResource("CompressedTexture2D_u48fq")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_sinom"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_dup21"]
-atlas = SubResource("CompressedTexture2D_sinom")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_pxb4y"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_hyqha"]
-atlas = SubResource("CompressedTexture2D_pxb4y")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_gt25j"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_7i78i"]
-atlas = SubResource("CompressedTexture2D_gt25j")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_hfhjs"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rcwl6"]
-atlas = SubResource("CompressedTexture2D_hfhjs")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wtybg"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_rbtq8"]
-atlas = SubResource("CompressedTexture2D_wtybg")
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_wnvtu"]
-load_path = "res://.godot/imported/def seed packet.png-547f140fb924a46cd6d149f34265e396.ctex"
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_on8yg"]
-atlas = SubResource("CompressedTexture2D_wnvtu")
-
-[node name="ToolsPanel" type="PanelContainer" unique_id=906297620]
-custom_minimum_size = Vector2(500, 40)
-offset_right = 315.0
-offset_bottom = 39.0
-theme = ExtResource("1_mjyg7")
-theme_type_variation = &"DarkWoodPanel"
-script = ExtResource("2_l6vt0")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=355018362]
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2094921734]
+clip_contents = true
 layout_mode = 2
-theme_override_constants/margin_left = 4
-theme_override_constants/margin_top = 4
-theme_override_constants/margin_right = 4
-theme_override_constants/margin_bottom = 5
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
 
-[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer" unique_id=2094921734]
-custom_minimum_size = Vector2(40, 0)
+[node name="slot1" parent="HBoxContainer" unique_id=1268060743 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
 
-[node name="DefSeed" type="Button" parent="MarginContainer/HBoxContainer" unique_id=856584615]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot2" parent="HBoxContainer" unique_id=1297379295 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_l6vt0")
-icon_alignment = 1
 
-[node name="seed2" type="Button" parent="MarginContainer/HBoxContainer" unique_id=671634393]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot3" parent="HBoxContainer" unique_id=1745047529 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_8yape")
-icon_alignment = 1
 
-[node name="seed3" type="Button" parent="MarginContainer/HBoxContainer" unique_id=492487406]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot4" parent="HBoxContainer" unique_id=230726944 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_o4ofg")
-icon_alignment = 1
 
-[node name="seed4" type="Button" parent="MarginContainer/HBoxContainer" unique_id=371450217]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot5" parent="HBoxContainer" unique_id=927742706 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_66258")
-icon_alignment = 1
 
-[node name="seed5" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1722082503]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot6" parent="HBoxContainer" unique_id=674907362 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_dup21")
-icon_alignment = 1
 
-[node name="seed6" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1540931035]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot7" parent="HBoxContainer" unique_id=1209217188 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_hyqha")
-icon_alignment = 1
 
-[node name="seed7" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1511673231]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot8" parent="HBoxContainer" unique_id=2138461058 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_7i78i")
-icon_alignment = 1
 
-[node name="seed8" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1931898250]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot9" parent="HBoxContainer" unique_id=1690458637 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_rcwl6")
-icon_alignment = 1
 
-[node name="seed9" type="Button" parent="MarginContainer/HBoxContainer" unique_id=185677628]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot10" parent="HBoxContainer" unique_id=145476554 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_rbtq8")
-icon_alignment = 1
 
-[node name="seed10" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1388179741]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot11" parent="HBoxContainer" unique_id=1361718517 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_on8yg")
-icon_alignment = 1
 
-[node name="seed11" type="Button" parent="MarginContainer/HBoxContainer" unique_id=1721922989]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot12" parent="HBoxContainer" unique_id=718097641 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_on8yg")
-icon_alignment = 1
 
-[node name="seed12" type="Button" parent="MarginContainer/HBoxContainer" unique_id=387226974]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
+[node name="slot13" parent="HBoxContainer" unique_id=2035702680 instance=ExtResource("3_p1p7y")]
 layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_on8yg")
-icon_alignment = 1
-
-[node name="seed13" type="Button" parent="MarginContainer/HBoxContainer" unique_id=960980044]
-texture_filter = 1
-custom_minimum_size = Vector2(40, 40)
-layout_mode = 2
-theme_type_variation = &"ToolButton"
-icon = SubResource("AtlasTexture_on8yg")
-icon_alignment = 1

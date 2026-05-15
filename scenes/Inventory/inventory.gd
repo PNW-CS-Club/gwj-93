@@ -1,8 +1,8 @@
-extends Control
+extends PanelContainer
 class_name Inventory
 
 @onready var ItemStackScene = preload("res://scenes/Inventory/ItemStack.tscn")
-@onready var slot_nodes: Array[Node] = $NinePatchRect/GridContainer.get_children()
+@onready var slot_nodes: Array[Node] = $HBoxContainer.get_children()
 
 var stack_in_hand: ItemStack
 
@@ -100,5 +100,5 @@ func _update_stack_in_hand():
 	if !stack_in_hand: return
 	stack_in_hand.global_position = get_global_mouse_position() - stack_in_hand.size / 2
 
-func _input(event):
+func _input(_event):
 	_update_stack_in_hand()

@@ -1,7 +1,7 @@
 class_name Game extends Node2D
 
 @onready var farm = %TileMapLayerFarm
-@onready var inventory: Inventory = $CanvasLayer/InventoryGui
+@onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 
 const DEFENSE_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
