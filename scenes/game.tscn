@@ -38,7 +38,7 @@ metadata/_edit_lock_ = true
 
 [node name="Cabin" parent="CanvasLayer" unique_id=1855923729 instance=ExtResource("5_dinhu")]
 
-[node name="ShopUI" parent="." unique_id=910207587 instance=ExtResource("4_0tnpc")]
+[node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 metadata/_edit_lock_ = true
