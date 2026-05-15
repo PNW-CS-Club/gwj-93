@@ -6,9 +6,21 @@ class_name Game extends Node2D
 
 const DEFENSE_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
 
+const BUFF_SEED: Item = preload("uid://2enc8i11rwcn")
+const DEFENSE_SEED: Item = preload("uid://bmuyyjk7ba5o6")
+const HP_SEED: Item = preload("uid://gad4q5m7vacj")
+const SHOVEL: Item = preload("uid://us2gsrgycubo")
+const WATER: Item = preload("uid://dot1l1nu30k12")
+
 
 func _ready():
 	farm.on_tile_click.connect(_click_tile)
+	
+	inventory.add_item(BUFF_SEED, 3)
+	inventory.add_item(DEFENSE_SEED, 2)
+	inventory.add_item(HP_SEED)
+	inventory.add_item(WATER, 10)
+	inventory.add_item(SHOVEL, 4)
 
 
 func _click_tile(coords: Vector2i) -> void:
@@ -24,6 +36,12 @@ func _click_tile(coords: Vector2i) -> void:
 				print("> success")
 				return
 			else: print("> failed")
+		elif plot_contents is Plant:
+			if item.type == Item.Type.WATER:
+				_try_to_water(coords)
+		else:
+			if item.type == Item.Type.SHOVEL:
+				_dig_up(coords)
 
 
 ## If the given item is plantable, it is consumed and the plant is created.
@@ -46,6 +64,20 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 		plant.global_position = farm.to_global(farm.map_to_local(coords))
 		inventory.remove_from_hand(1)
 		grid.put(coords, plant)
+		grid.add_child(plant)
 		return true
 	else:
 		return false
+
+
+func _dig_up(coords: Vector2i) -> void:
+	var target = grid.at(coords)
+	grid.put(coords, null)
+	grid.remove_child(target)
+	inventory.remove_from_hand(1)
+
+
+func _try_to_water(coords: Vector2i) -> bool:
+	print("todo: water plant now")
+	inventory.remove_from_hand(1)
+	return true

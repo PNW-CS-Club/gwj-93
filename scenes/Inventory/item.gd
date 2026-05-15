@@ -1,7 +1,8 @@
 class_name Item extends Resource
 
 enum Type {
-	HP_SEED, BUFF_SEED, DEF_SEED
+	HP_SEED, BUFF_SEED, DEF_SEED,
+	WATER, SHOVEL
 }
 
 @export var type: Type
