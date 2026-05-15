@@ -1,5 +1,8 @@
 extends Node2D
 
+@onready var grid: Grid = %Grid
+@onready var farm = %TileMapLayerFarm
+
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
