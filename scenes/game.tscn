@@ -7,8 +7,6 @@
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/farm_tile_layer.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
-[ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://grid.gd" id="8_gee14"]
-[ext_resource type="PackedScene" uid="uid://du3y15t3wsiqu" path="res://scenes/grid.tscn" id="8_gee15"]
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 script = ExtResource("1_e2o6t")
@@ -62,8 +60,4 @@ tile_set = ExtResource("4_gee14")
 
 [node name="Grid" type="Node2D" parent="." unique_id=427154485]
 unique_name_in_owner = true
-script = ExtResource("8_gee15")
 metadata/_custom_type_script = "uid://d13umd61abc5s"
-[node name="Grid" parent="." unique_id=742865727 instance=ExtResource("8_gee14")]
-unique_name_in_owner = true
-position = Vector2(580, 195)

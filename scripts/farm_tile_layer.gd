@@ -1,8 +1,8 @@
 extends TileMapLayer
 
 @onready var highlight_marker: Sprite2D = %HighlightMarker
-@onready var grid: Grid = %Grid
 
+signal on_tile_click(coords: Vector2i)
 
 func _process(_delta: float) -> void:
 	if _get_tile_at_mouse():
@@ -20,8 +20,7 @@ func _input(event: InputEvent) -> void:
 	
 	if _get_tile_at_mouse(): 
 		var cell_pos: Vector2i = _get_coords_at_mouse()
-		print(cell_pos)
-		grid.do_click(cell_pos)
+		on_tile_click.emit(cell_pos)
 
 
 func _get_coords_at_mouse() -> Vector2i:
