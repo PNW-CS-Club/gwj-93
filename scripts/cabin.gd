@@ -17,7 +17,8 @@ func _on_pressed_cabin() -> void:
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("esc"):
 		cabinScence.hide()
-		get_tree().reload_current_scene()
+		cabinButton.show()
+		
 		
 	
 	

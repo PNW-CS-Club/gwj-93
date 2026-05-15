@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
 
 [ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="1_ixm0y"]
-[ext_resource type="Texture2D" uid="uid://dyohereyy3byp" path="res://images.jpg" id="2_1hpa6"]
+[ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scenes/bedToolTip.gd" id="2_1hpa6"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
 
 [node name="Cabin" type="Control" unique_id=1855923729]
@@ -37,22 +37,15 @@ grow_horizontal = 0
 
 [node name="Button" type="Button" parent="cabinScene/PanelContainer" unique_id=635626433]
 layout_mode = 2
-
-[node name="TextureRect" type="TextureRect" parent="cabinScene/PanelContainer/Button" unique_id=1072552854]
-layout_mode = 0
-offset_right = 232.0
-offset_bottom = 174.0
-tooltip_text = "Would you like to end the day?"
-texture = ExtResource("2_1hpa6")
-expand_mode = 1
+script = ExtResource("2_1hpa6")
 
 [node name="transCabinButton" type="TextureButton" parent="." unique_id=1120514015]
 unique_name_in_owner = true
 layout_mode = 0
-offset_left = 112.0
-offset_top = 8.0
-offset_right = 216.0
-offset_bottom = 112.0
+offset_left = 80.0
+offset_top = 256.0
+offset_right = 184.0
+offset_bottom = 360.0
 texture_normal = ExtResource("2_84mq0")
 ignore_texture_size = true
 stretch_mode = 0

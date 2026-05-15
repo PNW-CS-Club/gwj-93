@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://bmefmrdiflxhb"]
+
+[ext_resource type="Script" uid="uid://c6q2bgkuwephe" path="res://scenes/dayCounter.gd" id="1_4p0t5"]
+
+[node name="DayUI" type="Control" unique_id=1904100449]
+layout_mode = 3
+anchor_left = 0.056
+anchor_top = 0.049000002
+anchor_right = 0.056
+anchor_bottom = 0.049000002
+offset_left = -40.512
+offset_top = -23.752
+offset_right = 47.488
+offset_bottom = 24.248
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4p0t5")
+
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=720749208]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -42.5
+offset_top = -23.0
+offset_right = 42.5
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="dayLabel" type="Label" parent="PanelContainer" unique_id=1742986501]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 31
+text = "Day 1"
+horizontal_alignment = 1
