@@ -65,13 +65,13 @@ func recalculate_stats() -> void:
 			current_dodge_chance = base_dodge_chance + 0.10
 			current_price = base_price * 1.5
 	
-	for stat_name in stat_multipliers:
-		var cur_property_name: String = str("current_" + stat_name)
-		set(cur_property_name, get(cur_property_name) * stat_multipliers[stat_name])
-	
 	for stat_name in stat_addends:
 		var cur_property_name: String = str("current_" + stat_name)
 		set(cur_property_name, get(cur_property_name) + stat_addends[stat_name])
+	
+	for stat_name in stat_multipliers:
+		var cur_property_name: String = str("current_" + stat_name)
+		set(cur_property_name, get(cur_property_name) * stat_multipliers[stat_name])
 
 func _on_health_set(new_value: int) -> void:
 	health = clampi(new_value, 0, current_max_health)

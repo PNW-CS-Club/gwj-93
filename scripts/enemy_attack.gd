@@ -1,6 +1,6 @@
 class_name EnemyAttack extends Node2D
 
-signal squares_to_attack(marked_squares: Array[Array])
+signal squares_to_attack(marked_squares: Array[Vector2i])
 
 enum Attacks {SQUARE, ROW_COLUMN, RANDOM}
 
@@ -39,46 +39,44 @@ func attack(type: Attacks = Attacks.SQUARE, size: int = 1) -> void:
 ## | 1 | 2 | 0 | [br]
 ## | 3 | 4 | 0 | [br]
 ## | 0 | 0 | 0 | [br]
-func _square_attack(guaranteed_hit: bool, size: int) -> Array[Array]:
+func _square_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 	var attack_length: int = clampi(size,1,grid.length) # Clamp size to grid length
 	attack_length = clampi(attack_length,1,grid.width)  # Clamp size to grid height
 	var column: int
 	var row: int
-	var marked_squares: Array[Array]
+	var marked_squares: Array[Vector2i]
 	if guaranteed_hit: # generate the attack to hit at least 1 plant
-		var plant_coords: Array[int] = grid.plants.pick_random() # picks a random plant from the list of living plants
-		var plant_x: int = plant_coords[0]
-		var plant_y: int = plant_coords[1]
+		var plant_coords: Vector2i = grid.plants.pick_random() # picks a random plant from the list of living plants
 		if attack_length == 1: # attack a single square
 			marked_squares.append(plant_coords)
 			return marked_squares
 		# else: generate the attack to hit the random plant
 		# find column start index
-		if (plant_x + attack_length) > (grid.length - 1):
-			var diff = plant_x + attack_length - grid.length + 1
-			column = plant_x - diff
+		if (plant_coords.x + attack_length) > (grid.length - 1):
+			var diff = plant_coords.x + attack_length - grid.length + 1
+			column = plant_coords.x - diff
 		else:
-			column = plant_x
+			column = plant_coords.x
 		# find row start index
-		if (plant_y + attack_length) > (grid.height - 1):
-			var diff = plant_y + attack_length - grid.height + 1
-			row = plant_y - diff
+		if (plant_coords.y + attack_length) > (grid.height - 1):
+			var diff = plant_coords.y + attack_length - grid.height + 1
+			row = plant_coords.y - diff
 		else:
-			row = plant_y
+			row = plant_coords.y
 		# mark squares
 		for r in range(row, row + attack_length):
 			for c in range(column, column + attack_length):
-				marked_squares.append([c,r])
+				marked_squares.append(Vector2i(c,r))
 		return marked_squares
 	# else: generate the attack in a random spot in the grid
 	column = rng.randi_range(0,grid.length - attack_length)
 	row = rng.randi_range(0,grid.height - attack_length)
 	if attack_length == 1:
-		marked_squares.append([column,row])
+		marked_squares.append(Vector2i(column,row))
 		return marked_squares
 	for r in range(row, row + attack_length):
 		for c in range(column, column + attack_length):
-			marked_squares.append([c,r])
+			marked_squares.append(Vector2i(c,r))
 	return marked_squares
 
 
@@ -88,45 +86,43 @@ func _square_attack(guaranteed_hit: bool, size: int) -> Array[Array]:
 ## | 1 |2 4| 3 | [br]
 ## | 0 | 5 | 0 | [br]
 ## | 0 | 6 | 0 | [br]
-func _row_column_attack(guaranteed_hit: bool) -> Array[Array]:
+func _row_column_attack(guaranteed_hit: bool) -> Array[Vector2i]:
 	var column: int 
 	var row: int 
-	var marked_squares: Array[Array]
+	var marked_squares: Array[Vector2i]
 	
 	if guaranteed_hit: # Center the attack on the row and column of a random plant.
-		var plant_coords: Array[int] = grid.plants.pick_random() # picks a random plant from the list of living plants
-		var plant_x: int = plant_coords[0]
-		var plant_y: int = plant_coords[1]
-		column = plant_x
-		row = plant_y
+		var plant_coords: Vector2i = grid.plants.pick_random() # picks a random plant from the list of living plants
+		column = plant_coords.x
+		row = plant_coords.y
 		for c in range(grid.length): # First mark the row.
-			marked_squares.append([c,row])
+			marked_squares.append(Vector2i(c,row))
 		for r in range(grid.height): # Secondly mark the column.
-			marked_squares.append([column,r])
+			marked_squares.append(Vector2i(column,r))
 		return marked_squares
 	# Generate a random column and random row.
 	column = rng.randi_range(0,grid.length-1)
 	row = rng.randi_range(0,grid.height-1)
 	for c in range(grid.length): # First mark the row.
-		marked_squares.append([c,row])
+		marked_squares.append(Vector2i(c,row))
 	for r in range(grid.height): # Secondly mark the column.
-		marked_squares.append([column,r])
+		marked_squares.append(Vector2i(column,r))
 	return marked_squares
 
 ## A random attack where size is the amount of hits. [br]
 ## | 2 | 1 |[br]
 ## | 3 | 0 |[br]
 ## | 0 | 4 |[br]
-func _random_attack(guaranteed_hit: bool, size: int) -> Array[Array]:
+func _random_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 	# size in this function is the amount of random attacks
-	var marked_squares: Array[Array]
+	var marked_squares: Array[Vector2i]
 	
 	if guaranteed_hit: # The very first strike is a guaranteed hit on a random plant.
-		var plant_coords: Array[int] = grid.plants.pick_random() # picks a random plant from the list of living plants
+		var plant_coords: Vector2i = grid.plants.pick_random() # picks a random plant from the list of living plants
 		marked_squares.append(plant_coords)
 		size -= 1 # Count the guaranteed hit
 	# The remaining attacks are random
 	for i in range(size):
-		marked_squares.append([rng.randi_range(0,grid.length), rng.randi_range(0,grid.height)])
+		marked_squares.append(Vector2i(rng.randi_range(0,grid.length), rng.randi_range(0,grid.height)))
 	return marked_squares
 #endregion

@@ -6,7 +6,7 @@ class_name ItemStack
 @onready var amount_label: Label = %Label
 
 # item and amount automatically update the gui when they are set
-var item: InventoryItem: set = _update_item
+var item: Item: set = _update_item
 var amount: int: set = _update_amount
 var _is_initialized: bool = false
 
@@ -15,7 +15,7 @@ func _ready() -> void:
 	_update_item(item)
 	_update_amount(amount)
 
-func _update_item(value: InventoryItem): 
+func _update_item(value: Item): 
 	item = value
 	if !_is_initialized: return
 	if (!item_sprite): printerr("(???) item_sprite is null"); return
