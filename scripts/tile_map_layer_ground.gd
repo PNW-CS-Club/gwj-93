@@ -17,6 +17,7 @@ func _process(delta: float) -> void:
 	if tile_data:
 		# highlight map cell
 		marker.position = map_to_local(cell_pos)
+		print(cell_pos)
 		marker.visible = true
 	else: 
 		marker.visible = false
