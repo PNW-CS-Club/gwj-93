@@ -16,16 +16,16 @@ func _ready() -> void:
 		grid.append(null)
 
 # Access elements at (x,y).
-func at(x: int, y: int) -> Node: 
-	if !_oob_check(Vector2i(x, y)): return null
-	return grid[y * WIDTH + x]
+func at(pos: Vector2i) -> Node: 
+	if !_oob_check(pos): return null
+	return grid[pos.y * WIDTH + pos.x]
 
-func put(x: int, y: int, node: Node) -> void: 
-	if !_oob_check(Vector2i(x, y)): return
+func put(pos: Vector2i, node: Node) -> void: 
+	if !_oob_check(pos): return
 	
-	grid[y * WIDTH + x] = node
+	grid[pos.y * WIDTH + pos.x] = node
 	if node.is_class("Plant"):
-		plants.append(Vector2i(x,y))
+		plants.append(pos)
 
 # Logs an error message if the coords are out of bounds
 func _oob_check(coords: Vector2i) -> bool:
