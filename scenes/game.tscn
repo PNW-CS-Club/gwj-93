@@ -5,6 +5,8 @@
 [ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scenes/tile_map_layer_ground.gd" id="4_u5sy4"]
+[ext_resource type="Theme" uid="uid://cypwejh121o8o" path="res://game_ui_theme.tres" id="4_vtaks"]
+[ext_resource type="PackedScene" uid="uid://bguygx7mcq41m" path="res://scenes/Inventory/hotbar.tscn" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 
@@ -22,6 +24,19 @@ offset_bottom = -124.0
 scale = Vector2(4, 4)
 
 [node name="ShopOverlay" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer" unique_id=707977898]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("4_vtaks")
+
+[node name="ToolsPanel" parent="CanvasLayer/MarginContainer" unique_id=906297620 instance=ExtResource("5_kvpfn")]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 
