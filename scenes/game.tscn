@@ -1,13 +1,11 @@
 [gd_scene format=4 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scripts/canvas_layer.gd" id="2_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
+[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Theme" uid="uid://cypwejh121o8o" path="res://game_ui_theme.tres" id="4_vtaks"]
 [ext_resource type="PackedScene" uid="uid://bguygx7mcq41m" path="res://scenes/Inventory/hotbar.tscn" id="5_kvpfn"]
-[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/tile_map_layer_ground.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 
@@ -15,14 +13,8 @@
 script = ExtResource("1_e2o6t")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
+layer = 0
 follow_viewport_enabled = true
-
-[node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
-offset_left = -293.0
-offset_top = -206.0
-offset_right = -163.0
-offset_bottom = -124.0
-scale = Vector2(4, 4)
 
 [node name="ShopOverlay" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
