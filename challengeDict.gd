@@ -1,9 +1,6 @@
 extends Resource
 
-var challengeUIFile = preload("res://scenes/challenge_ui.gd").new()
-
-#
-
+var challengeUIFile = preload("res://challenge_ui.gd").new()
 
 #here are the max to complete the challenges we can obviously increment the max
 var maxNumber1 = 10

@@ -1,18 +1,16 @@
 [gd_scene format=4 uid="uid://b1k7q2homxg7t"]
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
-[ext_resource type="Script" uid="uid://dr6un1j11jqgs" path="res://scripts/canvas_layer.gd" id="2_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
-[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/tile_map_layer_ground.gd" id="4_u5sy4"]
+[ext_resource type="Script" path="res://scripts/tile_map_layer_ground.gd" id="4_u5sy4"]
+[ext_resource type="PackedScene" uid="uid://cmeb70wqmvn6q" path="res://scenes/cabin.tscn" id="5_dinhu"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://j74cggjvrr25" path="res://money_overlay.tscn" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b7jvfgyrckqt6" path="res://scenes/objective_ui.tscn" id="6_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
-[ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scenes/cabin.gd" id="7_trtic"]
-[ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="8_ir15t"]
-[ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scenes/day_night_cycle.gd" id="13_trtic"]
+[ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Gradient" uid="uid://c1xmyu8tefwbo" path="res://testGradient.tres" id="14_trtic"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
@@ -38,25 +36,7 @@ metadata/_edit_lock_ = true
 [node name="ChallengeUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 metadata/_edit_lock_ = true
 
-[node name="Cabin" type="Control" parent="CanvasLayer" unique_id=1237216304]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("7_trtic")
-
-[node name="transCabinButton" type="TextureButton" parent="CanvasLayer/Cabin" unique_id=191152626]
-unique_name_in_owner = true
-layout_mode = 0
-offset_left = 112.0
-offset_top = 8.0
-offset_right = 216.0
-offset_bottom = 112.0
-texture_normal = ExtResource("8_ir15t")
-ignore_texture_size = true
-stretch_mode = 0
+[node name="Cabin" parent="CanvasLayer" unique_id=1855923729 instance=ExtResource("5_dinhu")]
 
 [node name="ShopUI" parent="." unique_id=910207587 instance=ExtResource("4_0tnpc")]
 

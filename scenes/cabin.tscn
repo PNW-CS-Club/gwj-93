@@ -1,0 +1,58 @@
+[gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
+
+[ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="1_ixm0y"]
+[ext_resource type="Texture2D" uid="uid://dyohereyy3byp" path="res://images.jpg" id="2_1hpa6"]
+[ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
+
+[node name="Cabin" type="Control" unique_id=1855923729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixm0y")
+
+[node name="cabinScene" type="Panel" parent="." unique_id=1651606717]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="cabinScene" unique_id=1503879803]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.809
+anchor_top = 0.30200002
+anchor_right = 0.809
+anchor_bottom = 0.30200002
+offset_left = -67.96802
+offset_top = -139.69601
+offset_right = 156.03198
+offset_bottom = 28.303986
+grow_horizontal = 0
+
+[node name="Button" type="Button" parent="cabinScene/PanelContainer" unique_id=635626433]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="cabinScene/PanelContainer/Button" unique_id=1072552854]
+layout_mode = 0
+offset_right = 232.0
+offset_bottom = 174.0
+tooltip_text = "Would you like to end the day?"
+texture = ExtResource("2_1hpa6")
+expand_mode = 1
+
+[node name="transCabinButton" type="TextureButton" parent="." unique_id=1120514015]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 8.0
+offset_right = 216.0
+offset_bottom = 112.0
+texture_normal = ExtResource("2_84mq0")
+ignore_texture_size = true
+stretch_mode = 0
