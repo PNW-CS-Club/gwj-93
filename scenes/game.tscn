@@ -4,9 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="3_gee14"]
 [ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
-[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/tile_map_layer_ground.gd" id="4_u5sy4"]
+[ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/farm_tile_layer.gd" id="4_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
+[ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://grid.gd" id="8_gee14"]
 
 [node name="Game" type="Node2D" unique_id=1390331388]
 script = ExtResource("1_e2o6t")
@@ -15,15 +16,13 @@ script = ExtResource("1_e2o6t")
 follow_viewport_enabled = true
 
 [node name="InventoryGui" parent="CanvasLayer" unique_id=121407246 instance=ExtResource("3_gee14")]
-visible = false
-offset_left = -293.0
-offset_top = -206.0
-offset_right = -163.0
-offset_bottom = -124.0
+offset_left = -661.0
+offset_top = 52.0
+offset_right = -531.0
+offset_bottom = 134.0
 scale = Vector2(4, 4)
 
 [node name="ShopOverlay" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
-visible = false
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 position = Vector2(640, 360)
@@ -38,7 +37,8 @@ tile_map_data = PackedByteArray("AAD9//7/CQABAAAAAAD9////CQABAAAAAAD9/wAACQABAAA
 tile_set = ExtResource("4_gee14")
 script = ExtResource("4_u5sy4")
 
-[node name="Marker" type="Sprite2D" parent="TileMapLayers/TileMapLayerFarm" unique_id=827466446]
+[node name="HighlightMarker" type="Sprite2D" parent="TileMapLayers/TileMapLayerFarm" unique_id=827466446]
+unique_name_in_owner = true
 z_index = 1
 y_sort_enabled = true
 texture_filter = 1
@@ -46,7 +46,7 @@ texture_repeat = 1
 texture = ExtResource("5_p57ef")
 region_rect = Rect2(0, 0, 32, 32)
 
-[node name="MarkerBack" type="Sprite2D" parent="TileMapLayers/TileMapLayerFarm/Marker" unique_id=220933588]
+[node name="MarkerBack" type="Sprite2D" parent="TileMapLayers/TileMapLayerFarm/HighlightMarker" unique_id=220933588]
 z_index = -1
 texture_filter = 1
 texture_repeat = 1
@@ -57,3 +57,8 @@ region_rect = Rect2(0, 0, 32, 32)
 z_index = 1
 tile_map_data = PackedByteArray("AAADAP3/CQAFAAEAAADz//7/CQAAAAEAAADz////CQAAAAEAAAD0//3/CQAAAAEAAAD0//7/CQAAAAEAAAD0////CQAAAAEAAAD1//z/CQAAAAEAAAD1//3/CQAAAAEAAAD1//7/CQABAAEAAAD1////CQAAAAEAAAD1/wAACQABAAEAAAD2//v/CQAAAAEAAAD2//z/CQAAAAEAAAD2//3/CQAEAAIAAAD2//7/CQAAAAEAAAD2////CQAAAAEAAAD3//n/CQABAAEAAAD3//r/CQAAAAEAAAD3//v/CQABAAEAAAD3//z/CQAAAAEAAAD3//3/CQAAAAEAAAD4//n/CQAAAAEAAAD4//r/CQACAAEAAAD4//v/CQAAAAEAAAD5//j/CQAAAAEAAAD5//n/CQADAAEAAAD5//r/CQAAAAEAAAD5//v/CQAAAAEAAAD6//f/CQAAAAEAAAD6//j/CQAAAAEAAAD6//n/CQAAAAEAAAD7//b/CQAAAAEAAAD7//f/CQACAAAAAAD7//j/CQAFAAAAAAD7//n/CQABAAEAAAD8//T/CQABAAEAAAD8//X/CQAAAAEAAAD8//b/CQAAAAEAAAD8//f/CQADAAAAAAD8//j/CQAEAAAAAAD8//n/CQAAAAEAAAD8/wIACQAFAAEAAAD9//T/CQAAAAEAAAD9//X/CQAAAAEAAAD9//b/CQAAAAEAAAD9//f/CQAAAAEAAAD9//j/CQAAAAEAAAD+//T/CQAAAAEAAAA=")
 tile_set = ExtResource("4_gee14")
+
+[node name="Grid" type="Node2D" parent="." unique_id=427154485]
+unique_name_in_owner = true
+script = ExtResource("8_gee14")
+metadata/_custom_type_script = "uid://d13umd61abc5s"
