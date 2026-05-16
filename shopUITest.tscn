@@ -357,6 +357,7 @@ texture = ExtResource("3_grq1j")
 expand_mode = 1
 
 [node name="healthButton" type="Button" parent="seedPanel/healthPotion" unique_id=558324241]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
