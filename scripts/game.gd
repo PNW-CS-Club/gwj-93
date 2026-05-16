@@ -23,6 +23,7 @@ const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
 
 func _ready():
+	# Signals
 	farm.on_tile_click.connect(_click_tile)
 	
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
