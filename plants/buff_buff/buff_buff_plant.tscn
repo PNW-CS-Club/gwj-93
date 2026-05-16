@@ -2,11 +2,16 @@
 
 [ext_resource type="Script" uid="uid://c7ise3ab6wtc" path="res://plants/buff_buff/buff_buff_plant.gd" id="1_fqraa"]
 [ext_resource type="Texture2D" uid="uid://cyko0x6ua3s87" path="res://art/plants/BuffxBuff/BuffxBuff_sheet.png" id="1_vlpa8"]
-[ext_resource type="Resource" uid="uid://dv0sx4k8goykw" path="res://plants/buff_buff/buff_buff_plant_stats.tres" id="2_7ihp4"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_7ihp4"]
+
+[sub_resource type="Resource" id="Resource_7ihp4"]
+resource_local_to_scene = true
+script = ExtResource("2_7ihp4")
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
 [node name="BuffBuffPlant" type="Node2D" unique_id=1386888787]
 script = ExtResource("1_fqraa")
-stats = ExtResource("2_7ihp4")
+stats = SubResource("Resource_7ihp4")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1908320873]
 texture = ExtResource("1_vlpa8")

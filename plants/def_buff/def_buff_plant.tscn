@@ -1,12 +1,18 @@
 [gd_scene format=3 uid="uid://dwx5ysqk211ee"]
 
 [ext_resource type="Script" uid="uid://qfl0bqtfy5pm" path="res://plants/def_buff/def_buff_plant.gd" id="1_ricuo"]
-[ext_resource type="Resource" uid="uid://babv0m4qy4v77" path="res://plants/def_buff/def_buff_plant.tres" id="2_qdpb0"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_qdpb0"]
 [ext_resource type="Texture2D" uid="uid://dijnd032jrygj" path="res://art/plants/BuffxDef/BuffxDef_sheet.png" id="2_yn1kj"]
+
+[sub_resource type="Resource" id="Resource_2crve"]
+resource_local_to_scene = true
+resource_name = "def_buff_plant_stats"
+script = ExtResource("2_qdpb0")
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
 [node name="DefBuffPlant" type="Node2D" unique_id=877798219]
 script = ExtResource("1_ricuo")
-stats = ExtResource("2_qdpb0")
+stats = SubResource("Resource_2crve")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1414237875]
 texture = ExtResource("2_yn1kj")

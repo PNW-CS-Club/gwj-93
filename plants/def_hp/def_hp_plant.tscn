@@ -4,14 +4,14 @@
 [ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_axqgi"]
 [ext_resource type="Texture2D" uid="uid://cof6fki6jt0fo" path="res://art/plants/DefxHP/DefxHP_sheet.png" id="2_t2jxs"]
 
-[sub_resource type="Resource" id="Resource_u1q5f"]
+[sub_resource type="Resource" id="Resource_axqgi"]
 resource_local_to_scene = true
 script = ExtResource("2_axqgi")
 metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
 [node name="DefHpPlant" type="Node2D" unique_id=677263670]
 script = ExtResource("1_10o5s")
-stats = SubResource("Resource_u1q5f")
+stats = SubResource("Resource_axqgi")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=504642422]
 texture = ExtResource("2_t2jxs")
