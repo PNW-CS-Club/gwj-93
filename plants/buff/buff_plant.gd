@@ -1,6 +1,4 @@
-class_name DefensePlant extends Plant
-@export var stats: Stats
-
+class_name BuffPlant extends Plant
 
 func _ready():
 	pass
@@ -9,4 +7,4 @@ func _process(_delta: float) -> void:
 	pass
 
 func ability():
-	pass
+	print("I'm Barry the Buff Plant!!")

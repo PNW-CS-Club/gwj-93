@@ -80,7 +80,7 @@ func add_item(item: Item, amount: int = 1):
 			slot.put_stack(new_stack)
 			return
 	
-	printerr("Could not insert " + str(amount) + "x " + str(item.name) + " into inventory")
+	printerr("Could not insert " + str(amount) + "x " + item.name + " into inventory")
 
 
 # removes the given number of items (default 1) from the stack_in_hand, and returns whether it was successful

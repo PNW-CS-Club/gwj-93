@@ -16,14 +16,14 @@ func _ready() -> void:
 func _update_item(value: Item): 
 	item = value
 	if !_is_initialized: return
-	if (!item_sprite): printerr("(???) item_sprite is null"); return
+	if !item_sprite: printerr("(???) item_sprite is null"); return
 	item_sprite.visible = true
 	item_sprite.texture = item.texture
 	
 func _update_amount(value: int): 
 	amount = value
 	if !_is_initialized: return
-	if (!amount_label): printerr("(???) amount_label is null"); return
+	if !amount_label: printerr("(???) amount_label is null"); return
 	if amount > 1:
 		amount_label.visible = true
 		amount_label.text = str(amount)

@@ -4,7 +4,9 @@ class_name Game extends Node2D
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 
+const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
+const HP_PLANT_SCENE: PackedScene = preload("uid://dka8tnw2nv8vq")
 
 const BUFF_BUFF_SEED_ITEM: Item = preload("uid://lbrpwm774xio")
 const BUFF_DEF_SEED_ITEM: Item = preload("uid://cnyfoeggl3wu4")
@@ -15,6 +17,7 @@ const DEF_HP_SEED_ITEM: Item = preload("uid://djbxsbsd7pdbn")
 const DEF_SEED_ITEM: Item = preload("uid://bmuyyjk7ba5o6")
 const HP_HP_SEED_ITEM: Item = preload("uid://h0n2yn0ei1w0")
 const HP_SEED_ITEM: Item = preload("uid://gad4q5m7vacj")
+
 const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
 const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
@@ -65,11 +68,11 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 	var plant_scene: PackedScene
 	match item.type:
 		Item.Type.BUFF_SEED:
-			pass #plant_scene = BUFF_PLANT_SCENE
+			plant_scene = BUFF_PLANT_SCENE
 		Item.Type.DEF_SEED:
 			plant_scene = DEF_PLANT_SCENE
 		Item.Type.HP_SEED:
-			pass #plant_scene = HP_PLANT_SCENE
+			plant_scene = HP_PLANT_SCENE
 		Item.Type.BUFF_BUFF_SEED:
 			pass #plant_scene = BUFF_BUFF_PLANT_SCENE
 		Item.Type.DEF_DEF_SEED:
