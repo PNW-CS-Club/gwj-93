@@ -76,8 +76,26 @@ func _dig_up(coords: Vector2i) -> void:
 	grid.remove_child(target)
 	inventory.remove_from_hand(1)
 
-
+## If the coordinate is a plant, the watering can is used and the plant is upgraded.
+## Returns whether it was successful.
+## A plant can only be watered 1 time per day.
 func _try_to_water(coords: Vector2i) -> bool:
-	print("todo: water plant now")
+	print("Trying to water", coords)
+	var plant: Plant = grid.at(coords)
+	# Fail if the plant is already max level.
+	if plant.stats.level >= 3:
+		print("> failed because already max level:", plant.stats.level)
+		return false
+	# Fail if the plant has already been leveled up this turn.
+	if farm.get_cell_atlas_coords(coords) == Vector2i.ZERO: # Wet farm tile is at (0,0) on TileSet
+		print("> failed because this plant has already been leveled this day")
+		return false
+	# Update the level of the plant. 
+	plant.stats.level += 1
+	# Update the farm tile to the watered tile
+	farm.set_cell(coords, 9, Vector2i.ZERO)
+	
+	
 	inventory.remove_from_hand(1)
+	print("> success")
 	return true
