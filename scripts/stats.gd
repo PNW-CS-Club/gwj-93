@@ -57,11 +57,11 @@ func recalculate_stats() -> void:
 			current_dodge_chance = base_dodge_chance
 			current_price = base_price
 		2: 
-			current_max_health = base_max_health * 2.0
+			current_max_health = int(base_max_health * 2.0)
 			current_dodge_chance = base_dodge_chance + 0.05
 			current_price = base_price * 1.25
 		3: # Max level
-			current_max_health = base_max_health * 4.0
+			current_max_health = int(base_max_health * 4.0)
 			current_dodge_chance = base_dodge_chance + 0.10
 			current_price = base_price * 1.5
 	

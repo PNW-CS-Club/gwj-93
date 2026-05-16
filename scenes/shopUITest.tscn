@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dye0vc4g0himf"]
 
-[ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://shop_ui_test.gd" id="1_owsua"]
+[ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://scripts/shop_ui_test.gd" id="1_owsua"]
 [ext_resource type="Texture2D" uid="uid://cc1hkowr4obj5" path="res://shop-icon-svg-download-png-2534765.webp" id="2_grq1j"]
 [ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://Plant Picture Test Folder/BluePlantTest.jpg" id="3_grq1j"]
 
@@ -34,7 +34,7 @@ anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -320.0
 offset_top = -196.0
-offset_right = 256.0
+offset_right = 320.0
 offset_bottom = 188.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -357,6 +357,7 @@ texture = ExtResource("3_grq1j")
 expand_mode = 1
 
 [node name="healthButton" type="Button" parent="seedPanel/healthPotion" unique_id=558324241]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5

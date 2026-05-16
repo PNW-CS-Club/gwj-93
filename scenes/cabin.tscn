@@ -1,0 +1,94 @@
+[gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
+
+[ext_resource type="Script" path="res://scripts/cabin.gd" id="1_ixm0y"]
+[ext_resource type="Script" path="res://scripts/bedToolTip.gd" id="2_1hpa6"]
+[ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
+[ext_resource type="Texture2D" uid="uid://bvg0jkn2d3hbn" path="res://room.png" id="2_em8ck"]
+[ext_resource type="Script" path="res://scripts/toolTipCrafting.gd" id="4_em8ck"]
+[ext_resource type="Script" path="res://scripts/leave_back_to_game.gd" id="5_qf7ms"]
+
+[node name="Cabin" type="Control" unique_id=1855923729]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="cabinScene" type="Panel" parent="." unique_id=1651606717]
+unique_name_in_owner = true
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ixm0y")
+
+[node name="TextureRect" type="TextureRect" parent="cabinScene" unique_id=1604153008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_right = 408.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_em8ck")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="bedPanel" type="PanelContainer" parent="cabinScene" unique_id=1503879803]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83300006
+anchor_top = 0.716
+anchor_right = 0.83300006
+anchor_bottom = 0.716
+offset_left = -191.61609
+offset_top = -183.96802
+offset_right = 192.38391
+offset_bottom = 184.03198
+grow_horizontal = 0
+
+[node name="bedButton" type="Button" parent="cabinScene/bedPanel" unique_id=635626433]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("2_1hpa6")
+
+[node name="cratingTablePanel" type="PanelContainer" parent="cabinScene" unique_id=52190991]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 528.0
+offset_bottom = 238.0
+script = ExtResource("4_em8ck")
+
+[node name="doorPanel" type="PanelContainer" parent="cabinScene" unique_id=1834853480]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.59900004
+anchor_right = 0.087000005
+anchor_bottom = 0.59900004
+offset_left = -60.224007
+offset_top = -68.15204
+offset_right = 59.775993
+offset_bottom = 67.84796
+
+[node name="leaveBackToGame" type="Button" parent="cabinScene/doorPanel" unique_id=2027357327]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_qf7ms")
+
+[node name="transCabinButton" type="TextureButton" parent="." unique_id=1120514015]
+unique_name_in_owner = true
+layout_mode = 0
+offset_left = 112.0
+offset_top = 192.0
+offset_right = 168.0
+offset_bottom = 246.0
+texture_normal = ExtResource("2_84mq0")
+ignore_texture_size = true
+stretch_mode = 0

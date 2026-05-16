@@ -1,10 +1,10 @@
 extends CanvasLayer
 
-#onReady is only used if within the same tree
+#path used to access the data in the dictionaries
+var dataDictionary = preload("res://scripts/dataDict.gd").new()
 
-#path used to access the data in the dictionaries, have to create a new instance in order to use
-var dataDictionary = preload("res://dataDict.gd").new()
 
+#used for opening opening up the shop
 @onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
 
@@ -22,24 +22,24 @@ var dataDictionary = preload("res://dataDict.gd").new()
 @onready var secondButton: Button = $seedPanel/secondRandomPlant/secondButton
 @onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
 
+#path used to access our currency
+@onready var moneyOverlay = get_node("../CoinOverlay")
 
 var rng = RandomNumberGenerator.new()
 
-
+#TODO implement a close window button or panel 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	seedPanel.hide()
 	
 	shopButton.pressed.connect(_on_shop_button_pressed)
-	
 
 func _on_shop_button_pressed():
 	seedPanel.visible = not seedPanel.visible
 	
 	displayPlants()
-	displayPotions()
-	#display health potion and evasion poition 
+	displayPotions() 
 
 func displayPlants() -> void:
 
@@ -50,27 +50,37 @@ func displayPlants() -> void:
 	var plantResults = displayPlantsHelper(duplicateDict, i, empty)
 	
 	#send a value as a parameter 
-	firstButton.pressed.connect(_on_pressed_Purchase.bind(0, plantResults))
-	secondButton.pressed.connect(_on_pressed_Purchase.bind(1, plantResults))
-	thirdButton.pressed.connect(_on_pressed_Purchase.bind(2, plantResults))
+	firstButton.pressed.connect(_on_pressed_plant_purchase.bind(0, plantResults))
+	secondButton.pressed.connect(_on_pressed_plant_purchase.bind(1, plantResults))
+	thirdButton.pressed.connect(_on_pressed_plant_purchase.bind(2, plantResults))
 
-func _on_pressed_Purchase(index: int, plantResults: Array) -> void:
+func _on_pressed_plant_purchase(index: int, plantResults: Array) -> void:
+	var buyablePlantKey
 	
 	if index == 0:
 		print(0)
+		buyablePlantKey = plantResults[index]
+		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
+		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
+		
 	elif index == 1:
 		print(1)
+		buyablePlantKey = plantResults[index]
+		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
+		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
+		
 	else:
 		print(2)
+		buyablePlantKey = plantResults[index]
+		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
+		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
 
-#recursive function that will display our random plants each time the player clicks on the shop
+#recursive function that will display our random plants each time the player clicks on the shop and will an array of the keys the plants can buy
+#NOTE Here is where we would implement the calendar system, the seeds should be set to a specific amount and should not rotate until the next day
 func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array) -> Array:
 	var randNum = rng.randi_range(0,3)
 	
-	if i > 2:
-		return plantResults
-		
-	elif !duplicateDict.has(randNum):
+	if !duplicateDict.has(randNum):
 		displayPlantsHelper(duplicateDict, i, plantResults)
 	
 	elif duplicateDict.has(randNum):
@@ -100,7 +110,7 @@ func displayPlantsHelper(duplicateDict: Dictionary, i: int, plantResults: Array)
 			displayPlantsHelper(duplicateDict, i+1, plantResults)
 			
 	
-	return []
+	return plantResults
 
 #this function will display all the potions
 func displayPotions() -> void:
@@ -114,7 +124,8 @@ func displayPotions() -> void:
 		elif i == 1:
 			evasPotion.get_node("evasionPotionName").text = dataDictionary.buyablePotions[i]["Name"]
 			evasPotion.get_node("evasionPicture").texture = dataDictionary.buyablePotions[i]["Icon"]
-			
+	
+	#have to put the method for decreassing the money here as well
 
 #func _on_buy_pressed() -> void:
 	#TYPE_NIL

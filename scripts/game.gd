@@ -23,6 +23,7 @@ const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
 
 func _ready():
+	# Signals
 	farm.on_tile_click.connect(_click_tile)
 	
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
@@ -63,7 +64,9 @@ func _click_tile(coords: Vector2i) -> void:
 ## Returns whether it was successful.
 ## This function assumes that `item` is in hand and the plot is empty.
 func _try_to_plant(coords: Vector2i, item: Item) -> bool:
-	
+	if farm.get_cell_atlas_coords(coords) == Vector2i(4,2): # Debris
+		print("> failed because the land has debris.")
+		return false
 	# try to find a plant to instantiate
 	var plant_scene: PackedScene
 	match item.type:
