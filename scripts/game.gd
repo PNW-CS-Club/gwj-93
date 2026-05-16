@@ -3,6 +3,7 @@ class_name Game extends Node2D
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
+@onready var daylight_cycle: DaylightCycle = %DaylightCycle
 
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
@@ -25,6 +26,8 @@ const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 func _ready():
 	# Signals
 	farm.on_tile_click.connect(_click_tile)
+	
+	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
 	
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
 	inventory.add_item(BUFF_DEF_SEED_ITEM, 3)
