@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bvg0jkn2d3hbn"
-path="res://.godot/imported/room.png-8f631fb29405d76211b4d26ee9a8fcaf.ctex"
+uid="uid://68pv2kt5sqt8"
+path="res://.godot/imported/phytion.png-22c33363283a5adc7bdb847107ffe514.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://room.png"
-dest_files=["res://.godot/imported/room.png-8f631fb29405d76211b4d26ee9a8fcaf.ctex"]
+source_file="res://art/phytion.png"
+dest_files=["res://.godot/imported/phytion.png-22c33363283a5adc7bdb847107ffe514.ctex"]
 
 [params]
 

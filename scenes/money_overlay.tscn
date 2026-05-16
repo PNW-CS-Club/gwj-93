@@ -1,7 +1,6 @@
-[gd_scene format=3 uid="uid://j74cggjvrr25"]
+[gd_scene format=3 uid="uid://ccrvbuxgfrgqm"]
 
-[ext_resource type="Script" uid="uid://cmpg4sqedp51b" path="res://scripts/money_overlay.gd" id="1_4mduv"]
-[ext_resource type="Texture2D" uid="uid://cv61i6tqfn7tl" path="res://art/Coin.jpg" id="2_veulk"]
+[ext_resource type="Script" path="res://scripts/money_overlay.gd" id="1_4mduv"]
 
 [node name="Control" type="Control" unique_id=1098571293]
 layout_mode = 3
@@ -42,4 +41,3 @@ offset_left = 96.0
 offset_top = -29.0
 offset_right = 170.0
 offset_bottom = 38.0
-texture = ExtResource("2_veulk")
