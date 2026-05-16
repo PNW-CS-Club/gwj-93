@@ -47,7 +47,8 @@ folder_colors={
 "res://plants/": "green",
 "res://resources/": "blue",
 "res://scenes/": "purple",
-"res://scripts/": "yellow"
+"res://scripts/": "yellow",
+"res://theme/": "pink"
 }
 
 [gui]

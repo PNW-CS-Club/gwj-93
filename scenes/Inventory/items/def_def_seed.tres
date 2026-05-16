@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cf1rhemkxk6p7"]
+
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_ytgrj"]
+[ext_resource type="Texture2D" uid="uid://cceigpqvdlmcl" path="res://art/seed_packets/packet_defdef.png" id="2_ytgrj"]
+
+[resource]
+script = ExtResource("1_ytgrj")
+type = 4
+name = "Double Defense Seeds"
+texture = ExtResource("2_ytgrj")
+metadata/_custom_type_script = "uid://bey7irich0wbn"

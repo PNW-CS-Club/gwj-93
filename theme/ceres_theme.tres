@@ -1,0 +1,16 @@
+[gd_resource type="Theme" format=3 uid="uid://w2av5bmjgecq"]
+
+[ext_resource type="StyleBox" uid="uid://be5b51b0twk1y" path="res://theme/slot_style_box.tres" id="1_fhydx"]
+[ext_resource type="StyleBox" uid="uid://eayjd5lfaa4f" path="res://theme/panel_style_box.tres" id="2_fhydx"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7fu"]
+
+[resource]
+InventorySlot/base_type = &"Button"
+InventorySlot/styles/hover = ExtResource("1_fhydx")
+InventorySlot/styles/hover_pressed = ExtResource("1_fhydx")
+InventorySlot/styles/normal = ExtResource("1_fhydx")
+InventorySlot/styles/pressed = ExtResource("1_fhydx")
+Invisible/base_type = &"Panel"
+Invisible/styles/panel = SubResource("StyleBoxEmpty_0s7fu")
+PanelContainer/styles/panel = ExtResource("2_fhydx")

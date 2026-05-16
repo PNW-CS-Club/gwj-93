@@ -1,5 +1,0 @@
-[gd_scene format=3 uid="uid://cdh7e1ww6r8tf"]
-
-[ext_resource type="PackedScene" uid="uid://cs2jg5jkm6bhq" path="res://scenes/Inventory/Inventory.tscn" id="1_t08cw"]
-
-[node name="InventoryGui" unique_id=121407246 instance=ExtResource("1_t08cw")]

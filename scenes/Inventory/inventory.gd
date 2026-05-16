@@ -1,21 +1,14 @@
-extends Control
+extends PanelContainer
 class_name Inventory
 
 @onready var ItemStackScene = preload("res://scenes/Inventory/ItemStack.tscn")
-@onready var slot_nodes: Array[Node] = $NinePatchRect/GridContainer.get_children()
-
-const BUFF_SEED: InventoryItem = preload("uid://2enc8i11rwcn")
-const DEFENSE_SEED: InventoryItem = preload("uid://bmuyyjk7ba5o6")
-const HP_SEED: InventoryItem = preload("uid://gad4q5m7vacj")
+@onready var slot_nodes: Array[Node] = $HBoxContainer.get_children()
 
 var stack_in_hand: ItemStack
 
 
 func _ready():
 	_connect_slots()
-	add_item(BUFF_SEED, 3)
-	add_item(DEFENSE_SEED, 2)
-	add_item(HP_SEED)
 
 func _connect_slots():
 	for i in range(slot_nodes.size()):
@@ -35,7 +28,7 @@ func _on_slot_clicked(slot: InventorySlot):
 		_put_stack_in_slot(slot)
 		return
 	if !slot.is_empty() && stack_in_hand:
-		if stack_in_hand.item.name == slot.stack.item.name:
+		if stack_in_hand.item.type == slot.stack.item.type:
 			_stack_onto_slot(slot)
 		else:
 			_swap_with_hand(slot)
@@ -43,7 +36,7 @@ func _on_slot_clicked(slot: InventorySlot):
 
 func _stack_onto_slot(slot: InventorySlot):
 	# combine stacks
-	if stack_in_hand.item.name == slot.stack.item.name:
+	if stack_in_hand.item.type == slot.stack.item.type:
 		slot.stack.amount += stack_in_hand.amount
 		remove_child(stack_in_hand)
 
@@ -72,10 +65,10 @@ func _put_stack_in_slot(slot: InventorySlot):
 
 
 # adds a given amount of the given item to the inventory
-func add_item(item: InventoryItem, amount: int = 1):
+func add_item(item: Item, amount: int = 1):
 	for slot in slot_nodes:
 		if !slot.stack: continue
-		if slot.stack.item.name == item.name:
+		if slot.stack.item.type == item.type:
 			slot.stack.amount += amount
 			return
 	
@@ -107,5 +100,5 @@ func _update_stack_in_hand():
 	if !stack_in_hand: return
 	stack_in_hand.global_position = get_global_mouse_position() - stack_in_hand.size / 2
 
-func _input(event):
+func _input(_event):
 	_update_stack_in_hand()

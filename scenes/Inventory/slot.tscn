@@ -1,23 +1,21 @@
 [gd_scene format=3 uid="uid://by2ppivwfwvod"]
 
-[ext_resource type="Texture2D" uid="uid://b6v0vvq6roomx" path="res://scenes/Inventory/inventorySlot.png" id="1_cajta"]
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_7e2hv"]
 [ext_resource type="Script" uid="uid://bali8os513yo0" path="res://scenes/Inventory/inventory_slot.gd" id="1_v65n6"]
 
 [node name="Slot" type="Button" unique_id=1268060743]
-self_modulate = Color(1, 1, 1, 0)
-custom_minimum_size = Vector2(20, 20)
-offset_right = 20.0
-offset_bottom = 20.0
-size_flags_stretch_ratio = 0.0
+custom_minimum_size = Vector2(50, 50)
+offset_right = 50.0
+offset_bottom = 50.0
+theme = ExtResource("1_7e2hv")
+theme_type_variation = &"InventorySlot"
+icon_alignment = 1
 script = ExtResource("1_v65n6")
 
-[node name="Background" type="Sprite2D" parent="." unique_id=1116425242]
-texture = ExtResource("1_cajta")
-centered = false
-vframes = 2
-
-[node name="CenterContainer" type="CenterContainer" parent="." unique_id=1879872873]
-custom_minimum_size = Vector2(20, 20)
-layout_mode = 0
-offset_right = 20.0
-offset_bottom = 20.0
+[node name="CenterContainer" type="CenterContainer" parent="." unique_id=2047771354]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2

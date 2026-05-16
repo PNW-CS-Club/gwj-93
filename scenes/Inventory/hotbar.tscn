@@ -1,0 +1,69 @@
+[gd_scene format=3 uid="uid://8qtvq6m7yo0l"]
+
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_xokwt"]
+[ext_resource type="Script" uid="uid://b885ontbphdek" path="res://scenes/Inventory/inventory.gd" id="2_xokwt"]
+[ext_resource type="PackedScene" uid="uid://by2ppivwfwvod" path="res://scenes/Inventory/slot.tscn" id="3_p1p7y"]
+
+[node name="Hotbar" type="PanelContainer" unique_id=1750629207]
+custom_minimum_size = Vector2(100, 20)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -389.0
+offset_top = -100.0
+offset_right = 389.0
+offset_bottom = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = ExtResource("1_xokwt")
+script = ExtResource("2_xokwt")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=2094921734]
+clip_contents = true
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="slot1" parent="HBoxContainer" unique_id=1268060743 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot2" parent="HBoxContainer" unique_id=1297379295 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot3" parent="HBoxContainer" unique_id=1745047529 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot4" parent="HBoxContainer" unique_id=230726944 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot5" parent="HBoxContainer" unique_id=927742706 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot6" parent="HBoxContainer" unique_id=674907362 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot7" parent="HBoxContainer" unique_id=1209217188 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot8" parent="HBoxContainer" unique_id=2138461058 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot9" parent="HBoxContainer" unique_id=1690458637 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot10" parent="HBoxContainer" unique_id=145476554 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot11" parent="HBoxContainer" unique_id=1361718517 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot12" parent="HBoxContainer" unique_id=718097641 instance=ExtResource("3_p1p7y")]
+layout_mode = 2
+
+[node name="slot13" parent="HBoxContainer" unique_id=2035702680 instance=ExtResource("3_p1p7y")]
+layout_mode = 2

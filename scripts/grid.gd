@@ -5,24 +5,33 @@ class_name Grid extends Node2D
 # Plant -> Node
 # Debris -> Node
 
-@export var width = 5
-@export var height = 5
+@export var WIDTH = 5
+@export var HEIGHT = 5
 var grid = Array([], TYPE_OBJECT, "Node", null) #Array[Node]
-var plants: Array[Array] # Array that marks squares with living plants
+var plants: Array[Vector2i] # Array of pairs that marks squares with living plants
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	#initialize grid
-	for i in range(width * height):
+	for i in range(WIDTH * HEIGHT):
 		grid.append(null)
 
 # Access elements at (x,y).
-func at(x: int, y: int) -> Node: 
-	return grid[y * width + x]
+func at(pos: Vector2i) -> Node: 
+	if !_oob_check(pos): return null
+	return grid[pos.y * WIDTH + pos.x]
 
-func put(x: int, y: int, type: Node) -> void: 
-	grid[y * width + x] = type
-	if type.is_class("Plant"):
-		plants.append([x,y])
+func put(pos: Vector2i, node: Node) -> void: 
+	if !_oob_check(pos): return
+	
+	grid[pos.y * WIDTH + pos.x] = node
+	if node.is_class("Plant"):
+		plants.append(pos)
+
+# Logs an error message if the coords are out of bounds
+func _oob_check(coords: Vector2i) -> bool:
+	var in_bounds = clampi(coords.x, 0, WIDTH-1) == coords.x && clampi(coords.y, 0, HEIGHT-1) == coords.y
+	if !in_bounds:
+		printerr("Tile coordinates " + str(coords) + " are out of bounds")
+	return in_bounds
 
 # TODO: Change dead plants to debris
