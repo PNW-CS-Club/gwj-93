@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ml2bjogn0vg"]
+
+[ext_resource type="Script" uid="uid://cv73veuhlh522" path="res://plants/hp_buff/hp_buff_plant.gd" id="1_djfhu"]
+[ext_resource type="Texture2D" uid="uid://clwel2ug8ih4e" path="res://art/plants/BuffxHP/BuffxHP_sheet.png" id="2_hjg6e"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_klb3g"]
+
+[sub_resource type="Resource" id="Resource_v38pg"]
+resource_local_to_scene = true
+script = ExtResource("2_klb3g")
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
+
+[node name="HpBuffPlant" type="Node2D" unique_id=106476618]
+script = ExtResource("1_djfhu")
+stats = SubResource("Resource_v38pg")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2134308251]
+texture = ExtResource("2_hjg6e")
+offset = Vector2(0, -28.11)
+hframes = 3

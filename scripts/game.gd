@@ -7,6 +7,12 @@ class_name Game extends Node2D
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
 const HP_PLANT_SCENE: PackedScene = preload("uid://dka8tnw2nv8vq")
+const BUFF_BUFF_PLANT_SCENE: PackedScene = preload("uid://dv2es8w1ejiuj")
+const DEF_DEF_PLANT_SCENE: PackedScene = preload("uid://clfojmjqriv6d")
+const HP_HP_PLANT_SCENE: PackedScene = preload("uid://ch6t652jrihl5")
+const DEF_BUFF_PLANT_SCENE: PackedScene = preload("uid://dwx5ysqk211ee")
+const DEF_HP_PLANT_SCENE: PackedScene = preload("uid://bamydx7slu2tx")
+const HP_BUFF_PLANT_SCENE: PackedScene = preload("uid://ml2bjogn0vg")
 
 const BUFF_BUFF_SEED_ITEM: Item = preload("uid://lbrpwm774xio")
 const BUFF_DEF_SEED_ITEM: Item = preload("uid://cnyfoeggl3wu4")
@@ -77,17 +83,17 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 		Item.Type.HP_SEED:
 			plant_scene = HP_PLANT_SCENE
 		Item.Type.BUFF_BUFF_SEED:
-			pass #plant_scene = BUFF_BUFF_PLANT_SCENE
+			plant_scene = BUFF_BUFF_PLANT_SCENE
 		Item.Type.DEF_DEF_SEED:
-			pass #plant_scene = DEF_DEF_PLANT_SCENE
+			plant_scene = DEF_DEF_PLANT_SCENE
 		Item.Type.HP_HP_SEED:
-			pass #plant_scene = HP_HP_PLANT_SCENE
+			plant_scene = HP_HP_PLANT_SCENE
 		Item.Type.BUFF_DEF_SEED:
-			pass #plant_scene = BUFF_DEF_PLANT_SCENE
+			plant_scene = DEF_BUFF_PLANT_SCENE
 		Item.Type.BUFF_HP_SEED:
-			pass #plant_scene = BUFF_HP_PLANT_SCENE
+			plant_scene = HP_BUFF_PLANT_SCENE
 		Item.Type.DEF_HP_SEED:
-			pass #plant_scene = DEF_HP_PLANT_SCENE
+			plant_scene = DEF_HP_PLANT_SCENE
 	
 	if plant_scene:
 		var plant: Plant = plant_scene.instantiate()
