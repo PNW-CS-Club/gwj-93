@@ -23,7 +23,7 @@ var chal3Track = 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
-	challengeDictFile = preload("res://challengeDict.gd").new()
+	challengeDictFile = preload("uid://cwefb8hhlbqqx").new()
 	var challengeDict = challengeDictFile.challenge
 	
 	displayObj(challengeDict)
