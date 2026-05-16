@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://8qtvq6m7yo0l"]
 
 [ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_xokwt"]
-[ext_resource type="Script" uid="uid://chwbchmmhth5" path="res://scenes/Inventory/inventory.gd" id="2_xokwt"]
+[ext_resource type="Script" uid="uid://b885ontbphdek" path="res://scenes/Inventory/inventory.gd" id="2_xokwt"]
 [ext_resource type="PackedScene" uid="uid://by2ppivwfwvod" path="res://scenes/Inventory/slot.tscn" id="3_p1p7y"]
 
 [node name="Hotbar" type="PanelContainer" unique_id=1750629207]

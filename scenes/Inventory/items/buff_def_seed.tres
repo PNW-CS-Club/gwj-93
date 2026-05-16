@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://cnyfoeggl3wu4"]
+
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_tfunj"]
+[ext_resource type="Texture2D" uid="uid://dxx7wlg6yxysm" path="res://art/seed_packets/packet_buffdef.png" id="2_tfunj"]
+
+[resource]
+script = ExtResource("1_tfunj")
+type = 6
+name = "Buff-Defense Hybrid Seeds"
+texture = ExtResource("2_tfunj")
+metadata/_custom_type_script = "uid://bey7irich0wbn"

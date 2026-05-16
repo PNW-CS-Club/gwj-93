@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://lbrpwm774xio"]
+
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_barvr"]
+[ext_resource type="Texture2D" uid="uid://d38xoulk5r6j" path="res://art/seed_packets/packet_buffbuff.png" id="2_barvr"]
+
+[resource]
+script = ExtResource("1_barvr")
+type = 3
+name = "Double Buff Seeds"
+texture = ExtResource("2_barvr")
+metadata/_custom_type_script = "uid://bey7irich0wbn"

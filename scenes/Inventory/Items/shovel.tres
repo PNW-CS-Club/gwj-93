@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://us2gsrgycubo"]
 
-[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_nctgv"]
-[ext_resource type="Texture2D" uid="uid://dhfi6i5jxbcwh" path="res://art/items/shovel.png" id="2_nctgv"]
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_kdoy6"]
+[ext_resource type="Texture2D" uid="uid://dhfi6i5jxbcwh" path="res://art/other_items/shovel.png" id="2_r1trg"]
 
 [resource]
-script = ExtResource("1_nctgv")
-type = 4
+script = ExtResource("1_kdoy6")
+type = 10
 name = "Shovel"
-texture = ExtResource("2_nctgv")
+texture = ExtResource("2_r1trg")
 metadata/_custom_type_script = "uid://bey7irich0wbn"
