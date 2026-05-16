@@ -1,8 +1,8 @@
 extends Button
 
 @onready var bedButton: Button = %bedButton
-@onready var cabinScene: Panel = %cabinScene
-@onready var cabinButton: TextureButton = %transCabinButton
+@onready var cabinScene: Panel = %cabinScene2
+@onready var cabinButton: TextureButton = %cabinButton
 
 #signals called in order to update the day counter and the day panel when you click the bed to go to the night
 signal updateDayCounter()
@@ -26,7 +26,6 @@ func _bedClicked() -> void:
 	
 	emit_signal("showDaysSignal")
 	emit_signal("updateDayCounter")
-	cabinButton.show()
 	cabinScene.hide()
 	
 	

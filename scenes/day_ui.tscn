@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmefmrdiflxhb"]
 
-[ext_resource type="Script" uid="uid://c6q2bgkuwephe" path="res://scenes/dayCounter.gd" id="1_4p0t5"]
+[ext_resource type="Script" path="res://scripts/dayCounter.gd" id="1_4p0t5"]
 
 [node name="DayUI" type="Control" unique_id=1904100449]
 layout_mode = 3
@@ -16,7 +16,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_4p0t5")
 
-[node name="PanelContainer" type="PanelContainer" parent="." unique_id=720749208]
+[node name="panelContainerDay" type="PanelContainer" parent="." unique_id=720749208]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -31,7 +31,7 @@ offset_bottom = 23.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="dayLabel" type="Label" parent="PanelContainer" unique_id=1742986501]
+[node name="dayLabel" type="Label" parent="panelContainerDay" unique_id=1742986501]
 unique_name_in_owner = true
 layout_mode = 2
 theme_override_font_sizes/font_size = 31
