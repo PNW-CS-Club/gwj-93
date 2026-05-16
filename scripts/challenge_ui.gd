@@ -7,15 +7,14 @@ var challengeDictFile
 @onready var chal2Label: Label = %chal2
 @onready var chal3Label: Label = %chal3
 
-#the uncheck boxes
 @onready var uncheck1: TextureRect = %uncheck1
 @onready var uncheck2: TextureRect = %uncheck2
 @onready var uncheck3: TextureRect = %uncheck3
 
-#constact check mark image that will load in when the player finishes the challenge
+# check mark image that will load in when the player finishes the challenge
 const checkMark: Texture2D = preload("res://Screenshot 2026-05-13 201245.jpg")
 
-#var used to track the amount for hte challenge
+# var used to track the amount for the challenge
 var chal1Track = 10
 var chal2Track = 0
 var chal3Track = 0
@@ -27,10 +26,10 @@ func _ready() -> void:
 	var challengeDict = challengeDictFile.challenge
 	
 	displayObj(challengeDict)
-	checkifCompleted()
-	
+	_check_completion()
 
-#this will display all the challenges in the panel
+
+# this will display all the challenges in the panel
 func displayObj(challengeDict: Dictionary) -> void:
 	
 	for i in range(1):
@@ -38,8 +37,8 @@ func displayObj(challengeDict: Dictionary) -> void:
 		chal2Label.text = challengeDict["challenge2"]["Desc"]
 		chal3Label.text = challengeDict["challenge3"]["Desc"]
 
-#function to show if the objective has been completed or not 
-func checkifCompleted() -> void:
+# shows whether the objective has been completed 
+func _check_completion() -> void:
 	if chal1Track >= challengeDictFile.maxNumber1:
 		uncheck1.texture = checkMark
 		
