@@ -33,6 +33,7 @@ metadata/_edit_lock_ = true
 metadata/_edit_lock_ = true
 
 [node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
+visible = false
 
 [node name="Hotbar" parent="CanvasLayer" unique_id=906297620 instance=ExtResource("5_kvpfn")]
 unique_name_in_owner = true
@@ -43,6 +44,7 @@ offset_bottom = -10.0
 size_flags_vertical = 8
 
 [node name="Cabin and Day" type="Control" parent="CanvasLayer" unique_id=1648280430]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
