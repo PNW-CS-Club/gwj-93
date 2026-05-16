@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://j74cggjvrr25"]
 
-[ext_resource type="Script" uid="uid://cmpg4sqedp51b" path="res://scripts/money_overlay.gd" id="1_4mduv"]
+[ext_resource type="Script" uid="uid://cmpg4sqedp51b" path="res://scripts/wallet.gd" id="1_4mduv"]
 [ext_resource type="Texture2D" uid="uid://cv61i6tqfn7tl" path="res://art/Coin.jpg" id="2_veulk"]
 
 [node name="Control" type="Control" unique_id=1098571293]

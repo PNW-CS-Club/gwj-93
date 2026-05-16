@@ -3,6 +3,8 @@ class_name Game extends Node2D
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
+@onready var shop: Shop = %ShopUI
+@onready var wallet: Wallet = %CoinOverlay
 
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
@@ -24,18 +26,8 @@ const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
 func _ready():
 	farm.on_tile_click.connect(_click_tile)
-	
+	shop.item_bought.connect(_click_purchase)
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
-	inventory.add_item(BUFF_DEF_SEED_ITEM, 3)
-	inventory.add_item(BUFF_HP_SEED_ITEM, 4)
-	inventory.add_item(BUFF_SEED_ITEM, 5)
-	inventory.add_item(DEF_DEF_SEED_ITEM, 6)
-	inventory.add_item(DEF_HP_SEED_ITEM, 7)
-	inventory.add_item(DEF_SEED_ITEM, 8)
-	inventory.add_item(HP_HP_SEED_ITEM, 9)
-	inventory.add_item(HP_SEED_ITEM)
-	inventory.add_item(WATER_ITEM, 10)
-	inventory.add_item(SHOVEL_ITEM, 4)
 
 
 func _click_tile(coords: Vector2i) -> void:
@@ -126,3 +118,13 @@ func _try_to_water(coords: Vector2i) -> bool:
 	inventory.remove_from_hand(1)
 	print("> success")
 	return true
+
+#adds item to inventory and subtracts price from wallet
+func _click_purchase(item: Item, price: int) ->void:
+	if price > wallet.coins:
+		print("You do not have enough money")
+	else:
+		print("You have bought the item")
+		wallet.change_balance(-price)
+		inventory.add_item(item)
+	
