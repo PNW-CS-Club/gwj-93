@@ -1,10 +1,13 @@
 extends Button
 
+@onready var bedButton: Button = %bedButton
 
-# Called when the node enters the scene tree for the first time.
-#func _ready() -> void:
-	##tooltip_text = ("Would you like to end the day?")
+signal updateDayCounter()
 
+func _ready() -> void:
+	bedButton.pressed.connect(_bedClicked)
+
+#the custom tool tip in which will show the player if he would like to end the day
 func _make_custom_tooltip(_for_text: String) -> Object:
 	
 	var label = Label.new()
@@ -12,3 +15,10 @@ func _make_custom_tooltip(_for_text: String) -> Object:
 	label.add_theme_font_size_override("font_size", 16)
 
 	return label
+
+#when the bed is clicked to end the day it will update the day counter we can change this because 
+#we wanted to it to switch to night but this is kind of what i have so far
+func _bedClicked() -> void:
+	
+	emit_signal("updateDayCounter")
+	

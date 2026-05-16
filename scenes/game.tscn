@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://j74cggjvrr25" path="res://money_overlay.tscn" id="5_vtaks"]
 [ext_resource type="PackedScene" uid="uid://b7jvfgyrckqt6" path="res://scenes/objective_ui.tscn" id="6_kvpfn"]
+[ext_resource type="Script" uid="uid://bmy0ikmepuade" path="res://scenes/cabin_and_day.gd" id="6_trtic"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://bmefmrdiflxhb" path="res://scenes/day_ui.tscn" id="7_kvuet"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
@@ -37,11 +38,31 @@ metadata/_edit_lock_ = true
 [node name="ChallengeUI" parent="CanvasLayer" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 metadata/_edit_lock_ = true
 
-[node name="Cabin" parent="CanvasLayer" unique_id=1855923729 instance=ExtResource("5_dinhu")]
-
 [node name="ShopUI" parent="CanvasLayer" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 
-[node name="DayUI" parent="CanvasLayer" unique_id=1904100449 instance=ExtResource("7_kvuet")]
+[node name="Cabin and Day" type="Control" parent="CanvasLayer" unique_id=1648280430]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("6_trtic")
+
+[node name="Cabin" parent="CanvasLayer/Cabin and Day" unique_id=1855923729 instance=ExtResource("5_dinhu")]
+unique_name_in_owner = true
+layout_mode = 1
+
+[node name="DayUI" parent="CanvasLayer/Cabin and Day" unique_id=1904100449 instance=ExtResource("7_kvuet")]
+layout_mode = 1
+anchor_left = 0.080000006
+anchor_top = 0.062000003
+anchor_right = 0.080000006
+anchor_bottom = 0.062000003
+offset_left = -44.160004
+offset_top = -24.176003
+offset_right = 43.839996
+offset_bottom = 23.823997
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 metadata/_edit_lock_ = true

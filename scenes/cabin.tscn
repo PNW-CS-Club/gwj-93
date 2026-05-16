@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="1_ixm0y"]
 [ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scenes/bedToolTip.gd" id="2_1hpa6"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
+[ext_resource type="Texture2D" uid="uid://bvg0jkn2d3hbn" path="res://room.png" id="2_em8ck"]
+[ext_resource type="Script" uid="uid://c37m8o7q1dt7a" path="res://scenes/toolTipCrafting.gd" id="4_em8ck"]
 
 [node name="Cabin" type="Control" unique_id=1855923729]
 layout_mode = 3
@@ -11,7 +13,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ixm0y")
 
 [node name="cabinScene" type="Panel" parent="." unique_id=1651606717]
 unique_name_in_owner = true
@@ -21,31 +22,55 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_ixm0y")
+
+[node name="TextureRect" type="TextureRect" parent="cabinScene" unique_id=1604153008]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_right = 408.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_em8ck")
+expand_mode = 1
+metadata/_edit_lock_ = true
 
 [node name="PanelContainer" type="PanelContainer" parent="cabinScene" unique_id=1503879803]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 0.809
-anchor_top = 0.30200002
-anchor_right = 0.809
-anchor_bottom = 0.30200002
-offset_left = -67.96802
-offset_top = -139.69601
-offset_right = 156.03198
-offset_bottom = 28.303986
+anchor_left = 0.83300006
+anchor_top = 0.716
+anchor_right = 0.83300006
+anchor_bottom = 0.716
+offset_left = -191.61609
+offset_top = -183.96802
+offset_right = 192.38391
+offset_bottom = 184.03198
 grow_horizontal = 0
 
-[node name="Button" type="Button" parent="cabinScene/PanelContainer" unique_id=635626433]
+[node name="bedButton" type="Button" parent="cabinScene/PanelContainer" unique_id=635626433]
+unique_name_in_owner = true
 layout_mode = 2
 script = ExtResource("2_1hpa6")
+
+[node name="PanelContainer2" type="PanelContainer" parent="cabinScene" unique_id=52190991]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 528.0
+offset_bottom = 238.0
+script = ExtResource("4_em8ck")
 
 [node name="transCabinButton" type="TextureButton" parent="." unique_id=1120514015]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 80.0
-offset_top = 256.0
-offset_right = 184.0
-offset_bottom = 360.0
+offset_top = 280.0
+offset_right = 232.0
+offset_bottom = 430.0
 texture_normal = ExtResource("2_84mq0")
 ignore_texture_size = true
 stretch_mode = 0

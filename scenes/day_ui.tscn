@@ -17,6 +17,7 @@ grow_vertical = 2
 script = ExtResource("1_4p0t5")
 
 [node name="PanelContainer" type="PanelContainer" parent="." unique_id=720749208]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
