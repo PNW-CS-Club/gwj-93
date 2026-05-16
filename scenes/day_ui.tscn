@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://bmefmrdiflxhb"]
 
-[ext_resource type="Script" uid="uid://c6q2bgkuwephe" path="res://scenes/dayCounter.gd" id="1_4p0t5"]
+[ext_resource type="Script" path="res://scripts/dayCounter.gd" id="1_4p0t5"]
 
 [node name="DayUI" type="Control" unique_id=1904100449]
 layout_mode = 3

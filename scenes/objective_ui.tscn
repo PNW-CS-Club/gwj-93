@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b7jvfgyrckqt6"]
 
-[ext_resource type="Script" uid="uid://bro422afa5iaw" path="res://challenge_ui.gd" id="1_5lp0o"]
+[ext_resource type="Script" path="res://scripts/challenge_ui.gd" id="1_5lp0o"]
 [ext_resource type="Texture2D" uid="uid://dh8n214pc0j7k" path="res://Screenshot 2026-05-13 201255.jpg" id="2_6eyo8"]
 
 [node name="ChallengeUI" type="Control" unique_id=1397068957]

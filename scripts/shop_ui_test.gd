@@ -1,7 +1,8 @@
 extends CanvasLayer
 
 #path used to access the data in the dictionaries
-var dataDictionary = preload("uid://c1axomrf6k36d").new()
+var dataDictionary = preload("res://scripts/dataDict.gd").new()
+
 
 #used for opening opening up the shop
 @onready var shopButton: TextureButton = %shopButton

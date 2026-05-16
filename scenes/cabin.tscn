@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
 
-[ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="1_ixm0y"]
-[ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scenes/bedToolTip.gd" id="2_1hpa6"]
+[ext_resource type="Script" path="res://scripts/cabin.gd" id="1_ixm0y"]
+[ext_resource type="Script" path="res://scripts/bedToolTip.gd" id="2_1hpa6"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
 [ext_resource type="Texture2D" uid="uid://bvg0jkn2d3hbn" path="res://room.png" id="2_em8ck"]
-[ext_resource type="Script" uid="uid://c37m8o7q1dt7a" path="res://scenes/toolTipCrafting.gd" id="4_em8ck"]
-[ext_resource type="Script" uid="uid://dkh2q5psy1tun" path="res://scenes/leave_back_to_game.gd" id="5_qf7ms"]
+[ext_resource type="Script" path="res://scripts/toolTipCrafting.gd" id="4_em8ck"]
+[ext_resource type="Script" path="res://scripts/leave_back_to_game.gd" id="5_qf7ms"]
 
 [node name="Cabin" type="Control" unique_id=1855923729]
 layout_mode = 3
