@@ -4,23 +4,38 @@ class_name Game extends Node2D
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 
-const DEFENSE_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
+const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
+const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
+const HP_PLANT_SCENE: PackedScene = preload("uid://dka8tnw2nv8vq")
 
-const BUFF_SEED: Item = preload("uid://2enc8i11rwcn")
-const DEFENSE_SEED: Item = preload("uid://bmuyyjk7ba5o6")
-const HP_SEED: Item = preload("uid://gad4q5m7vacj")
-const SHOVEL: Item = preload("uid://us2gsrgycubo")
-const WATER: Item = preload("uid://dot1l1nu30k12")
+const BUFF_BUFF_SEED_ITEM: Item = preload("uid://lbrpwm774xio")
+const BUFF_DEF_SEED_ITEM: Item = preload("uid://cnyfoeggl3wu4")
+const BUFF_HP_SEED_ITEM: Item = preload("uid://cyvhvfsxnkax2")
+const BUFF_SEED_ITEM: Item = preload("uid://2enc8i11rwcn")
+const DEF_DEF_SEED_ITEM: Item = preload("uid://cf1rhemkxk6p7")
+const DEF_HP_SEED_ITEM: Item = preload("uid://djbxsbsd7pdbn")
+const DEF_SEED_ITEM: Item = preload("uid://bmuyyjk7ba5o6")
+const HP_HP_SEED_ITEM: Item = preload("uid://h0n2yn0ei1w0")
+const HP_SEED_ITEM: Item = preload("uid://gad4q5m7vacj")
+
+const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
+const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
 
 func _ready():
 	farm.on_tile_click.connect(_click_tile)
 	
-	inventory.add_item(BUFF_SEED, 3)
-	inventory.add_item(DEFENSE_SEED, 2)
-	inventory.add_item(HP_SEED)
-	inventory.add_item(WATER, 10)
-	inventory.add_item(SHOVEL, 4)
+	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
+	inventory.add_item(BUFF_DEF_SEED_ITEM, 3)
+	inventory.add_item(BUFF_HP_SEED_ITEM, 4)
+	inventory.add_item(BUFF_SEED_ITEM, 5)
+	inventory.add_item(DEF_DEF_SEED_ITEM, 6)
+	inventory.add_item(DEF_HP_SEED_ITEM, 7)
+	inventory.add_item(DEF_SEED_ITEM, 8)
+	inventory.add_item(HP_HP_SEED_ITEM, 9)
+	inventory.add_item(HP_SEED_ITEM)
+	inventory.add_item(WATER_ITEM, 10)
+	inventory.add_item(SHOVEL_ITEM, 4)
 
 
 func _click_tile(coords: Vector2i) -> void:
@@ -52,12 +67,24 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 	# try to find a plant to instantiate
 	var plant_scene: PackedScene
 	match item.type:
-		Item.Type.DEF_SEED:
-			plant_scene = DEFENSE_PLANT_SCENE
 		Item.Type.BUFF_SEED:
-			pass #plant_scene = BUFF_PLANT_SCENE
+			plant_scene = BUFF_PLANT_SCENE
+		Item.Type.DEF_SEED:
+			plant_scene = DEF_PLANT_SCENE
 		Item.Type.HP_SEED:
-			pass #plant_scene = HP_PLANT_SCENE
+			plant_scene = HP_PLANT_SCENE
+		Item.Type.BUFF_BUFF_SEED:
+			pass #plant_scene = BUFF_BUFF_PLANT_SCENE
+		Item.Type.DEF_DEF_SEED:
+			pass #plant_scene = DEF_DEF_PLANT_SCENE
+		Item.Type.HP_HP_SEED:
+			pass #plant_scene = HP_HP_PLANT_SCENE
+		Item.Type.BUFF_DEF_SEED:
+			pass #plant_scene = BUFF_DEF_PLANT_SCENE
+		Item.Type.BUFF_HP_SEED:
+			pass #plant_scene = BUFF_HP_PLANT_SCENE
+		Item.Type.DEF_HP_SEED:
+			pass #plant_scene = DEF_HP_PLANT_SCENE
 	
 	if plant_scene:
 		var plant: Plant = plant_scene.instantiate()

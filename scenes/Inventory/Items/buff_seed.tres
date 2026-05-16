@@ -1,11 +1,10 @@
 [gd_resource type="Resource" script_class="Item" format=3 uid="uid://2enc8i11rwcn"]
 
 [ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_3ipil"]
-[ext_resource type="Texture2D" uid="uid://b0kll0lylplxn" path="res://art/seed-sprite-1.png" id="2_3ipil"]
+[ext_resource type="Texture2D" uid="uid://n658ol1870ou" path="res://art/seed_packets/packet_buff.png" id="2_88m1j"]
 
 [resource]
 script = ExtResource("1_3ipil")
-type = 1
 name = "Buff Seeds"
-texture = ExtResource("2_3ipil")
+texture = ExtResource("2_88m1j")
 metadata/_custom_type_script = "uid://bey7irich0wbn"

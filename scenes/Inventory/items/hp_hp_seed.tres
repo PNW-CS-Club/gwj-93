@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://h0n2yn0ei1w0"]
+
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_d5gob"]
+[ext_resource type="Texture2D" uid="uid://cmgfhqn4hx7o6" path="res://art/seed_packets/packet_hphp.png" id="2_d5gob"]
+
+[resource]
+script = ExtResource("1_d5gob")
+type = 5
+name = "Hyper HP Seeds"
+texture = ExtResource("2_d5gob")
+metadata/_custom_type_script = "uid://bey7irich0wbn"

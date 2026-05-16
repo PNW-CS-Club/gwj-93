@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dka8tnw2nv8vq"]
+
+[ext_resource type="Script" uid="uid://xdm43h0mde0a" path="res://plants/buff/buff_plant.gd" id="1_a4vw0"]
+[ext_resource type="Texture2D" uid="uid://dt5q0ktn1eg3v" path="res://art/plants/HP/HP1.png" id="2_iu5j8"]
+
+[node name="hp_plant" type="Node2D" unique_id=1424423727]
+script = ExtResource("1_a4vw0")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1649174475]
+z_index = 10
+position = Vector2(0, 1)
+texture = ExtResource("2_iu5j8")
+region_enabled = true
+region_rect = Rect2(0, -31, 130, 127)

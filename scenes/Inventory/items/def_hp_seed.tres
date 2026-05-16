@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Item" format=3 uid="uid://djbxsbsd7pdbn"]
+
+[ext_resource type="Script" uid="uid://bey7irich0wbn" path="res://scenes/Inventory/item.gd" id="1_scins"]
+[ext_resource type="Texture2D" uid="uid://mbgrtngn7aj" path="res://art/seed_packets/packet_defhp.png" id="2_scins"]
+
+[resource]
+script = ExtResource("1_scins")
+type = 8
+name = "Defense-HP Hybrid Seeds"
+texture = ExtResource("2_scins")
+metadata/_custom_type_script = "uid://bey7irich0wbn"
