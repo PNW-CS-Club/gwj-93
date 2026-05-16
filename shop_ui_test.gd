@@ -49,11 +49,11 @@ func displayPlants() -> void:
 	var plantResults = displayPlantsHelper(duplicateDict, i, empty)
 	
 	#send a value as a parameter 
-	firstButton.pressed.connect(_on_pressed_Purchase.bind(0, plantResults))
-	secondButton.pressed.connect(_on_pressed_Purchase.bind(1, plantResults))
-	thirdButton.pressed.connect(_on_pressed_Purchase.bind(2, plantResults))
+	firstButton.pressed.connect(_on_pressed_plant_purchase.bind(0, plantResults))
+	secondButton.pressed.connect(_on_pressed_plant_purchase.bind(1, plantResults))
+	thirdButton.pressed.connect(_on_pressed_plant_purchase.bind(2, plantResults))
 
-func _on_pressed_Purchase(index: int, plantResults: Array) -> void:
+func _on_pressed_plant_purchase(index: int, plantResults: Array) -> void:
 	var buyablePlantKey
 	
 	if index == 0:
