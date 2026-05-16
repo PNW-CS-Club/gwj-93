@@ -19,4 +19,4 @@ position = Vector2(0, 1)
 texture = ExtResource("2_uqpdx")
 hframes = 3
 region_enabled = true
-region_rect = Rect2(0, 96, 390, 130)
+region_rect = Rect2(0, 90, 390, 130)
