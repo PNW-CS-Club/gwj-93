@@ -18,4 +18,4 @@ func ability():
 	pass
 
 func take_damage(amount: int):
-	stats._on_health_set(amount)
+	stats.health -= amount

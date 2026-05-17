@@ -53,6 +53,7 @@ func _ready():
 	farm.on_tile_click.connect(_click_tile)
 	cabin.end_day.connect(_end_day)
 	shop.item_bought.connect(_click_purchase)
+	
 	enemy_attack.squares_to_attack.connect(_attack_squares)
 	#Game State
 	set_state(GameStates.DAWN)
@@ -187,6 +188,7 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 		grid.put(coords, plant)
 		grid.plants.append(coords)
 		grid.add_child(plant)
+		plant.stats.health_depleted.connect(_on_plant_died.bind(coords, plant))
 		return true
 	else:
 		return false
@@ -298,11 +300,20 @@ func _attack_squares(marked_squares: Array[Vector2i]) -> void:
 		if grid.at(square) is Plant:
 			print("HIT at",square)
 			var plant: Plant = grid.at(square)
-			plant.take_damage(70)
+			plant.take_damage(100)
 		else:
 			print("MISS at",square)
 		await get_tree().create_timer(0.2).timeout
 		#var plant = grid.at(square)
 	attack_highlight_marker.visible = false
 	attacks_complete.emit()
+
+func _on_plant_died(coords: Vector2i, plant: Plant) -> void:
+	grid.plants.erase(coords)
+	var debris: Debris = Debris.new()
+	grid.put(coords, debris)
+	grid.add_child(debris)
+	farm.set_cell(coords, 9, DEBRIS_TILE)
+	grid.remove_child(plant)
+	plant.queue_free()
 #endregion
