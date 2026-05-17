@@ -18,6 +18,7 @@ func _ready() -> void:
 
 func _process(_delta: float) -> void:
 	farm.is_highlight_active = not (cabin.visible or shop.visible)
+	cabin_area.is_in_menu = cabin.visible or shop.visible
 
 func _handle_cabin_input(_viewport: Node, event: InputEvent, _index: int):
 	if cabin.visible or shop.visible: return
