@@ -45,11 +45,11 @@ func _ready():
 	# Signals
 	farm.on_tile_click.connect(_click_tile)
 	cabin.end_day.connect(_end_day)
+	shop.item_bought.connect(_click_purchase)
 	#Game State
 	set_state(GameStates.DAWN)
 	current_day = 0
-	shop.item_bought.connect(_click_purchase)
-	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
+
 
 #region Game State
 
@@ -94,12 +94,16 @@ func _handle_day() -> void:
 func _handle_dusk() -> void: 
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
 	print("state is now dusk")
+	print("TEMP > Transition to night")
+	set_state(GameStates.NIGHT)
 	pass
 
 ## We check if the player survived at this stage.
 func _handle_night() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.NIGHT)
 	print("state is now night")
+	print("TEMP > Transition to dawn")
+	set_state(GameStates.DAWN)
 	pass
 
 func _end_day() -> void:
@@ -205,7 +209,33 @@ func _try_to_water(coords: Vector2i) -> bool:
 ## Give the player resources
 func _give_resources() -> void:
 	print("TODO: Give player resources")
-	pass
+	var rng = RandomNumberGenerator.new()
+	const BASIC_SEEDS: Array = [BUFF_SEED_ITEM, HP_SEED_ITEM, DEF_SEED_ITEM]
+	const COMBINED_SEEDS: Array = [BUFF_BUFF_SEED_ITEM,BUFF_DEF_SEED_ITEM,BUFF_HP_SEED_ITEM,DEF_DEF_SEED_ITEM,DEF_HP_SEED_ITEM,HP_HP_SEED_ITEM]
+	const ALL_SEEDS: Array = BASIC_SEEDS + COMBINED_SEEDS
+	var seed
+	if current_day == 1: # Consistent day 1 resources
+		for i in 3: # Pick 3 random basic seeds
+			seed = BASIC_SEEDS.pick_random()
+			inventory.add_item(seed,1)
+		wallet.change_balance(50) ## Give the player 50 coins
+		inventory.add_item(SHOVEL_ITEM,1)
+		inventory.add_item(WATER_ITEM, 2)
+		return
+	if current_day < 3:
+		for i in 2:
+			seed = BASIC_SEEDS.pick_random()
+			inventory.add_item(seed,1)
+	else:
+		for i in 2:
+			seed = ALL_SEEDS.pick_random()
+			inventory.add_item(seed,1)
+	wallet.change_balance(rng.randi_range(20,50))
+	inventory.add_item(SHOVEL_ITEM,rng.randi_range(1,3))
+	inventory.add_item(WATER_ITEM,randi_range(2,4))
+
+
+
 ## Used to place debris in the farm. Only places in empty tiles
 func _add_debris() -> void:
 	var rng = RandomNumberGenerator.new()
