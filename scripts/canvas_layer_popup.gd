@@ -4,6 +4,7 @@ extends CanvasLayer
 @onready var shop_button: BaseButton = %ShopButton
 @onready var cabin: BaseButton = %Cabin
 @onready var shop: BaseButton = %Shop
+@onready var farm: FarmTileLayer = %TileMapLayerFarm
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -14,6 +15,9 @@ func _ready() -> void:
 	shop_button.pressed.connect(func(): shop.visible = not shop.visible)
 	cabin.pressed.connect(func(): cabin.hide())
 	shop.pressed.connect(func(): shop.hide())
+
+func _process(_delta: float) -> void:
+	farm.is_highlight_active = not (cabin.visible or shop.visible)
 
 func _handle_cabin_input(_viewport: Node, event: InputEvent, _index: int):
 	if cabin.visible or shop.visible: return

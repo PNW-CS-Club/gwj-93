@@ -1,4 +1,4 @@
-extends TileMapLayer
+class_name FarmTileLayer extends TileMapLayer
 
 @onready var highlight_marker: Sprite2D = %HighlightMarker
 var is_highlight_active: bool = true
