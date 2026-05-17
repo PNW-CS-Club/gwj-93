@@ -3,13 +3,13 @@ class_name Game extends Node2D
 signal attacks_complete
 
 
-@onready var farm = %TileMapLayerFarm
+@onready var farm: FarmTileLayer = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 @onready var shop: Shop = %Shop 
-@onready var shop_button: TextureButton = %ShopButton
+@onready var shop_button: BaseButton = %ShopButton
 @onready var cabin: Cabin = %Cabin
-@onready var cabin_button: TextureButton = %CabinButton
+@onready var cabin_area: CabinArea = %CabinArea
 @onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 @onready var attack_highlight_marker: Sprite2D = %AttackHighlightMarker
@@ -88,7 +88,7 @@ func _handle_dawn() -> void:
 		pass #Display good day overview
 	
 	inventory.visible = false
-	cabin_button.visible = false
+	cabin_area.can_select = false
 	shop_button.visible = false
 	wallet.visible = false
 	_give_resources()
@@ -103,7 +103,7 @@ func _handle_dawn() -> void:
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
 	inventory.visible = true
-	cabin_button.visible = true
+	cabin_area.can_select = true
 	shop_button.visible = true
 	wallet.visible = true
 	print("state is now day")
@@ -111,7 +111,7 @@ func _handle_day() -> void:
 ## The attacks happen during this state
 func _handle_dusk() -> void:
 	inventory.visible = false
-	cabin_button.visible = false
+	cabin_area.can_select = false
 	shop_button.visible = false
 	wallet.visible = false
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)

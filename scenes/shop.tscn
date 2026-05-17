@@ -1,40 +1,22 @@
 [gd_scene format=3 uid="uid://dye0vc4g0himf"]
 
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_032fp"]
 [ext_resource type="Script" path="res://scripts/shop.gd" id="1_owsua"]
-[ext_resource type="Texture2D" uid="uid://cc1hkowr4obj5" path="res://shop-icon-svg-download-png-2534765.webp" id="2_grq1j"]
+[ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://scripts/shop.gd" id="1_owsua"]
 [ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://Plant Picture Test Folder/BluePlantTest.jpg" id="3_grq1j"]
+[ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="5_2fc2m"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ep55i"]
-bg_color = Color(0.014660836, 0.014660836, 0.014660836, 1)
-
-[node name="CanvasLayer" type="Panel" unique_id=377412680]
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
+[node name="Shop" type="Button" unique_id=1322041602]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_032fp")
+theme_type_variation = &"TranslucentButton"
 script = ExtResource("1_owsua")
 
-[node name="shopButton" type="TextureButton" parent="." unique_id=560010259]
-unique_name_in_owner = true
-visible = false
-layout_mode = 1
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = 56.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_grq1j")
-ignore_texture_size = true
-stretch_mode = 0
-
-[node name="seedPanel" type="Panel" parent="." unique_id=1878292513]
+[node name="ShopDisplay" type="Panel" parent="." unique_id=1878292513]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -48,24 +30,26 @@ offset_right = 320.0
 offset_bottom = 192.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_styles/panel = SubResource("StyleBoxFlat_ep55i")
+theme = ExtResource("1_032fp")
+theme_type_variation = &"PanelDark"
 
-[node name="Label" type="Label" parent="seedPanel" unique_id=2087617659]
+[node name="Label" type="Label" parent="ShopDisplay" unique_id=2087617659]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.492
 anchor_top = 0.076000005
 anchor_right = 0.492
 anchor_bottom = 0.076000005
-offset_left = -18.959991
-offset_top = -13.279989
-offset_right = 21.040009
-offset_bottom = 9.720011
+offset_left = -42.880035
+offset_top = -24.183994
+offset_right = 42.119965
+offset_bottom = 19.816006
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_font_sizes/font_size = 36
 text = "Shop"
 
-[node name="firstRandomPlant" type="Control" parent="seedPanel" unique_id=774640784]
+[node name="firstRandomPlant" type="Control" parent="ShopDisplay" unique_id=774640784]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -77,7 +61,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name1" type="Label" parent="seedPanel/firstRandomPlant" unique_id=681290494]
+[node name="name1" type="Label" parent="ShopDisplay/firstRandomPlant" unique_id=681290494]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,7 +78,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc1" type="Label" parent="seedPanel/firstRandomPlant" unique_id=1561958574]
+[node name="desc1" type="Label" parent="ShopDisplay/firstRandomPlant" unique_id=1561958574]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,7 +96,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="firstPlantPicture" type="TextureRect" parent="seedPanel/firstRandomPlant" unique_id=1753021726]
+[node name="firstPlantPicture" type="TextureRect" parent="ShopDisplay/firstRandomPlant" unique_id=1753021726]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -128,7 +112,7 @@ grow_vertical = 2
 texture = ExtResource("3_grq1j")
 expand_mode = 1
 
-[node name="firstButton" type="Button" parent="seedPanel/firstRandomPlant" unique_id=1568575159]
+[node name="firstButton" type="Button" parent="ShopDisplay/firstRandomPlant" unique_id=1568575159]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -137,14 +121,18 @@ anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
 offset_left = -41.0
-offset_top = 60.0
+offset_top = 51.0
 offset_right = 39.0
-offset_bottom = 91.0
+offset_bottom = 100.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Purchase"
+theme = ExtResource("1_032fp")
+theme_type_variation = &"CoinButton"
+text = "20"
+icon = ExtResource("5_2fc2m")
+expand_icon = true
 
-[node name="secondRandomPlant" type="Control" parent="seedPanel" unique_id=387378969]
+[node name="secondRandomPlant" type="Control" parent="ShopDisplay" unique_id=387378969]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -156,7 +144,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name2" type="Label" parent="seedPanel/secondRandomPlant" unique_id=1350531432]
+[node name="name2" type="Label" parent="ShopDisplay/secondRandomPlant" unique_id=1350531432]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -173,7 +161,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc2" type="Label" parent="seedPanel/secondRandomPlant" unique_id=1895350812]
+[node name="desc2" type="Label" parent="ShopDisplay/secondRandomPlant" unique_id=1895350812]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -191,7 +179,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="secondPlantPicture" type="TextureRect" parent="seedPanel/secondRandomPlant" unique_id=779504190]
+[node name="secondPlantPicture" type="TextureRect" parent="ShopDisplay/secondRandomPlant" unique_id=779504190]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -207,7 +195,7 @@ grow_vertical = 2
 texture = ExtResource("3_grq1j")
 expand_mode = 1
 
-[node name="secondButton" type="Button" parent="seedPanel/secondRandomPlant" unique_id=1480855056]
+[node name="secondButton" type="Button" parent="ShopDisplay/secondRandomPlant" unique_id=1480855056]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -221,9 +209,11 @@ offset_right = 39.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Purchase"
+theme = ExtResource("1_032fp")
+theme_type_variation = &"CoinButton"
+text = "5"
 
-[node name="thirdRandomPlant" type="Control" parent="seedPanel" unique_id=438263558]
+[node name="thirdRandomPlant" type="Control" parent="ShopDisplay" unique_id=438263558]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -235,7 +225,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name3" type="Label" parent="seedPanel/thirdRandomPlant" unique_id=1077303324]
+[node name="name3" type="Label" parent="ShopDisplay/thirdRandomPlant" unique_id=1077303324]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -252,7 +242,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc3" type="Label" parent="seedPanel/thirdRandomPlant" unique_id=1591075529]
+[node name="desc3" type="Label" parent="ShopDisplay/thirdRandomPlant" unique_id=1591075529]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -270,7 +260,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="thirdPlantPicture" type="TextureRect" parent="seedPanel/thirdRandomPlant" unique_id=815863656]
+[node name="thirdPlantPicture" type="TextureRect" parent="ShopDisplay/thirdRandomPlant" unique_id=815863656]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -286,7 +276,7 @@ grow_vertical = 2
 texture = ExtResource("3_grq1j")
 expand_mode = 1
 
-[node name="thirdButton" type="Button" parent="seedPanel/thirdRandomPlant" unique_id=73797048]
+[node name="thirdButton" type="Button" parent="ShopDisplay/thirdRandomPlant" unique_id=73797048]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -300,9 +290,11 @@ offset_right = 39.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Purchase"
+theme = ExtResource("1_032fp")
+theme_type_variation = &"CoinButton"
+text = "15"
 
-[node name="healthPotion" type="Control" parent="seedPanel" unique_id=1394876474]
+[node name="healthPotion" type="Control" parent="ShopDisplay" unique_id=1394876474]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -315,7 +307,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="healthPotionName" type="Label" parent="seedPanel/healthPotion" unique_id=208212824]
+[node name="healthPotionName" type="Label" parent="ShopDisplay/healthPotion" unique_id=208212824]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -332,7 +324,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="descHealthPotion" type="Label" parent="seedPanel/healthPotion" unique_id=112191409]
+[node name="descHealthPotion" type="Label" parent="ShopDisplay/healthPotion" unique_id=112191409]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -350,7 +342,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="healthPicture" type="TextureRect" parent="seedPanel/healthPotion" unique_id=314938089]
+[node name="healthPicture" type="TextureRect" parent="ShopDisplay/healthPotion" unique_id=314938089]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -366,7 +358,7 @@ grow_vertical = 2
 texture = ExtResource("3_grq1j")
 expand_mode = 1
 
-[node name="healthButton" type="Button" parent="seedPanel/healthPotion" unique_id=558324241]
+[node name="healthButton" type="Button" parent="ShopDisplay/healthPotion" unique_id=558324241]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -380,9 +372,11 @@ offset_right = 39.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Purchase"
+theme = ExtResource("1_032fp")
+theme_type_variation = &"CoinButton"
+text = "30"
 
-[node name="evasionPotion" type="Control" parent="seedPanel" unique_id=937735151]
+[node name="evasionPotion" type="Control" parent="ShopDisplay" unique_id=937735151]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -395,7 +389,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="evasionPotionName" type="Label" parent="seedPanel/evasionPotion" unique_id=580814261]
+[node name="evasionPotionName" type="Label" parent="ShopDisplay/evasionPotion" unique_id=580814261]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -412,7 +406,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="descEvasionPotion" type="Label" parent="seedPanel/evasionPotion" unique_id=1192412814]
+[node name="descEvasionPotion" type="Label" parent="ShopDisplay/evasionPotion" unique_id=1192412814]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -430,7 +424,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="evasionPicture" type="TextureRect" parent="seedPanel/evasionPotion" unique_id=718598701]
+[node name="evasionPicture" type="TextureRect" parent="ShopDisplay/evasionPotion" unique_id=718598701]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -446,7 +440,7 @@ grow_vertical = 2
 texture = ExtResource("3_grq1j")
 expand_mode = 1
 
-[node name="evasionButton" type="Button" parent="seedPanel/evasionPotion" unique_id=340676700]
+[node name="evasionButton" type="Button" parent="ShopDisplay/evasionPotion" unique_id=340676700]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -459,4 +453,6 @@ offset_right = 39.0
 offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
-text = "Purchase"
+theme = ExtResource("1_032fp")
+theme_type_variation = &"CoinButton"
+text = "30"

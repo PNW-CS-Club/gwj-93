@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://ytsxm0ga3cgx"]
+
+[ext_resource type="PackedScene" uid="uid://chtyaphabxfi0" path="res://scenes/menus/options_menu/audio/audio_options_menu.tscn" id="4_v1ece"]
+[ext_resource type="PackedScene" uid="uid://f3sv2n5d28iq" path="res://scenes/menus/options_menu/video/video_options_menu_with_extras.tscn" id="5_o0k4m"]
+[ext_resource type="PackedScene" uid="uid://cqodfq2lhqbp8" path="res://scenes/menus/options_menu/game/game_options_menu.tscn" id="6_lssf2"]
+
+[node name="VBoxContainer" type="VBoxContainer" unique_id=1881180201]
+offset_left = 18.0
+offset_top = 18.0
+offset_right = 418.0
+offset_bottom = 506.0
+
+[node name="Label" type="Label" parent="." unique_id=1894123600]
+layout_mode = 2
+theme_override_font_sizes/font_size = 36
+text = "Options"
+horizontal_alignment = 1
+
+[node name="Video" parent="." unique_id=382045299 instance=ExtResource("5_o0k4m")]
+layout_mode = 2
+
+[node name="Audio" parent="." unique_id=506115522 instance=ExtResource("4_v1ece")]
+layout_mode = 2
+
+[node name="Game" parent="." unique_id=1395408076 instance=ExtResource("6_lssf2")]
+layout_mode = 2

@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bow57nfxra7kj" path="res://scenes/windows/main_menu_options_window.tscn" id="3_0jpat"]
 [ext_resource type="PackedScene" uid="uid://1nxucmsjsvpy" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_m0ubd"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_627ab"]
-[ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/other_items/ceres title screen.png" id="5_x31ro"]
+[ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/title-screen-bg.png" id="5_x31ro"]
 
 [node name="MainMenu" unique_id=869232425 instance=ExtResource("1_ub2bi")]
 script = ExtResource("2_x31ro")

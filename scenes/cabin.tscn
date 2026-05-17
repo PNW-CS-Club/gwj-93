@@ -7,14 +7,14 @@
 [ext_resource type="Script" uid="uid://c37m8o7q1dt7a" path="res://scripts/toolTipCrafting.gd" id="4_1opua"]
 [ext_resource type="Script" uid="uid://dkh2q5psy1tun" path="res://scripts/leave_back_to_game.gd" id="5_u8rqo"]
 
-[node name="Cabin" type="Panel" unique_id=1657024557]
+[node name="Cabin" type="Button" unique_id=934603096]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_em8ck")
-theme_type_variation = &"TranslucentPanel"
+theme_type_variation = &"TranslucentButton"
 script = ExtResource("2_qf7ms")
 
 [node name="CabinTexture" type="TextureRect" parent="." unique_id=163915540]

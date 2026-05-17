@@ -1,17 +1,47 @@
 [gd_resource type="Theme" format=3 uid="uid://w2av5bmjgecq"]
 
-[ext_resource type="StyleBox" uid="uid://be5b51b0twk1y" path="res://theme/slot_style_box.tres" id="1_fhydx"]
-[ext_resource type="StyleBox" uid="uid://eayjd5lfaa4f" path="res://theme/panel_style_box.tres" id="2_fhydx"]
-[ext_resource type="StyleBox" uid="uid://7csbdr4yrfci" path="res://theme/translucent_light_style_box.tres" id="2_up6q7"]
+[ext_resource type="StyleBox" uid="uid://b7vb8hqa823uw" path="res://theme/stylebox_panel_button_press.tres" id="1_0wtvy"]
+[ext_resource type="StyleBox" uid="uid://be5b51b0twk1y" path="res://theme/stylebox_slot.tres" id="1_fhydx"]
+[ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="2_4yyca"]
+[ext_resource type="StyleBox" uid="uid://7csbdr4yrfci" path="res://theme/stylebox_translucent_light.tres" id="2_up6q7"]
+[ext_resource type="StyleBox" uid="uid://eayjd5lfaa4f" path="res://theme/stylebox_hotbar.tres" id="3_tx53g"]
+[ext_resource type="StyleBox" uid="uid://b3auhf7cck5e3" path="res://theme/stylebox_panel_button_hover.tres" id="3_u1dt5"]
+[ext_resource type="StyleBox" uid="uid://dpmrq1infmgkd" path="res://theme/stylebox_panel_medium.tres" id="3_up6q7"]
+[ext_resource type="StyleBox" uid="uid://dh0bhaudgdfri" path="res://theme/stylebox_panel_dark.tres" id="5_sctaj"]
+[ext_resource type="StyleBox" uid="uid://da2lftkqxvhgd" path="res://theme/stylebox_panel_light.tres" id="6_lwjxu"]
+[ext_resource type="FontFile" uid="uid://bu6jhitap4ykg" path="res://theme/fonts/exo_2/Exo2-Bold.otf" id="7_lwjxu"]
+[ext_resource type="StyleBox" uid="uid://vbhcy8ijb0mt" path="res://theme/stylebox_translucent_dark.tres" id="10_u1dt5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhydx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s7fu"]
-bg_color = Color(0, 0, 0, 0.1764706)
+bg_color = Color(0, 0, 0, 0.58431375)
 
 [resource]
+default_font = ExtResource("7_lwjxu")
+default_font_size = 18
+Button/colors/font_color = Color(0.8, 0.8627451, 0.7882353, 1)
+Button/colors/font_disabled_color = Color(0.25490198, 0.19215687, 0.39215687, 1)
+Button/colors/font_focus_color = Color(0.8, 0.8627451, 0.7882353, 1)
+Button/colors/font_hover_color = Color(0.88655996, 0.96, 0.87359995, 1)
+Button/colors/font_hover_pressed_color = Color(0.8862745, 0.9607843, 0.8745098, 1)
+Button/colors/font_pressed_color = Color(0.5764706, 0.7294118, 0.6784314, 1)
+Button/styles/disabled = ExtResource("1_0wtvy")
+Button/styles/focus = ExtResource("3_up6q7")
+Button/styles/hover = ExtResource("3_u1dt5")
+Button/styles/hover_pressed = ExtResource("1_0wtvy")
+Button/styles/normal = ExtResource("3_up6q7")
+Button/styles/pressed = ExtResource("1_0wtvy")
+CoinButton/base_type = &"Button"
+CoinButton/constants/h_separation = 0
+CoinButton/constants/icon_max_width = 24
+CoinButton/font_sizes/font_size = 20
+CoinButton/icons/icon = ExtResource("2_4yyca")
+CoinLabel/base_type = &"Label"
+CoinLabel/colors/font_color = Color(0.45490196, 0.8117647, 0.8117647, 1)
+CoinLabel/colors/font_outline_color = Color(0.29803923, 0.28235295, 0.4862745, 1)
 InventorySlot/base_type = &"Button"
 InventorySlot/styles/hover = ExtResource("1_fhydx")
 InventorySlot/styles/hover_pressed = ExtResource("1_fhydx")
@@ -26,6 +56,21 @@ InvisiButton/styles/normal = SubResource("StyleBoxEmpty_fhydx")
 InvisiButton/styles/pressed = SubResource("StyleBoxEmpty_fhydx")
 Invisible/base_type = &"Panel"
 Invisible/styles/panel = SubResource("StyleBoxEmpty_0s7fu")
-PanelContainer/styles/panel = ExtResource("2_fhydx")
+Label/colors/font_color = Color(0.8, 0.8627451, 0.7882353, 1)
+Panel/styles/panel = ExtResource("3_up6q7")
+PanelContainer/styles/panel = ExtResource("3_tx53g")
+PanelContainerDark/base_type = &"PanelContainer"
+PanelContainerDark/styles/panel = ExtResource("5_sctaj")
+PanelDark/base_type = &"Panel"
+PanelDark/styles/panel = ExtResource("5_sctaj")
+PanelLight/base_type = &"Panel"
+PanelLight/styles/panel = ExtResource("6_lwjxu")
+TranslucentButton/base_type = &"Button"
+TranslucentButton/styles/disabled = ExtResource("10_u1dt5")
+TranslucentButton/styles/focus = ExtResource("10_u1dt5")
+TranslucentButton/styles/hover = ExtResource("10_u1dt5")
+TranslucentButton/styles/hover_pressed = ExtResource("10_u1dt5")
+TranslucentButton/styles/normal = ExtResource("10_u1dt5")
+TranslucentButton/styles/pressed = ExtResource("10_u1dt5")
 TranslucentPanel/base_type = &"Panel"
 TranslucentPanel/styles/panel = SubResource("StyleBoxFlat_0s7fu")

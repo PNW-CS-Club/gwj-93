@@ -1,7 +1,7 @@
 extends Button
 
 @onready var doorButton: Button = %BackButton
-@onready var cabin: Panel = $"../.."
+@onready var cabin: Control = $"../.."
 
 func _make_custom_tooltip(_for_text: String) -> Object:
 	
