@@ -17,7 +17,9 @@
 [ext_resource type="AudioStream" uid="uid://vx2erhbjr7ea" path="res://art/other_items/attackhit.wav" id="12_1kice"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Script" uid="uid://bgwxytwx4v5sd" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
+[ext_resource type="PackedScene" uid="uid://bkcsjsk2ciff" path="res://addons/maaacks_game_template/base/nodes/music_players/background_music_player.tscn" id="15_264po"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
+[ext_resource type="AudioStream" uid="uid://yrylvybdsv0i" path="res://Sound/CeresTheme.wav" id="16_1kice"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="17_ssvqc"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
@@ -142,6 +144,10 @@ offset_bottom = 342.0
 texture_normal = ExtResource("17_ssvqc")
 ignore_texture_size = true
 stretch_mode = 0
+
+[node name="BackgroundMusicPlayer" parent="CanvasLayerStatic" unique_id=1446051342 instance=ExtResource("15_264po")]
+process_priority = 1
+stream = ExtResource("16_1kice")
 
 [node name="CanvasLayerPopups" type="CanvasLayer" parent="." unique_id=1318873441]
 script = ExtResource("14_ssvqc")
