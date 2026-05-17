@@ -16,6 +16,9 @@ signal attacks_complete
 @onready var enemy_attack: EnemyAttack = %EnemyAttack
 @onready var sfx_attackmiss: AudioStreamPlayer = $sfx_attackmiss
 @onready var sfx_attackhit: AudioStreamPlayer = %sfx_attackhit
+@onready var sfx_dig: AudioStreamPlayer = %sfx_dig
+@onready var sfx_plant: AudioStreamPlayer = %sfx_plant
+@onready var sfx_water: AudioStreamPlayer = %sfx_water
 
 enum GameStates {DAWN, DAY, DUSK, NIGHT}
 
@@ -194,6 +197,7 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 		grid.put(coords, plant)
 		grid.plants.append(coords)
 		grid.add_child(plant)
+		sfx_plant.play()
 		plant.stats.health_depleted.connect(_on_plant_died.bind(coords, plant))
 		return true
 	else:
@@ -206,6 +210,7 @@ func _dig_up(coords: Vector2i) -> void:
 		grid.put(coords, null)
 		grid.remove_child(target)
 		farm.set_cell(coords, 9, DRY_TILE)
+		sfx_dig.play()
 		inventory.remove_from_hand(1)
 
 ## If the coordinate is a plant, the watering can is used and the plant is upgraded.
@@ -224,6 +229,7 @@ func _try_to_water(coords: Vector2i) -> bool:
 	plant.stats.level += 1
 	# Update the farm tile to the watered tile
 	farm.set_cell(coords, 9, WET_TILE)
+	sfx_water.play()
 	
 	
 	inventory.remove_from_hand(1)
