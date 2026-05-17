@@ -5,6 +5,8 @@ class_name Game extends Node2D
 @onready var grid: Grid = %Grid
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 
+enum GameStates {DAWN, DAY, DUSK, NIGHT}
+
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
 const HP_PLANT_SCENE: PackedScene = preload("uid://dka8tnw2nv8vq")
@@ -22,12 +24,19 @@ const HP_SEED_ITEM: Item = preload("uid://gad4q5m7vacj")
 const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
 const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
+const current_state = GameStates.DAWN
+
+# Atlas coords
+const WET_TILE: Vector2i = Vector2i(0,0)
+const DRY_TILE: Vector2i = Vector2i(1,0)
+const DEBRIS_TILE: Vector2i = Vector2i(4,2)
 
 func _ready():
 	# Signals
 	farm.on_tile_click.connect(_click_tile)
 	
-	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
+	#Game State
+	set_state(GameStates.DAWN)
 	
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
 	inventory.add_item(BUFF_DEF_SEED_ITEM, 3)
@@ -41,6 +50,46 @@ func _ready():
 	inventory.add_item(WATER_ITEM, 10)
 	inventory.add_item(SHOVEL_ITEM, 4)
 
+#region Game State
+
+func set_state(state: GameStates) -> void:
+	match state:
+		GameStates.DAWN:
+			_handle_dawn()
+		GameStates.DAY:
+			_handle_day()
+		GameStates.DUSK:
+			_handle_dusk()
+		GameStates.NIGHT:
+			_handle_night()
+		
+## The game starts here. Give the player resources
+func _handle_dawn() -> void:
+	# Display good day overview
+	
+	# Give the player some basic resources
+	# seeds, coins, shovel uses, watering can uses
+	
+	_set_debris() # Place some debris on empty squares
+	
+	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
+	pass
+	
+## The player does most of their actions here
+func _handle_day() -> void:
+	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
+	pass
+
+## The attacks happen during this state
+func _handle_dusk() -> void: 
+	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
+	pass
+
+## We check if the player survived at this stage.
+func _handle_night() -> void:
+	daylight_cycle.transition_to(DaylightCycle.Phase.NIGHT)
+	pass
+#endregion
 
 func _click_tile(coords: Vector2i) -> void:
 	print("\nclicked on farm plot at " + str(coords))
@@ -67,7 +116,7 @@ func _click_tile(coords: Vector2i) -> void:
 ## Returns whether it was successful.
 ## This function assumes that `item` is in hand and the plot is empty.
 func _try_to_plant(coords: Vector2i, item: Item) -> bool:
-	if farm.get_cell_atlas_coords(coords) == Vector2i(4,2): # Debris
+	if farm.get_cell_atlas_coords(coords) == DEBRIS_TILE: # Debris
 		print("> failed because the land has debris.")
 		return false
 	# try to find a plant to instantiate
@@ -105,9 +154,12 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 
 func _dig_up(coords: Vector2i) -> void:
 	var target = grid.at(coords)
-	grid.put(coords, null)
-	grid.remove_child(target)
-	inventory.remove_from_hand(1)
+	print("attempt digup")
+	if target.is_class("Debris"):
+		grid.put(coords, null)
+		grid.remove_child(target)
+		inventory.remove_from_hand(1)
+		print("debris removed")
 
 ## If the coordinate is a plant, the watering can is used and the plant is upgraded.
 ## Returns whether it was successful.
@@ -120,15 +172,30 @@ func _try_to_water(coords: Vector2i) -> bool:
 		print("> failed because already max level:", plant.stats.level)
 		return false
 	# Fail if the plant has already been leveled up this turn.
-	if farm.get_cell_atlas_coords(coords) == Vector2i.ZERO: # Wet farm tile is at (0,0) on TileSet
+	if farm.get_cell_atlas_coords(coords) == WET_TILE:
 		print("> failed because this plant has already been leveled this day")
 		return false
 	# Update the level of the plant. 
 	plant.stats.level += 1
 	# Update the farm tile to the watered tile
-	farm.set_cell(coords, 9, Vector2i.ZERO)
+	farm.set_cell(coords, 9, WET_TILE)
 	
 	
 	inventory.remove_from_hand(1)
 	print("> success")
 	return true
+
+## Used to place debris in the farm. Only places in empty tiles
+func _set_debris() -> void:
+	var rng = RandomNumberGenerator.new()
+	var debris_amount = rng.randi_range(0,4)
+	while debris_amount > 0:
+		var cell_coords: Vector2i = Vector2i(rng.randi_range(0,grid.WIDTH-1), rng.randi_range(0,grid.HEIGHT-1))
+		var cell = grid.at(cell_coords)
+		if cell == null:
+			var debris: Debris = Debris.new()
+			grid.put(cell_coords, debris)
+			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
+		debris_amount -= 1
+	
+	pass

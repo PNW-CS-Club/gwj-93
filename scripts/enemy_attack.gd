@@ -8,7 +8,7 @@ var guaranteed_hit_chance: float = 0.10: set = on_guaranteed_hit_chance_set
 var grid: Grid # this should be a reference of the grid in the game
 var rng
 
-func _read():
+func _ready():
 	rng = RandomNumberGenerator.new()
 
 ## Set the guaranteed hit chance of the attack bound between [0.0,1.0].

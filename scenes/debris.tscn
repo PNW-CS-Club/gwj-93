@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cw17pmwu4lwp1"]
+
+[ext_resource type="Script" uid="uid://bo8g68swp3e0n" path="res://scripts/debris.gd" id="1_wkiee"]
+
+[node name="Debris" type="Node2D" unique_id=1115475312]
+script = ExtResource("1_wkiee")
