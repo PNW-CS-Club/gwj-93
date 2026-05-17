@@ -4,6 +4,7 @@
 [ext_resource type="Script" uid="uid://de83jewir4rlf" path="res://scenes/menus/main_menu/main_menu_with_animations.gd" id="2_ixa71"]
 [ext_resource type="PackedScene" uid="uid://bow57nfxra7kj" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://1nxucmsjsvpy" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
+[ext_resource type="AudioStream" uid="uid://cuam1fyvmg85m" path="res://Sound/ANewPlace.wav" id="5_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
 [ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/title-screen-bg.png" id="5_ixa71"]
 
@@ -329,6 +330,9 @@ libraries/ = SubResource("AnimationLibrary_2kqig")
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
+
+[node name="BackgroundMusicPlayer" parent="." index="3" unique_id=1141822549]
+stream = ExtResource("5_2k5l7")
 
 [node name="BackgroundTextureRect" parent="." index="4" unique_id=1940176448]
 texture = ExtResource("5_ixa71")

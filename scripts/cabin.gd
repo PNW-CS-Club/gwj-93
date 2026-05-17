@@ -1,19 +1,9 @@
-extends Control
+class_name Cabin extends Panel
 
-#signal hideDayCounter()
+#re-emit the end_day signal from the bed button so that the game script can change game state
+signal end_day
 
-#func _ready() -> void:
-	#cabinScence.hide()
-	#cabinButton.pressed.connect(_on_pressed_cabin)
-	 
-#func _on_pressed_cabin() -> void:
-	#emit_signal("hideDayCounter")
-	#cabinScence.show()
-	#cabinButton.hide()
-#
-#func showCabin() -> void:
-	#cabinScence.hide()
-	#cabinButton.show()
-#
-#func hideCabin() -> void:
-	#cabinScence.hide()
+@onready var bed: Bed = %BedButton
+
+func _ready() -> void:
+	bed.end_day.connect(end_day.emit)

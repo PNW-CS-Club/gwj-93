@@ -1,6 +1,7 @@
 [gd_scene format=3 uid="uid://dye0vc4g0himf"]
 
 [ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_032fp"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_owsua"]
 [ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://scripts/shop.gd" id="1_owsua"]
 [ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://Plant Picture Test Folder/BluePlantTest.jpg" id="3_grq1j"]
 [ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="5_2fc2m"]

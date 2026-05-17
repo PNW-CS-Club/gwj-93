@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://c7ixoppmvm722"]
+
+[ext_resource type="Texture2D" uid="uid://cvri3kcusyphd" path="res://art/day_overview/Day overview good.png" id="1_k1sn6"]
+
+[node name="DayOverview" type="Node2D" unique_id=1210549575]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1574132023]
+position = Vector2(640, 359.99997)
+scale = Vector2(0.66666675, 0.6666666)
+texture = ExtResource("1_k1sn6")
