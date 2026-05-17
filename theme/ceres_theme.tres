@@ -9,6 +9,7 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s7fu"]
+bg_color = Color(0, 0, 0, 0.1764706)
 
 [resource]
 InventorySlot/base_type = &"Button"

@@ -1,4 +1,4 @@
-class_name Shop extends CanvasLayer
+class_name Shop extends Panel
 
 #signal for items bought to go to hot bar
 signal item_bought(item_name: String, item_price: int)
