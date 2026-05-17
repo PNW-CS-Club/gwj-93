@@ -104,8 +104,8 @@ func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
 	inventory.visible = true
 	cabin_area.can_select = true
-	shop_button.visible = true
-	wallet.visible = true
+	shop_button.visible = false
+	wallet.visible = false
 	print("state is now day")
 
 ## The attacks happen during this state

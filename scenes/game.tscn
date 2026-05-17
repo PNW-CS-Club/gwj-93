@@ -26,7 +26,7 @@
 [ext_resource type="AudioStream" uid="uid://chm4uuo0tm1i4" path="res://Sound/Water.wav" id="15_bhx41"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
 [ext_resource type="AudioStream" uid="uid://yrylvybdsv0i" path="res://Sound/CeresTheme.wav" id="16_1kice"]
-[ext_resource type="Script" uid="uid://dvw2r6uuyoyuo" path="res://scripts/cabin_area.gd" id="16_rysoc"]
+[ext_resource type="Script" path="res://scripts/cabin_area.gd" id="16_rysoc"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
 gradient = ExtResource("15_ir15t")
