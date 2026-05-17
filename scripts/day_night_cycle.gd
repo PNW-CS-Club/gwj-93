@@ -20,9 +20,9 @@ func _process(delta: float) -> void:
 	if _next_phase == _curr_phase: return
 	
 	_time += delta / DURATION
-	_time = clampf(0.0, _time, 1.0)
-	
-	if _time >= DURATION:
+	_time = clampf(_time, 0.0, 1.0)
+
+	if _time >= 1.0:
 		_curr_phase = _next_phase
 		_time = 0.0
 		transition_finished.emit(_next_phase)
