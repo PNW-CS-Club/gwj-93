@@ -117,6 +117,7 @@ script = ExtResource("14_ssvqc")
 
 [node name="Shop" parent="CanvasLayerPopups" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Cabin" parent="CanvasLayerPopups" unique_id=1657024557 instance=ExtResource("5_dinhu")]
 unique_name_in_owner = true

@@ -4,10 +4,11 @@ class_name Game extends Node2D
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 @onready var shop: Shop = %Shop 
+@onready var cabin: Cabin = %Cabin
 @onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 
-enum GameState {DAWN, DAY, DUSK, NIGHT}
+enum GameStates {DAWN, DAY, DUSK, NIGHT}
 
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
@@ -32,7 +33,7 @@ const HP_SEED_ITEM: Item = preload("uid://gad4q5m7vacj")
 const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
 const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
-const current_state = GameState.DAWN
+const current_state = GameStates.DAWN
 
 # Atlas coords
 const WET_TILE: Vector2i = Vector2i(0,0)
@@ -42,24 +43,25 @@ const DEBRIS_TILE: Vector2i = Vector2i(4,2)
 func _ready():
 	# Signals
 	farm.on_tile_click.connect(_click_tile)
-	
+	cabin.end_day.connect(_end_day)
 	#Game State
-	set_state(GameState.DAWN)
+	set_state(GameStates.DAWN)
 	
 	shop.item_bought.connect(_click_purchase)
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
 
 #region Game State
 
-func set_state(state: Game.GameState) -> void:
+func set_state(state: Game.GameStates) -> void:
+	print("setting state to:",state)
 	match state:
-		GameState.DAWN:
+		GameStates.DAWN:
 			_handle_dawn()
-		GameState.DAY:
+		GameStates.DAY:
 			_handle_day()
-		GameState.DUSK:
+		GameStates.DUSK:
 			_handle_dusk()
-		GameState.NIGHT:
+		GameStates.NIGHT:
 			_handle_night()
 		
 ## The game starts here. Give the player resources
@@ -73,23 +75,29 @@ func _handle_dawn() -> void:
 	_set_debris() # Place some debris on empty squares
 	
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
+	print("state is now dawn")
 	pass
 	
 ## The player does most of their actions here
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
-	
+	print("state is now day")
 	pass
 
 ## The attacks happen during this state
 func _handle_dusk() -> void: 
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
+	print("state is now dusk")
 	pass
 
 ## We check if the player survived at this stage.
 func _handle_night() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.NIGHT)
+	print("state is now night")
 	pass
+
+func _end_day() -> void:
+	set_state(GameStates.DUSK)
 #endregion
 
 func _click_tile(coords: Vector2i) -> void:

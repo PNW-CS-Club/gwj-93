@@ -1,7 +1,8 @@
-[gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
+[gd_scene format=3 uid="uid://mbnwgcxrgbj1"]
 
 [ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_em8ck"]
 [ext_resource type="Texture2D" uid="uid://dmy84hk32qi14" path="res://art/room.png" id="2_dn4fy"]
+[ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="2_qf7ms"]
 [ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scripts/bedToolTip.gd" id="3_16qgp"]
 [ext_resource type="Script" uid="uid://c37m8o7q1dt7a" path="res://scripts/toolTipCrafting.gd" id="4_1opua"]
 [ext_resource type="Script" uid="uid://dkh2q5psy1tun" path="res://scripts/leave_back_to_game.gd" id="5_u8rqo"]
@@ -14,6 +15,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("1_em8ck")
 theme_type_variation = &"TranslucentPanel"
+script = ExtResource("2_qf7ms")
 
 [node name="CabinTexture" type="TextureRect" parent="." unique_id=163915540]
 layout_mode = 1
