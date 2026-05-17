@@ -1,6 +1,7 @@
 # standard Godot v4 ignores
 .godot/
 /android/
+/build/
 
 # files that change every time you view them
 *.translation
