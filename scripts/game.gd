@@ -69,6 +69,7 @@ func _handle_dawn() -> void:
 	# Give the player some basic resources
 	# seeds, coins, shovel uses, watering can uses
 	
+	_reset_wet_to_dry() # Reset wet tiles to dry
 	_set_debris() # Place some debris on empty squares
 	
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
@@ -77,6 +78,7 @@ func _handle_dawn() -> void:
 ## The player does most of their actions here
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
+	
 	pass
 
 ## The attacks happen during this state
@@ -150,15 +152,14 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 	else:
 		return false
 
-
+## Use the shovel to remove debris
 func _dig_up(coords: Vector2i) -> void:
 	var target = grid.at(coords)
-	print("attempt digup")
-	if target.is_class("Debris"):
+	if target is Debris:
 		grid.put(coords, null)
 		grid.remove_child(target)
+		farm.set_cell(coords, 9, DRY_TILE)
 		inventory.remove_from_hand(1)
-		print("debris removed")
 
 ## If the coordinate is a plant, the watering can is used and the plant is upgraded.
 ## Returns whether it was successful.
@@ -194,8 +195,16 @@ func _set_debris() -> void:
 		if cell == null:
 			var debris: Debris = Debris.new()
 			grid.put(cell_coords, debris)
+			grid.add_child(debris)
 			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
 		debris_amount -= 1
+
+## Reset all the wet tiles to dry tiles
+func _reset_wet_to_dry() -> void:
+	var wet_tiles: Array[Vector2i] = farm.get_used_cells_by_id(9,WET_TILE)
+	for i in wet_tiles:
+		farm.set_cell(i, 9, DRY_TILE)
+			
 
 #adds item to inventory and subtracts price from wallet
 func _click_purchase(item: Item, price: int) ->void:

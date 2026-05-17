@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cof6fki6jt0fo"
-path="res://.godot/imported/DefxHP_sheet.png-842c1153180348d19da4525c98c2fe52.ctex"
+uid="uid://b8npnoglxe3if"
+path="res://.godot/imported/scythe.png-ce9cbf1e41ae19bfb4df56f64fbaf2a2.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plants/DefxHP/DefxHP_sheet.png"
-dest_files=["res://.godot/imported/DefxHP_sheet.png-842c1153180348d19da4525c98c2fe52.ctex"]
+source_file="res://art/other_items/scythe.png"
+dest_files=["res://.godot/imported/scythe.png-ce9cbf1e41ae19bfb4df56f64fbaf2a2.ctex"]
 
 [params]
 
