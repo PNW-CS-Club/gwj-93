@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://bamydx7slu2tx"]
+
+[ext_resource type="Script" uid="uid://drx6gi3f4qaf3" path="res://plants/def_hp/def_hp_plant.gd" id="1_10o5s"]
+[ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_axqgi"]
+[ext_resource type="Texture2D" uid="uid://cof6fki6jt0fo" path="res://art/plants/DefxHP/DefxHP_sheet.png" id="2_t2jxs"]
+
+[sub_resource type="Resource" id="Resource_u1q5f"]
+resource_local_to_scene = true
+script = ExtResource("2_axqgi")
+metadata/_custom_type_script = "uid://bcn1nww4e1u45"
+
+[node name="DefHpPlant" type="Node2D" unique_id=677263670]
+script = ExtResource("1_10o5s")
+stats = SubResource("Resource_u1q5f")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=504642422]
+texture = ExtResource("2_t2jxs")
+hframes = 3

@@ -20,4 +20,4 @@ texture = ExtResource("3_t5pj4")
 hframes = 3
 frame = 2
 region_enabled = true
-region_rect = Rect2(0, 96.61, 390, 130)
+region_rect = Rect2(0, 0, 390, 325)

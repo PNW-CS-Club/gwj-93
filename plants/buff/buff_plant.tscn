@@ -17,6 +17,6 @@ stats = SubResource("Resource_38y82")
 z_index = 10
 position = Vector2(0, 1)
 texture = ExtResource("2_uqpdx")
+offset = Vector2(0, -28.575)
 hframes = 3
-region_enabled = true
 region_rect = Rect2(0, 90, 390, 130)
