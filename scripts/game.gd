@@ -1,14 +1,15 @@
 class_name Game extends Node2D
 
 signal attacks_complete
-signal transition_state_complete
 
 
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
 @onready var shop: Shop = %Shop 
+@onready var shop_button: TextureButton = %ShopButton
 @onready var cabin: Cabin = %Cabin
+@onready var cabin_button: TextureButton = %CabinButton
 @onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 @onready var attack_highlight_marker: Sprite2D = %AttackHighlightMarker
@@ -80,51 +81,48 @@ func _handle_dawn() -> void:
 	if current_day > 1:
 		pass #Display good day overview
 	
-	# Give the player some basic resources
-	# seeds, coins, shovel uses, watering can uses
-	_give_resources() # Give player resources.
-	
-	_reset_wet_to_dry() # Reset wet tiles to dry.
-	_add_debris() # Place some debris on empty squares.
-	
+	inventory.visible = false
+	cabin_button.visible = false
+	shop_button.visible = false
+	wallet.visible = false
+	_give_resources()
+	_reset_wet_to_dry()
+	_add_debris()
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
-	await get_tree().create_timer(2.0).timeout
-	transition_state_complete.emit()
+	await daylight_cycle.transition_finished
 	print("state is now dawn")
 	set_state(GameStates.DAY)
-	pass
 	
 ## The player does most of their actions here
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
-	await get_tree().create_timer(2.0).timeout
-	transition_state_complete.emit()
+	inventory.visible = true
+	cabin_button.visible = true
+	shop_button.visible = true
+	wallet.visible = true
 	print("state is now day")
-	pass
 
 ## The attacks happen during this state
-func _handle_dusk() -> void: 
-	var rng = RandomNumberGenerator.new()
-	var number_of_attacks = rng.randi_range(3,6)
+func _handle_dusk() -> void:
+	inventory.visible = false
+	cabin_button.visible = false
+	shop_button.visible = false
+	wallet.visible = false
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
-	await get_tree().create_timer(2.0).timeout
-	transition_state_complete.emit()
+	await daylight_cycle.transition_finished
 	print("state is now dusk")
-	enemy_attack.attack(EnemyAttack.Attacks.RANDOM,number_of_attacks)
-	await attacks_complete # pause until all attacks finish
-	print("TEMP > Transition to night")
+	var rng = RandomNumberGenerator.new()
+	var number_of_attacks = rng.randi_range(3, 6)
+	enemy_attack.attack(EnemyAttack.Attacks.RANDOM, number_of_attacks)
+	await attacks_complete
 	set_state(GameStates.NIGHT)
-	pass
 
 ## We check if the player survived at this stage.
 func _handle_night() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.NIGHT)
-	await get_tree().create_timer(2.0).timeout
-	transition_state_complete.emit()
+	await daylight_cycle.transition_finished
 	print("state is now night")
-	print("TEMP > Transition to dawn")
 	set_state(GameStates.DAWN)
-	pass
 
 func _end_day() -> void:
 	cabin.visible = false
