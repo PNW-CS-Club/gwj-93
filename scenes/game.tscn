@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://ccrvbuxgfrgqm" path="res://scenes/money_overlay.tscn" id="5_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
-[ext_resource type="Script" path="res://scripts/grid.gd" id="8_gee14"]
+[ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://scripts/grid.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Script" uid="uid://bgwxytwx4v5sd" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
@@ -37,7 +37,7 @@ metadata/_edit_lock_ = true
 
 [node name="TileMapLayerFarm" type="TileMapLayer" parent="TileMapLayers" unique_id=876398775]
 unique_name_in_owner = true
-tile_map_data = PackedByteArray("AAAAAAAACQABAAAAAAAAAAEACQABAAAAAAAAAAIACQABAAAAAAAAAAMACQABAAAAAAAAAAQACQABAAAAAAABAAAACQABAAAAAAABAAEACQABAAAAAAABAAIACQABAAAAAAABAAMACQABAAAAAAABAAQACQABAAAAAAACAAAACQABAAAAAAACAAEACQABAAAAAAACAAIACQABAAAAAAACAAMACQABAAAAAAACAAQACQABAAAAAAADAAAACQAAAAAAAAADAAEACQAAAAAAAAADAAIACQABAAAAAAADAAMACQABAAAAAAADAAQACQABAAAAAAAEAAAACQAAAAAAAAAEAAEACQABAAAAAAAEAAIACQAAAAAAAAAEAAMACQABAAAAAAAEAAQACQABAAAAAAA=")
+tile_map_data = PackedByteArray("AAAAAAAACQABAAAAAAAAAAEACQABAAAAAAAAAAIACQABAAAAAAAAAAMACQABAAAAAAAAAAQACQABAAAAAAABAAAACQABAAAAAAABAAEACQABAAAAAAABAAIACQABAAAAAAABAAMACQABAAAAAAABAAQACQABAAAAAAACAAAACQABAAAAAAACAAEACQABAAAAAAACAAIACQABAAAAAAACAAMACQABAAAAAAACAAQACQABAAAAAAADAAAACQABAAAAAAADAAEACQABAAAAAAADAAIACQABAAAAAAADAAMACQABAAAAAAADAAQACQABAAAAAAAEAAAACQABAAAAAAAEAAEACQABAAAAAAAEAAIACQABAAAAAAAEAAMACQABAAAAAAAEAAQACQABAAAAAAA=")
 tile_set = ExtResource("4_gee14")
 script = ExtResource("4_u5sy4")
 metadata/_edit_lock_ = true

@@ -76,6 +76,7 @@ func _handle_dawn() -> void:
 	# Give the player some basic resources
 	# seeds, coins, shovel uses, watering can uses
 	
+	_reset_wet_to_dry() # Reset wet tiles to dry
 	_set_debris() # Place some debris on empty squares
 	
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
@@ -84,6 +85,7 @@ func _handle_dawn() -> void:
 ## The player does most of their actions here
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
+	
 	pass
 
 ## The attacks happen during this state
@@ -183,7 +185,7 @@ func _try_to_water(coords: Vector2i) -> bool:
 	# Update the level of the plant. 
 	plant.stats.level += 1
 	# Update the farm tile to the watered tile
-	##farm.set_cell(coords, 9, WET_TILE)
+	farm.set_cell(coords, 9, WET_TILE)
 	
 	
 	inventory.remove_from_hand(1)
@@ -203,3 +205,10 @@ func _set_debris() -> void:
 			grid.add_child(debris)
 			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
 		debris_amount -= 1
+
+## Reset all the wet tiles to dry tiles
+func _reset_wet_to_dry() -> void:
+	var wet_tiles: Array[Vector2i] = farm.get_used_cells_by_id(9,WET_TILE)
+	for i in wet_tiles:
+		farm.set_cell(i, 9, DRY_TILE)
+			
