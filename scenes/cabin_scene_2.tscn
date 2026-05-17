@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://mbnwgcxrgbj1"]
 
-[ext_resource type="Texture2D" uid="uid://bvg0jkn2d3hbn" path="res://room.png" id="2_dn4fy"]
+[ext_resource type="Texture2D" uid="uid://dmy84hk32qi14" path="res://art/room.png" id="2_dn4fy"]
 [ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scripts/bedToolTip.gd" id="3_16qgp"]
 [ext_resource type="Script" path="res://scripts/toolTipCrafting.gd" id="4_1opua"]
 [ext_resource type="Script" path="res://scripts/leave_back_to_game.gd" id="5_u8rqo"]
