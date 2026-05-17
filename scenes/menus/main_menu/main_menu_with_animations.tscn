@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://bow57nfxra7kj" path="res://scenes/windows/main_menu_options_window.tscn" id="3_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://1nxucmsjsvpy" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
+[ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/other_items/ceres title screen.png" id="5_ixa71"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"
@@ -328,6 +329,10 @@ libraries/ = SubResource("AnimationLibrary_2kqig")
 tree_root = SubResource("AnimationNodeStateMachine_vikuh")
 anim_player = NodePath("../MenuAnimationPlayer")
 parameters/conditions/intro_done = false
+
+[node name="BackgroundTextureRect" parent="." index="4" unique_id=1940176448]
+texture = ExtResource("5_ixa71")
+stretch_mode = 0
 
 [node name="TitleContainer" parent="MenuContainer/TitleMargin" parent_id_path=PackedInt32Array(2112060331) index="0" unique_id=556427956]
 modulate = Color(1, 1, 1, 0)

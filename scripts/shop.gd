@@ -1,5 +1,7 @@
-extends CanvasLayer
+class_name Shop extends Panel
 
+#signal for items bought to go to hot bar
+signal item_bought(item_name: String, item_price: int)
 #path used to access the data in the dictionaries
 var dataDictionary = preload("res://scripts/dataDict.gd").new()
 
@@ -23,7 +25,7 @@ var dataDictionary = preload("res://scripts/dataDict.gd").new()
 @onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
 
 #path used to access our currency
-@onready var moneyOverlay = get_node("../CoinOverlay")
+@onready var wallet = get_node("../CoinOverlay")
 
 var rng = RandomNumberGenerator.new()
 
@@ -57,23 +59,12 @@ func displayPlants() -> void:
 func _on_pressed_plant_purchase(index: int, plantResults: Array) -> void:
 	var buyablePlantKey
 	
-	if index == 0:
-		print(0)
-		buyablePlantKey = plantResults[index]
-		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
-		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
-		
-	elif index == 1:
-		print(1)
-		buyablePlantKey = plantResults[index]
-		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
-		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
-		
-	else:
-		print(2)
-		buyablePlantKey = plantResults[index]
-		print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
-		moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
+	print(index)
+	buyablePlantKey = plantResults[index]
+	print(dataDictionary.buyablePlants[buyablePlantKey]["Name"])
+	#moneyOverlay.subtractAmount(dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
+	item_bought.emit(dataDictionary.buyablePlants[buyablePlantKey]["Name"], dataDictionary.buyablePlants[buyablePlantKey]["Cost"])
+
 
 #recursive function that will display our random plants each time the player clicks on the shop and will an array of the keys the plants can buy
 #NOTE Here is where we would implement the calendar system, the seeds should be set to a specific amount and should not rotate until the next day
