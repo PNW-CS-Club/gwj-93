@@ -115,22 +115,27 @@ texture = ExtResource("7_rysoc")
 
 [node name="sfx_attackmiss" type="AudioStreamPlayer" parent="." unique_id=1532016439]
 stream = ExtResource("11_264po")
+bus = &"SFX"
 
 [node name="sfx_attackhit" type="AudioStreamPlayer" parent="." unique_id=1217343080]
 unique_name_in_owner = true
 stream = ExtResource("12_1kice")
+bus = &"SFX"
 
 [node name="sfx_dig" type="AudioStreamPlayer" parent="." unique_id=1020007983]
 unique_name_in_owner = true
 stream = ExtResource("13_e1j6l")
+bus = &"SFX"
 
 [node name="sfx_plant" type="AudioStreamPlayer" parent="." unique_id=725052729]
 unique_name_in_owner = true
 stream = ExtResource("14_pl11u")
+bus = &"SFX"
 
 [node name="sfx_water" type="AudioStreamPlayer" parent="." unique_id=2139045]
 unique_name_in_owner = true
 stream = ExtResource("15_bhx41")
+bus = &"SFX"
 
 [node name="EnemyAttack" parent="." unique_id=394448822 instance=ExtResource("11_rysoc")]
 unique_name_in_owner = true
