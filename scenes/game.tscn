@@ -89,6 +89,7 @@ texture = ExtResource("10_rysoc")
 hframes = 2
 
 [node name="CanvasLayerStatic" type="CanvasLayer" parent="." unique_id=40402678]
+layer = 3
 
 [node name="CoinOverlay" parent="CanvasLayerStatic" unique_id=1098571293 instance=ExtResource("5_vtaks")]
 unique_name_in_owner = true

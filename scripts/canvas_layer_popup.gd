@@ -11,7 +11,7 @@ func _ready() -> void:
 	shop.hide()
 	
 	cabin_area.input_event.connect(_handle_cabin_input)
-	shop_button.pressed.connect(func(): shop.show())
+	shop_button.pressed.connect(func(): shop.visible = not shop.visible)
 	cabin.pressed.connect(func(): cabin.hide())
 	shop.pressed.connect(func(): shop.hide())
 
