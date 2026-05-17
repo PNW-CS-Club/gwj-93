@@ -1,0 +1,70 @@
+[gd_scene format=3 uid="uid://mbnwgcxrgbj1"]
+
+[ext_resource type="Texture2D" uid="uid://bvg0jkn2d3hbn" path="res://room.png" id="2_dn4fy"]
+[ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scripts/bedToolTip.gd" id="3_16qgp"]
+[ext_resource type="Script" path="res://scripts/toolTipCrafting.gd" id="4_1opua"]
+[ext_resource type="Script" path="res://scripts/leave_back_to_game.gd" id="5_u8rqo"]
+
+[node name="cabinScene2" type="Panel" unique_id=1657024557]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="." unique_id=163915540]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -480.0
+offset_right = 408.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_dn4fy")
+expand_mode = 1
+metadata/_edit_lock_ = true
+
+[node name="bedPanel" type="PanelContainer" parent="." unique_id=1443120536]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.83300006
+anchor_top = 0.716
+anchor_right = 0.83300006
+anchor_bottom = 0.716
+offset_left = -191.61609
+offset_top = -183.96802
+offset_right = 192.38391
+offset_bottom = 184.03198
+grow_horizontal = 0
+
+[node name="bedButton" type="Button" parent="bedPanel" unique_id=404796902]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("3_16qgp")
+
+[node name="cratingTablePanel" type="PanelContainer" parent="." unique_id=1688098936]
+layout_mode = 0
+offset_left = 40.0
+offset_top = 16.0
+offset_right = 528.0
+offset_bottom = 238.0
+script = ExtResource("4_1opua")
+
+[node name="doorPanel" type="PanelContainer" parent="." unique_id=1982464325]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.087000005
+anchor_top = 0.59900004
+anchor_right = 0.087000005
+anchor_bottom = 0.59900004
+offset_left = -60.224007
+offset_top = -68.15204
+offset_right = 59.775993
+offset_bottom = 67.84796
+
+[node name="leaveBackToGame" type="Button" parent="doorPanel" unique_id=360641019]
+unique_name_in_owner = true
+layout_mode = 2
+script = ExtResource("5_u8rqo")
