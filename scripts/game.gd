@@ -115,9 +115,13 @@ func _handle_dusk() -> void:
 	await daylight_cycle.transition_finished
 	print("state is now dusk")
 	var rng = RandomNumberGenerator.new()
-	var number_of_attacks = rng.randi_range(3, 6)
-	enemy_attack.attack(EnemyAttack.Attacks.RANDOM, number_of_attacks)
-	await attacks_complete
+	var number_of_patterns = rng.randi_range(1,3)
+	for i in number_of_patterns:
+		# select a pattern
+		var pattern = randi_range(0,EnemyAttack.Attacks.size()-1)
+		var number_of_attacks = rng.randi_range(2, 6)
+		enemy_attack.attack(pattern, number_of_attacks)
+		await attacks_complete
 	set_state(GameStates.NIGHT)
 
 ## We check if the player survived at this stage.
@@ -212,11 +216,9 @@ func _try_to_water(coords: Vector2i) -> bool:
 	var plant: Plant = grid.at(coords)
 	# Fail if the plant is already max level.
 	if plant.stats.level >= 3:
-		print("> failed because already max level:", plant.stats.level)
 		return false
 	# Fail if the plant has already been leveled up this turn.
 	if farm.get_cell_atlas_coords(coords) == WET_TILE:
-		print("> failed because this plant has already been leveled this day")
 		return false
 	# Update the level of the plant. 
 	plant.stats.level += 1
@@ -225,7 +227,6 @@ func _try_to_water(coords: Vector2i) -> bool:
 	
 	
 	inventory.remove_from_hand(1)
-	print("> success")
 	return true
 #endregion
 
@@ -300,12 +301,10 @@ func _attack_squares(marked_squares: Array[Vector2i]) -> void:
 		attack_highlight_marker.visible = true
 		await get_tree().create_timer(0.2).timeout
 		if grid.at(square) is Plant:
-			print("HIT at",square)
 			var plant: Plant = grid.at(square)
 			plant.take_damage(100)
 			sfx_attackhit.play()
 		else:
-			print("MISS at",square)
 			sfx_attackmiss.play()
 		await get_tree().create_timer(0.2).timeout
 		#var plant = grid.at(square)

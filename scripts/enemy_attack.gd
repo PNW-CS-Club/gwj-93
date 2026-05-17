@@ -41,7 +41,7 @@ func attack(type: Attacks = Attacks.SQUARE, size: int = 1) -> void:
 ## | 0 | 0 | 0 | [br]
 func _square_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 	var attack_length: int = clampi(size,1,grid.WIDTH) # Clamp size to grid WIDTH
-	attack_length = clampi(attack_length,1,grid.width)  # Clamp size to grid HEIGHT
+	attack_length = clampi(attack_length,1,grid.HEIGHT)  # Clamp size to grid HEIGHT
 	var column: int
 	var row: int
 	var marked_squares: Array[Vector2i]
