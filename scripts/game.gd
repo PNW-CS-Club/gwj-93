@@ -34,6 +34,7 @@ const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
 const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
 const current_state = GameStates.DAWN
+var current_day: int
 
 # Atlas coords
 const WET_TILE: Vector2i = Vector2i(0,0)
@@ -46,7 +47,7 @@ func _ready():
 	cabin.end_day.connect(_end_day)
 	#Game State
 	set_state(GameStates.DAWN)
-	
+	current_day = 0
 	shop.item_bought.connect(_click_purchase)
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
 
@@ -66,16 +67,21 @@ func set_state(state: Game.GameStates) -> void:
 		
 ## The game starts here. Give the player resources
 func _handle_dawn() -> void:
-	# Display good day overview
+	current_day += 1
+	# Display good day overview if not the first day
+	if current_day > 1:
+		pass #Display good day overview
 	
 	# Give the player some basic resources
 	# seeds, coins, shovel uses, watering can uses
+	_give_resources() # Give player resources.
 	
-	_reset_wet_to_dry() # Reset wet tiles to dry
-	_set_debris() # Place some debris on empty squares
+	_reset_wet_to_dry() # Reset wet tiles to dry.
+	_add_debris() # Place some debris on empty squares.
 	
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
 	print("state is now dawn")
+	set_state(GameStates.DAY)
 	pass
 	
 ## The player does most of their actions here
@@ -100,6 +106,7 @@ func _end_day() -> void:
 	set_state(GameStates.DUSK)
 #endregion
 
+#region Player Actions
 func _click_tile(coords: Vector2i) -> void:
 	print("\nclicked on farm plot at " + str(coords))
 	var plot_contents: Node = grid.at(coords)
@@ -192,20 +199,28 @@ func _try_to_water(coords: Vector2i) -> bool:
 	inventory.remove_from_hand(1)
 	print("> success")
 	return true
+#endregion
 
+#region Private Helper Functions
+## Give the player resources
+func _give_resources() -> void:
+	print("TODO: Give player resources")
+	pass
 ## Used to place debris in the farm. Only places in empty tiles
-func _set_debris() -> void:
+func _add_debris() -> void:
 	var rng = RandomNumberGenerator.new()
 	var debris_amount = rng.randi_range(0,4)
 	while debris_amount > 0:
 		var cell_coords: Vector2i = Vector2i(rng.randi_range(0,grid.WIDTH-1), rng.randi_range(0,grid.HEIGHT-1))
 		var cell = grid.at(cell_coords)
-		if cell == null:
+		if cell == null: 
 			var debris: Debris = Debris.new()
 			grid.put(cell_coords, debris)
 			grid.add_child(debris)
 			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
-		debris_amount -= 1
+		debris_amount -= 1 
+		#NOTE Even if the function failed to add certain debris we still reduce the amount.
+		#NOTE This gives some grace to the player so that they see less debris with nearly full boards.
 
 #adds item to inventory and subtracts price from wallet
 func _click_purchase(item: Item, price: int) ->void:
@@ -223,3 +238,4 @@ func _reset_wet_to_dry() -> void:
 	for i in wet_tiles:
 		farm.set_cell(i, 9, DRY_TILE)
 			
+#endregion
