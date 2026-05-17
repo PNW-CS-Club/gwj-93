@@ -5,7 +5,7 @@ signal squares_to_attack(marked_squares: Array[Vector2i])
 enum Attacks {SQUARE, ROW_COLUMN, RANDOM}
 
 var guaranteed_hit_chance: float = 0.10: set = on_guaranteed_hit_chance_set
-var grid: Grid # this should be a reference of the grid in the game
+@onready var grid: Grid = %Grid 
 var rng
 
 func _ready():
@@ -40,8 +40,8 @@ func attack(type: Attacks = Attacks.SQUARE, size: int = 1) -> void:
 ## | 3 | 4 | 0 | [br]
 ## | 0 | 0 | 0 | [br]
 func _square_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
-	var attack_length: int = clampi(size,1,grid.length) # Clamp size to grid length
-	attack_length = clampi(attack_length,1,grid.width)  # Clamp size to grid height
+	var attack_length: int = clampi(size,1,grid.WIDTH) # Clamp size to grid WIDTH
+	attack_length = clampi(attack_length,1,grid.width)  # Clamp size to grid HEIGHT
 	var column: int
 	var row: int
 	var marked_squares: Array[Vector2i]
@@ -52,14 +52,14 @@ func _square_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 			return marked_squares
 		# else: generate the attack to hit the random plant
 		# find column start index
-		if (plant_coords.x + attack_length) > (grid.length - 1):
-			var diff = plant_coords.x + attack_length - grid.length + 1
+		if (plant_coords.x + attack_length) > (grid.WIDTH - 1):
+			var diff = plant_coords.x + attack_length - grid.WIDTH + 1
 			column = plant_coords.x - diff
 		else:
 			column = plant_coords.x
 		# find row start index
-		if (plant_coords.y + attack_length) > (grid.height - 1):
-			var diff = plant_coords.y + attack_length - grid.height + 1
+		if (plant_coords.y + attack_length) > (grid.HEIGHT - 1):
+			var diff = plant_coords.y + attack_length - grid.HEIGHT + 1
 			row = plant_coords.y - diff
 		else:
 			row = plant_coords.y
@@ -69,8 +69,8 @@ func _square_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 				marked_squares.append(Vector2i(c,r))
 		return marked_squares
 	# else: generate the attack in a random spot in the grid
-	column = rng.randi_range(0,grid.length - attack_length)
-	row = rng.randi_range(0,grid.height - attack_length)
+	column = rng.randi_range(0,grid.WIDTH - attack_length)
+	row = rng.randi_range(0,grid.HEIGHT - attack_length)
 	if attack_length == 1:
 		marked_squares.append(Vector2i(column,row))
 		return marked_squares
@@ -95,17 +95,17 @@ func _row_column_attack(guaranteed_hit: bool) -> Array[Vector2i]:
 		var plant_coords: Vector2i = grid.plants.pick_random() # picks a random plant from the list of living plants
 		column = plant_coords.x
 		row = plant_coords.y
-		for c in range(grid.length): # First mark the row.
+		for c in range(grid.WIDTH): # First mark the row.
 			marked_squares.append(Vector2i(c,row))
-		for r in range(grid.height): # Secondly mark the column.
+		for r in range(grid.HEIGHT): # Secondly mark the column.
 			marked_squares.append(Vector2i(column,r))
 		return marked_squares
 	# Generate a random column and random row.
-	column = rng.randi_range(0,grid.length-1)
-	row = rng.randi_range(0,grid.height-1)
-	for c in range(grid.length): # First mark the row.
+	column = rng.randi_range(0,grid.WIDTH-1)
+	row = rng.randi_range(0,grid.HEIGHT-1)
+	for c in range(grid.WIDTH): # First mark the row.
 		marked_squares.append(Vector2i(c,row))
-	for r in range(grid.height): # Secondly mark the column.
+	for r in range(grid.HEIGHT): # Secondly mark the column.
 		marked_squares.append(Vector2i(column,r))
 	return marked_squares
 
@@ -115,6 +115,7 @@ func _row_column_attack(guaranteed_hit: bool) -> Array[Vector2i]:
 ## | 0 | 4 |[br]
 func _random_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 	# size in this function is the amount of random attacks
+	print("Doing a random attack")
 	var marked_squares: Array[Vector2i]
 	
 	if guaranteed_hit: # The very first strike is a guaranteed hit on a random plant.
@@ -123,6 +124,7 @@ func _random_attack(guaranteed_hit: bool, size: int) -> Array[Vector2i]:
 		size -= 1 # Count the guaranteed hit
 	# The remaining attacks are random
 	for i in range(size):
-		marked_squares.append(Vector2i(rng.randi_range(0,grid.length), rng.randi_range(0,grid.height)))
+		marked_squares.append(Vector2i(rng.randi_range(0,grid.WIDTH-1), rng.randi_range(0,grid.HEIGHT-1)))
+	print("returning the marked squares:",marked_squares)
 	return marked_squares
 #endregion

@@ -8,8 +8,11 @@
 [ext_resource type="PackedScene" uid="uid://8qtvq6m7yo0l" path="res://scenes/Inventory/hotbar.tscn" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://ccrvbuxgfrgqm" path="res://scenes/wallet.tscn" id="5_vtaks"]
+[ext_resource type="Texture2D" uid="uid://c3uv1vsyhgjwg" path="res://art/attack-outline-bottom.png" id="6_ca42v"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
+[ext_resource type="Texture2D" uid="uid://cm228mby0xynw" path="res://art/attack-outline-top.png" id="7_rysoc"]
 [ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://scripts/grid.gd" id="8_gee14"]
+[ext_resource type="PackedScene" uid="uid://bw3q5xnnb62ft" path="res://scenes/enemy_attack.tscn" id="11_rysoc"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Script" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
@@ -71,6 +74,25 @@ unique_name_in_owner = true
 color = Color(0.46666667, 0.53333336, 0.6, 1)
 script = ExtResource("13_trtic")
 _gradient_texture = SubResource("GradientTexture1D_ir15t")
+
+[node name="AttackHighlightMarker" type="Sprite2D" parent="." unique_id=1520282569]
+unique_name_in_owner = true
+z_index = 1
+y_sort_enabled = true
+texture_filter = 1
+texture_repeat = 1
+position = Vector2(580, 195)
+texture = ExtResource("6_ca42v")
+
+[node name="AttackMarkerBack" type="Sprite2D" parent="AttackHighlightMarker" unique_id=1902327338]
+z_index = -1
+texture_filter = 1
+texture_repeat = 1
+texture = ExtResource("7_rysoc")
+
+[node name="EnemyAttack" parent="." unique_id=394448822 instance=ExtResource("11_rysoc")]
+unique_name_in_owner = true
+position = Vector2(516, 249)
 
 [node name="CanvasLayerStatic" type="CanvasLayer" parent="." unique_id=40402678]
 

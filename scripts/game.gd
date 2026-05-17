@@ -7,6 +7,8 @@ class_name Game extends Node2D
 @onready var cabin: Cabin = %Cabin
 @onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
+@onready var attack_highlight_marker: Sprite2D = %AttackHighlightMarker
+@onready var enemy_attack: EnemyAttack = %EnemyAttack
 
 enum GameStates {DAWN, DAY, DUSK, NIGHT}
 
@@ -46,9 +48,11 @@ func _ready():
 	farm.on_tile_click.connect(_click_tile)
 	cabin.end_day.connect(_end_day)
 	shop.item_bought.connect(_click_purchase)
+	enemy_attack.squares_to_attack.connect(_attack_squares)
 	#Game State
 	set_state(GameStates.DAWN)
 	current_day = 0
+	attack_highlight_marker.visible = false
 
 
 #region Game State
@@ -92,8 +96,12 @@ func _handle_day() -> void:
 
 ## The attacks happen during this state
 func _handle_dusk() -> void: 
+	var rng = RandomNumberGenerator.new()
+	var number_of_attacks = rng.randi_range(3,6)
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
 	print("state is now dusk")
+	enemy_attack.attack(EnemyAttack.Attacks.RANDOM,number_of_attacks)
+	# Wait until the attacks are done then transition to night
 	print("TEMP > Transition to night")
 	set_state(GameStates.NIGHT)
 	pass
@@ -107,6 +115,7 @@ func _handle_night() -> void:
 	pass
 
 func _end_day() -> void:
+	cabin.visible = false
 	set_state(GameStates.DUSK)
 #endregion
 
@@ -166,6 +175,7 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 		plant.global_position = farm.to_global(farm.map_to_local(coords))
 		inventory.remove_from_hand(1)
 		grid.put(coords, plant)
+		grid.plants.append(coords)
 		grid.add_child(plant)
 		return true
 	else:
@@ -208,7 +218,6 @@ func _try_to_water(coords: Vector2i) -> bool:
 #region Private Helper Functions
 ## Give the player resources
 func _give_resources() -> void:
-	print("TODO: Give player resources")
 	var rng = RandomNumberGenerator.new()
 	const BASIC_SEEDS: Array = [BUFF_SEED_ITEM, HP_SEED_ITEM, DEF_SEED_ITEM]
 	const COMBINED_SEEDS: Array = [BUFF_BUFF_SEED_ITEM,BUFF_DEF_SEED_ITEM,BUFF_HP_SEED_ITEM,DEF_DEF_SEED_ITEM,DEF_HP_SEED_ITEM,HP_HP_SEED_ITEM]
@@ -267,5 +276,19 @@ func _reset_wet_to_dry() -> void:
 	var wet_tiles: Array[Vector2i] = farm.get_used_cells_by_id(9,WET_TILE)
 	for i in wet_tiles:
 		farm.set_cell(i, 9, DRY_TILE)
-			
+
+## Deal damage to the marked squares
+func _attack_squares(marked_squares: Array[Vector2i]) -> void:
+	print("now attacking squares")
+	for square in marked_squares:
+		# Place a the attack marker on the square
+		attack_highlight_marker.position = farm.map_to_local(square)
+		attack_highlight_marker.visible = true
+		if grid.at(square) is not Plant:
+			print("MISS at",square)
+			continue # skip to next iteration
+		#var plant = grid.at(square)
+		print("HIT at",square)
+		#TODO Deal damage to plant
+	attack_highlight_marker.visible = false
 #endregion
