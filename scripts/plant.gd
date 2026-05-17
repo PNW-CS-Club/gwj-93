@@ -16,3 +16,6 @@ func _on_level_changed(level: int) -> void:
 ## The ability of the plant. Does not always require implementation
 func ability():
 	pass
+
+func take_damage(amount: int):
+	stats.health -= amount

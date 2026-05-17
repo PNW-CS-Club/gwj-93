@@ -1,30 +1,50 @@
-extends CanvasModulate
+class_name DaylightCycle extends CanvasModulate
 
-const MINUTES_PER_DAY = 1440
-const MINUTES_PER_HOUR = 60 
-const INGAME_TO_REAL_MINUTE_DURATION = (2 * PI) / MINUTES_PER_DAY
+signal transition_finished(phase: Phase)
 
-signal time_tick(day:int, hour: int, minute: int)
+enum Phase { NIGHT, DAWN, DAY, DUSK }
 
-var time:float = 0.0
+@export var _gradient_texture: GradientTexture1D
 
-@export var gradient: GradientTexture1D
+const DURATION: float = 2.0            # how long it takes to transition (in seconds)
 
-# Called every frame. 'delta' is the elapsed time since the previous frame.
+var _time: float = 0.0                # always between 0 and 1
+var _curr_phase: Phase = Phase.NIGHT  # the state we most recently fully transitioned to
+var _next_phase: Phase = Phase.NIGHT  # state we are transitioning to
+
+
+func _ready():
+	self.color = _calc_tint(_time, _curr_phase, _gradient_texture.gradient)
+
 func _process(delta: float) -> void:
-	time += delta
-	var value = (sin(time -(PI/6)+ 1.0))
-	self.color = gradient.gradient.sample(value)
+	if _next_phase == _curr_phase: return
 	
-func recalulateTime() -> void:
-	var totalMins = int(time / INGAME_TO_REAL_MINUTE_DURATION)
-	print(totalMins)
+	_time += delta / DURATION
+	_time = clampf(_time, 0.0, 1.0)
+
+	if _time >= 1.0:
+		_curr_phase = _next_phase
+		_time = 0.0
+		transition_finished.emit(_next_phase)
 	
-	var day = int(totalMins / MINUTES_PER_DAY)
-	
-	var currentDayMinutes = totalMins %  MINUTES_PER_DAY
-	
-	var hour = int(currentDayMinutes / MINUTES_PER_HOUR)
-	var minute = int(currentDayMinutes % MINUTES_PER_HOUR)
-	
-	time_tick.emit(day, hour, minute)
+	self.color = _calc_tint(_time, _curr_phase, _gradient_texture.gradient)
+
+
+func _calc_tint(time: float, phase: Phase, gradient: Gradient):
+	var value = ease(time, -2.0) * 0.25 + _phase_value(phase)
+	return gradient.sample(value)
+
+
+## returns the value on the gradient texture that corresponds to the given phase's color
+func _phase_value(phase: Phase) -> float:
+	match phase:
+		Phase.DAWN: return 0.25
+		Phase.DAY: return 0.50
+		Phase.DUSK: return 0.75
+		Phase.NIGHT: return 0.00
+	printerr("bad phase value: " + str(phase))
+	return -1;
+
+## activates the transition to the given phase (it will take `duration` seconds)
+func transition_to(phase: Phase) -> void:
+	_next_phase = phase

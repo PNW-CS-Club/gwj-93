@@ -6,4 +6,5 @@
 resource_local_to_scene = true
 resource_name = "def_buff_plant_stats"
 script = ExtResource("1_oeat3")
+base_max_health = 250
 metadata/_custom_type_script = "uid://bcn1nww4e1u45"

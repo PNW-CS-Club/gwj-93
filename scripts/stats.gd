@@ -82,4 +82,5 @@ func _on_health_set(new_value: int) -> void:
 func _on_level_set(new_level: int) -> void:
 	level = clampi(new_level, 1, 3)
 	recalculate_stats()
+	health = current_max_health
 	level_changed.emit(level)

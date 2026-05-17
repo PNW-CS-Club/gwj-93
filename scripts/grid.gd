@@ -24,7 +24,7 @@ func put(pos: Vector2i, node: Node) -> void:
 	if !_oob_check(pos): return
 	
 	grid[pos.y * WIDTH + pos.x] = node
-	if node.is_class("Plant"):
+	if node != null and node.is_class("Plant"):
 		plants.append(pos)
 
 # Logs an error message if the coords are out of bounds

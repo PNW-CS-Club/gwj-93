@@ -3,9 +3,9 @@ extends Control
 var challengeDictFile
 
 #labels for each of the challenges
-@onready var chal1Label: Label = %chal1
-@onready var chal2Label: Label = %chal2
-@onready var chal3Label: Label = %chal3
+@onready var label1: Label = %chal1
+@onready var label2: Label = %chal2
+@onready var label3: Label = %chal3
 
 @onready var uncheck1: TextureRect = %uncheck1
 @onready var uncheck2: TextureRect = %uncheck2
@@ -19,7 +19,6 @@ var chal1Track = 10
 var chal2Track = 0
 var chal3Track = 0
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
 	challengeDictFile = preload("res://scripts/challengeDict.gd").new()
@@ -33,9 +32,9 @@ func _ready() -> void:
 func displayObj(challengeDict: Dictionary) -> void:
 	
 	for i in range(1):
-		chal1Label.text = challengeDict["challenge1"]["Desc"]
-		chal2Label.text = challengeDict["challenge2"]["Desc"]
-		chal3Label.text = challengeDict["challenge3"]["Desc"]
+		label1.text = challengeDict["challenge1"]["Desc"]
+		label2.text = challengeDict["challenge2"]["Desc"]
+		label3.text = challengeDict["challenge3"]["Desc"]
 
 # shows whether the objective has been completed 
 func _check_completion() -> void:

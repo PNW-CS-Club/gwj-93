@@ -7,12 +7,12 @@ var day = 2
 
 func _ready() -> void:
 	
-	dayCounterIU.text = " Day %s " % [str(day)]
+	dayCounterIU.text = "Day %s" % [str(day)]
 
 #update the day when the signal is called
 func updateDay() -> void:
-	day = day + 1
-	dayCounterIU.text = " Day %s " % [str(day)]
+	day += 1
+	dayCounterIU.text = "Day %s" % [str(day)]
 
 #hide the day label when the cabin is opened
 func hideDayLabel() -> void:

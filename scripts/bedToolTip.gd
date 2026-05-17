@@ -1,12 +1,11 @@
-extends Button
+class_name Bed extends Button
 
-@onready var bedButton: Button = %bedButton
-@onready var cabinScene: Panel = %cabinScene
-@onready var cabinButton: TextureButton = %transCabinButton
+@onready var bedButton: Button = %BedButton
+@onready var cabinScene: Control = $"../.."
 
 #signals called in order to update the day counter and the day panel when you click the bed to go to the night
-signal updateDayCounter()
-signal showDaysSignal()
+#signal updateDayCounter()
+signal end_day()
 
 func _ready() -> void:
 	bedButton.pressed.connect(_bedClicked)
@@ -15,19 +14,12 @@ func _ready() -> void:
 func _make_custom_tooltip(_for_text: String) -> Object:
 	
 	var label = Label.new()
-	label.text = "Would you like to end the day?"
+	label.text = "End the day"
 	label.add_theme_font_size_override("font_size", 16)
-
+	
 	return label
 
-#when the bed is clicked to end the day it will update the day counter we can change this because 
-#we wanted to it to switch to night but this is kind of what i have so far
+## Send signal end_day()
 func _bedClicked() -> void:
-	
-	emit_signal("showDaysSignal")
-	emit_signal("updateDayCounter")
-	cabinButton.show()
+	emit_signal("end_day")
 	cabinScene.hide()
-	
-	
-	

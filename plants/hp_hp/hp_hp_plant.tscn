@@ -1,12 +1,13 @@
 [gd_scene format=3 uid="uid://ch6t652jrihl5"]
 
-[ext_resource type="Script" uid="uid://c2s3wji5gyx6t" path="res://plants/hp_hp/hp_hp_plant.gd" id="1_jtxk1"]
+[ext_resource type="Script" path="res://plants/hp_hp/hp_hp_plant.gd" id="1_jtxk1"]
 [ext_resource type="Texture2D" uid="uid://dljrl3afd3usq" path="res://art/plants/HPxHP/HPxHP_sheet.png" id="2_3dxva"]
 [ext_resource type="Script" uid="uid://bcn1nww4e1u45" path="res://scripts/stats.gd" id="2_4p5nu"]
 
 [sub_resource type="Resource" id="Resource_up7f3"]
 resource_local_to_scene = true
 script = ExtResource("2_4p5nu")
+base_max_health = 150
 base_level = 3
 metadata/_custom_type_script = "uid://bcn1nww4e1u45"
 
