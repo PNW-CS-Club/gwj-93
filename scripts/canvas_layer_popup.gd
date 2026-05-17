@@ -1,22 +1,22 @@
 extends CanvasLayer
 
-@onready var cabinButton: TextureButton = %CabinButton
-@onready var shopButton: TextureButton = %ShopButton
-@onready var cabin: Panel = %Cabin
-@onready var shop: Panel = %Shop
+@onready var cabin_area: CabinArea = %CabinArea
+@onready var shop_button: BaseButton = %ShopButton
+@onready var cabin: BaseButton = %Cabin
+@onready var shop: BaseButton = %Shop
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	cabinButton.show()
-	shopButton.show()
 	cabin.hide()
 	shop.hide()
 	
-	cabinButton.pressed.connect(_on_cabin_button_pressed)
-	shopButton.pressed.connect(_on_shop_button_pressed)
+	cabin_area.input_event.connect(_handle_cabin_input)
+	shop_button.pressed.connect(func(): shop.show())
+	cabin.pressed.connect(func(): cabin.hide())
+	shop.pressed.connect(func(): shop.hide())
 
-func _on_cabin_button_pressed() -> void:
-	cabin.show()
-	
-func _on_shop_button_pressed() -> void:
-	shop.show()
+func _handle_cabin_input(_viewport: Node, event: InputEvent, _index: int):
+	if cabin.visible or shop.visible: return
+	var left_clicked = event is InputEventMouseButton && event.is_pressed() && event.button_index == MOUSE_BUTTON_LEFT
+	if left_clicked: 
+		cabin.show()

@@ -1,7 +1,7 @@
 extends Button
 
 @onready var bedButton: Button = %BedButton
-@onready var cabinScene: Panel = $"../.."
+@onready var cabinScene: Control = $"../.."
 
 #signals called in order to update the day counter and the day panel when you click the bed to go to the night
 signal updateDayCounter()

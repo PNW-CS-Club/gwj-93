@@ -1,4 +1,4 @@
-class_name Shop extends Panel
+class_name Shop extends BaseButton
 
 #signal for items bought to go to hot bar
 signal item_bought(item_name: String, item_price: int)
@@ -6,22 +6,19 @@ signal item_bought(item_name: String, item_price: int)
 var dataDictionary = preload("res://scripts/dataDict.gd").new()
 
 
-#used for opening opening up the shop
-@onready var seedPanel: Panel = %seedPanel
-
 #three random plants
-@onready var firstRandomPlant: Control = $seedPanel/firstRandomPlant
-@onready var secondRandomPlant: Control = $seedPanel/secondRandomPlant
-@onready var thirdRandomPlant: Control = $seedPanel/thirdRandomPlant
+@onready var firstRandomPlant: Control = $ShopDisplay/firstRandomPlant
+@onready var secondRandomPlant: Control = $ShopDisplay/secondRandomPlant
+@onready var thirdRandomPlant: Control = $ShopDisplay/thirdRandomPlant
 
 #potions
-@onready var healthPotion: Control = $seedPanel/healthPotion
-@onready var evasPotion: Control = $seedPanel/evasionPotion
+@onready var healthPotion: Control = $ShopDisplay/healthPotion
+@onready var evasPotion: Control = $ShopDisplay/evasionPotion
 
 #purchase buttons
-@onready var firstButton: Button = $seedPanel/firstRandomPlant/firstButton
-@onready var secondButton: Button = $seedPanel/secondRandomPlant/secondButton
-@onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
+@onready var firstButton: Button = $ShopDisplay/firstRandomPlant/firstButton
+@onready var secondButton: Button = $ShopDisplay/secondRandomPlant/secondButton
+@onready var thirdButton: Button = $ShopDisplay/thirdRandomPlant/thirdButton
 
 #path used to access our currency
 @onready var wallet = get_node("../CoinOverlay")
@@ -32,7 +29,6 @@ var rng = RandomNumberGenerator.new()
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	seedPanel.hide()
 	displayPlants()
 	displayPotions() 
 

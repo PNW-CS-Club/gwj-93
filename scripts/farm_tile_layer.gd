@@ -1,10 +1,15 @@
 extends TileMapLayer
 
 @onready var highlight_marker: Sprite2D = %HighlightMarker
+var is_highlight_active: bool = true
 
 signal on_tile_click(coords: Vector2i)
 
 func _process(_delta: float) -> void:
+	if not is_highlight_active:
+		highlight_marker.visible = false
+		return
+	
 	if _get_tile_at_mouse():
 		# highlight map cell
 		var cell_pos: Vector2i = _get_coords_at_mouse()
@@ -15,8 +20,9 @@ func _process(_delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
+	if not is_highlight_active: return
 	var left_clicked = event is InputEventMouseButton && event.is_pressed() && event.button_index == MOUSE_BUTTON_LEFT
-	if !left_clicked: return
+	if not left_clicked: return
 	
 	if _get_tile_at_mouse(): 
 		var cell_pos: Vector2i = _get_coords_at_mouse()

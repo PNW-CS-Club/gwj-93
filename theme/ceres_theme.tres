@@ -10,13 +10,14 @@
 [ext_resource type="StyleBox" uid="uid://dh0bhaudgdfri" path="res://theme/stylebox_panel_dark.tres" id="5_sctaj"]
 [ext_resource type="StyleBox" uid="uid://da2lftkqxvhgd" path="res://theme/stylebox_panel_light.tres" id="6_lwjxu"]
 [ext_resource type="FontFile" uid="uid://bu6jhitap4ykg" path="res://theme/fonts/exo_2/Exo2-Bold.otf" id="7_lwjxu"]
+[ext_resource type="StyleBox" uid="uid://vbhcy8ijb0mt" path="res://theme/stylebox_translucent_dark.tres" id="10_u1dt5"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_fhydx"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s7fu"]
-bg_color = Color(0, 0, 0, 0.1764706)
+bg_color = Color(0, 0, 0, 0.39607844)
 
 [resource]
 default_font = ExtResource("7_lwjxu")
@@ -52,5 +53,12 @@ PanelDark/base_type = &"Panel"
 PanelDark/styles/panel = ExtResource("5_sctaj")
 PanelLight/base_type = &"Panel"
 PanelLight/styles/panel = ExtResource("6_lwjxu")
+TranslucentButton/base_type = &"Button"
+TranslucentButton/styles/disabled = ExtResource("10_u1dt5")
+TranslucentButton/styles/focus = ExtResource("10_u1dt5")
+TranslucentButton/styles/hover = ExtResource("10_u1dt5")
+TranslucentButton/styles/hover_pressed = ExtResource("10_u1dt5")
+TranslucentButton/styles/normal = ExtResource("10_u1dt5")
+TranslucentButton/styles/pressed = ExtResource("10_u1dt5")
 TranslucentPanel/base_type = &"Panel"
 TranslucentPanel/styles/panel = SubResource("StyleBoxFlat_0s7fu")
