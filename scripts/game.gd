@@ -157,15 +157,14 @@ func _try_to_plant(coords: Vector2i, item: Item) -> bool:
 	else:
 		return false
 
-
+## Use the shovel to remove debris
 func _dig_up(coords: Vector2i) -> void:
 	var target = grid.at(coords)
-	print("attempt digup")
-	if target.is_class("Debris"):
+	if target is Debris:
 		grid.put(coords, null)
 		grid.remove_child(target)
+		farm.set_cell(coords, 9, DRY_TILE)
 		inventory.remove_from_hand(1)
-		print("debris removed")
 
 ## If the coordinate is a plant, the watering can is used and the plant is upgraded.
 ## Returns whether it was successful.
@@ -184,7 +183,7 @@ func _try_to_water(coords: Vector2i) -> bool:
 	# Update the level of the plant. 
 	plant.stats.level += 1
 	# Update the farm tile to the watered tile
-	farm.set_cell(coords, 9, WET_TILE)
+	##farm.set_cell(coords, 9, WET_TILE)
 	
 	
 	inventory.remove_from_hand(1)
@@ -201,7 +200,6 @@ func _set_debris() -> void:
 		if cell == null:
 			var debris: Debris = Debris.new()
 			grid.put(cell_coords, debris)
+			grid.add_child(debris)
 			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
 		debris_amount -= 1
-	
-	pass

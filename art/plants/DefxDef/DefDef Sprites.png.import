@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cof6fki6jt0fo"
-path="res://.godot/imported/DefxHP_sheet.png-842c1153180348d19da4525c98c2fe52.ctex"
+uid="uid://b0a25yeea23ko"
+path="res://.godot/imported/DefDef Sprites.png-3392e1ea31cfdfe99f1d0a01aa604c43.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/plants/DefxHP/DefxHP_sheet.png"
-dest_files=["res://.godot/imported/DefxHP_sheet.png-842c1153180348d19da4525c98c2fe52.ctex"]
+source_file="res://art/plants/DefxDef/DefDef Sprites.png"
+dest_files=["res://.godot/imported/DefDef Sprites.png-3392e1ea31cfdfe99f1d0a01aa604c43.ctex"]
 
 [params]
 
