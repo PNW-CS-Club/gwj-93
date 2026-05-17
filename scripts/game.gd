@@ -14,6 +14,8 @@ signal attacks_complete
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 @onready var attack_highlight_marker: Sprite2D = %AttackHighlightMarker
 @onready var enemy_attack: EnemyAttack = %EnemyAttack
+@onready var sfx_attackmiss: AudioStreamPlayer = $sfx_attackmiss
+@onready var sfx_attackhit: AudioStreamPlayer = %sfx_attackhit
 
 enum GameStates {DAWN, DAY, DUSK, NIGHT}
 
@@ -301,8 +303,10 @@ func _attack_squares(marked_squares: Array[Vector2i]) -> void:
 			print("HIT at",square)
 			var plant: Plant = grid.at(square)
 			plant.take_damage(100)
+			sfx_attackhit.play()
 		else:
 			print("MISS at",square)
+			sfx_attackmiss.play()
 		await get_tree().create_timer(0.2).timeout
 		#var plant = grid.at(square)
 	attack_highlight_marker.visible = false

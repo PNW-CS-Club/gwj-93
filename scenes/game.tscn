@@ -12,9 +12,11 @@
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 [ext_resource type="Texture2D" uid="uid://cm228mby0xynw" path="res://art/attack-outline-top.png" id="7_rysoc"]
 [ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://scripts/grid.gd" id="8_gee14"]
+[ext_resource type="AudioStream" uid="uid://cueh4jirxagee" path="res://art/other_items/attackmiss.wav" id="11_264po"]
 [ext_resource type="PackedScene" uid="uid://bw3q5xnnb62ft" path="res://scenes/enemy_attack.tscn" id="11_rysoc"]
+[ext_resource type="AudioStream" uid="uid://vx2erhbjr7ea" path="res://art/other_items/attackhit.wav" id="12_1kice"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
-[ext_resource type="Script" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
+[ext_resource type="Script" uid="uid://bgwxytwx4v5sd" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="17_ssvqc"]
 
@@ -89,6 +91,13 @@ z_index = -1
 texture_filter = 1
 texture_repeat = 1
 texture = ExtResource("7_rysoc")
+
+[node name="sfx_attackmiss" type="AudioStreamPlayer" parent="." unique_id=1532016439]
+stream = ExtResource("11_264po")
+
+[node name="sfx_attackhit" type="AudioStreamPlayer" parent="." unique_id=1217343080]
+unique_name_in_owner = true
+stream = ExtResource("12_1kice")
 
 [node name="EnemyAttack" parent="." unique_id=394448822 instance=ExtResource("11_rysoc")]
 unique_name_in_owner = true
