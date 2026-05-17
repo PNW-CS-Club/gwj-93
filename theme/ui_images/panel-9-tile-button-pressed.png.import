@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://7ymlmng4c3f2"
-path="res://.godot/imported/ceres title screen.png-cdd93c57d3ad000b4f8086fb8968efec.ctex"
+uid="uid://boxtc0d5xyptt"
+path="res://.godot/imported/panel-9-tile-button-pressed.png-227aa808ea028eac298ffe3be5a390f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://art/other_items/ceres title screen.png"
-dest_files=["res://.godot/imported/ceres title screen.png-cdd93c57d3ad000b4f8086fb8968efec.ctex"]
+source_file="res://theme/ui_images/panel-9-tile-button-pressed.png"
+dest_files=["res://.godot/imported/panel-9-tile-button-pressed.png-227aa808ea028eac298ffe3be5a390f3.ctex"]
 
 [params]
 

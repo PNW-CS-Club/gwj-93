@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cc1hkowr4obj5"
-path="res://.godot/imported/shop-icon-svg-download-png-2534765.webp-a1971f82e8d2d0764ca519032a03bd5f.ctex"
+uid="uid://bsl17u60cyuqw"
+path="res://.godot/imported/cabin-ext-highlight.png-3146501906ab91051aa7451131ed968c.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://shop-icon-svg-download-png-2534765.webp"
-dest_files=["res://.godot/imported/shop-icon-svg-download-png-2534765.webp-a1971f82e8d2d0764ca519032a03bd5f.ctex"]
+source_file="res://art/cabin-ext-highlight.png"
+dest_files=["res://.godot/imported/cabin-ext-highlight.png-3146501906ab91051aa7451131ed968c.ctex"]
 
 [params]
 

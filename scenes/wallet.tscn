@@ -1,44 +1,44 @@
 [gd_scene format=3 uid="uid://ccrvbuxgfrgqm"]
 
 [ext_resource type="Script" uid="uid://cmpg4sqedp51b" path="res://scripts/wallet.gd" id="1_4mduv"]
-[ext_resource type="Texture2D" uid="uid://cv61i6tqfn7tl" path="res://art/Coin.jpg" id="2_veulk"]
+[ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="2_ox3ku"]
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="3_mwry7"]
 
-[node name="Control" type="Control" unique_id=1098571293]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-script = ExtResource("1_4mduv")
-
-[node name="MarginContainer" type="MarginContainer" parent="." unique_id=136853750]
-layout_mode = 1
+[node name="Wallet" type="MarginContainer" unique_id=517146384]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -168.0
-offset_top = -56.0
-offset_right = -115.0
-offset_bottom = -16.0
+offset_left = -90.0
+offset_top = -42.0
 grow_horizontal = 0
 grow_vertical = 0
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+script = ExtResource("1_4mduv")
 
-[node name="moneyLabel" type="Label" parent="MarginContainer" unique_id=1187863581]
+[node name="Hbox" type="HBoxContainer" parent="." unique_id=47097067]
+layout_mode = 2
+
+[node name="CoinTexture" type="TextureRect" parent="Hbox" unique_id=1957696282]
+custom_minimum_size = Vector2(24, 24)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture = ExtResource("2_ox3ku")
+expand_mode = 1
+stretch_mode = 5
+
+[node name="CoinLabel" type="Label" parent="Hbox" unique_id=1187863581]
 unique_name_in_owner = true
 layout_mode = 2
-theme_override_colors/font_color = Color(0.012617188, 0.012617188, 0.012617188, 1)
-theme_override_colors/font_outline_color = Color(18.861296, 0, 2.8428195, 1)
+theme = ExtResource("3_mwry7")
+theme_type_variation = &"CoinLabel"
 theme_override_constants/outline_size = 3
 theme_override_font_sizes/font_size = 21
-text = "Money"
+text = "1250"
 horizontal_alignment = 1
-
-[node name="TextureRect" type="TextureRect" parent="MarginContainer/moneyLabel" unique_id=1957696282]
-layout_mode = 0
-offset_left = 96.0
-offset_top = -29.0
-offset_right = 170.0
-offset_bottom = 38.0
+vertical_alignment = 1

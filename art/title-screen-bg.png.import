@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bybua723bi5uv"
-path="res://.godot/imported/pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg-e6a41017ed2f1a6065d80587442d0eeb.ctex"
+uid="uid://7ymlmng4c3f2"
+path="res://.godot/imported/title-screen-bg.png-3a60290166fe6b0db4bd3a6ed7ebc9f3.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg"
-dest_files=["res://.godot/imported/pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg-e6a41017ed2f1a6065d80587442d0eeb.ctex"]
+source_file="res://art/title-screen-bg.png"
+dest_files=["res://.godot/imported/title-screen-bg.png-3a60290166fe6b0db4bd3a6ed7ebc9f3.ctex"]
 
 [params]
 

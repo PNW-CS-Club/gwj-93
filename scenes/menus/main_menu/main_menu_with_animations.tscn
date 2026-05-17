@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://1nxucmsjsvpy" path="res://scenes/windows/main_menu_credits_window.tscn" id="4_vsp5b"]
 [ext_resource type="AudioStream" uid="uid://cuam1fyvmg85m" path="res://Sound/ANewPlace.wav" id="5_2k5l7"]
 [ext_resource type="PackedScene" uid="uid://cwt4p3bufkke5" path="res://addons/maaacks_game_template/base/nodes/windows/confirmation_overlaid_window.tscn" id="5_6xh1d"]
-[ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/other_items/ceres title screen.png" id="5_ixa71"]
+[ext_resource type="Texture2D" uid="uid://7ymlmng4c3f2" path="res://art/title-screen-bg.png" id="5_ixa71"]
 
 [sub_resource type="Animation" id="1"]
 resource_name = "Intro"

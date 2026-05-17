@@ -1,4 +1,4 @@
-class_name Cabin extends Panel
+class_name Cabin extends Control
 
 #re-emit the end_day signal from the bed button so that the game script can change game state
 signal end_day
