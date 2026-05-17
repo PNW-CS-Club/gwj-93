@@ -25,7 +25,7 @@ var dataDictionary = preload("res://scripts/dataDict.gd").new()
 @onready var thirdButton: Button = $seedPanel/thirdRandomPlant/thirdButton
 
 #path used to access our currency
-@onready var wallet = get_node("../CoinOverlay")
+@onready var wallet = %CoinOverlay
 
 var rng = RandomNumberGenerator.new()
 
