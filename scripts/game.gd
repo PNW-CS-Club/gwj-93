@@ -3,9 +3,11 @@ class_name Game extends Node2D
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
+@onready var shop: Shop = %ShopUI
+@onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 
-enum GameStates {DAWN, DAY, DUSK, NIGHT}
+enum GameState {DAWN, DAY, DUSK, NIGHT}
 
 const BUFF_PLANT_SCENE: PackedScene = preload("uid://dciwxjx24qc3d")
 const DEF_PLANT_SCENE: PackedScene = preload("uid://cj5dv7qg2wly8")
@@ -30,7 +32,7 @@ const HP_SEED_ITEM: Item = preload("uid://gad4q5m7vacj")
 const SHOVEL_ITEM: Item = preload("uid://us2gsrgycubo")
 const WATER_ITEM: Item = preload("uid://dot1l1nu30k12")
 
-const current_state = GameStates.DAWN
+const current_state = GameState.DAWN
 
 # Atlas coords
 const WET_TILE: Vector2i = Vector2i(0,0)
@@ -42,31 +44,22 @@ func _ready():
 	farm.on_tile_click.connect(_click_tile)
 	
 	#Game State
-	set_state(GameStates.DAWN)
+	set_state(GameState.DAWN)
 	
+	shop.item_bought.connect(_click_purchase)
 	inventory.add_item(BUFF_BUFF_SEED_ITEM, 2)
-	inventory.add_item(BUFF_DEF_SEED_ITEM, 3)
-	inventory.add_item(BUFF_HP_SEED_ITEM, 4)
-	inventory.add_item(BUFF_SEED_ITEM, 5)
-	inventory.add_item(DEF_DEF_SEED_ITEM, 6)
-	inventory.add_item(DEF_HP_SEED_ITEM, 7)
-	inventory.add_item(DEF_SEED_ITEM, 8)
-	inventory.add_item(HP_HP_SEED_ITEM, 9)
-	inventory.add_item(HP_SEED_ITEM)
-	inventory.add_item(WATER_ITEM, 10)
-	inventory.add_item(SHOVEL_ITEM, 4)
 
 #region Game State
 
-func set_state(state: GameStates) -> void:
+func set_state(state: GameState) -> void:
 	match state:
-		GameStates.DAWN:
+		GameState.DAWN:
 			_handle_dawn()
-		GameStates.DAY:
+		GameState.DAY:
 			_handle_day()
-		GameStates.DUSK:
+		GameState.DUSK:
 			_handle_dusk()
-		GameStates.NIGHT:
+		GameState.NIGHT:
 			_handle_night()
 		
 ## The game starts here. Give the player resources
@@ -203,5 +196,13 @@ func _set_debris() -> void:
 			grid.put(cell_coords, debris)
 			farm.set_cell(cell_coords, 9, DEBRIS_TILE)
 		debris_amount -= 1
+
+#adds item to inventory and subtracts price from wallet
+func _click_purchase(item: Item, price: int) ->void:
+	if price > wallet.coins:
+		print("You do not have enough money")
+	else:
+		print("You have bought the item")
+		wallet.change_balance(-price)
+		inventory.add_item(item)
 	
-	pass
