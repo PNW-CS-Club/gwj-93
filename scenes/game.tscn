@@ -16,7 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="14_264po"]
 [ext_resource type="Script" uid="uid://bgwxytwx4v5sd" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
-[ext_resource type="Script" uid="uid://dvw2r6uuyoyuo" path="res://scenes/cabin_area.gd" id="16_rysoc"]
+[ext_resource type="Script" uid="uid://dvw2r6uuyoyuo" path="res://scripts/cabin_area.gd" id="16_rysoc"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
 gradient = ExtResource("15_ir15t")
@@ -93,6 +93,8 @@ layer = 3
 
 [node name="CoinOverlay" parent="CanvasLayerStatic" unique_id=1098571293 instance=ExtResource("5_vtaks")]
 unique_name_in_owner = true
+offset_left = -74.0
+offset_top = -40.0
 metadata/_edit_lock_ = true
 
 [node name="Hotbar" parent="CanvasLayerStatic" unique_id=1601094469 instance=ExtResource("5_kvpfn")]

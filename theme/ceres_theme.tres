@@ -17,11 +17,17 @@
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0s7fu"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0s7fu"]
-bg_color = Color(0, 0, 0, 0.39607844)
+bg_color = Color(0, 0, 0, 0.58431375)
 
 [resource]
 default_font = ExtResource("7_lwjxu")
 default_font_size = 18
+Button/colors/font_color = Color(0.8, 0.8627451, 0.7882353, 1)
+Button/colors/font_disabled_color = Color(0.25490198, 0.19215687, 0.39215687, 1)
+Button/colors/font_focus_color = Color(0.8, 0.8627451, 0.7882353, 1)
+Button/colors/font_hover_color = Color(0.88655996, 0.96, 0.87359995, 1)
+Button/colors/font_hover_pressed_color = Color(0.8862745, 0.9607843, 0.8745098, 1)
+Button/colors/font_pressed_color = Color(0.5764706, 0.7294118, 0.6784314, 1)
 Button/styles/disabled = ExtResource("1_0wtvy")
 Button/styles/focus = ExtResource("3_up6q7")
 Button/styles/hover = ExtResource("3_u1dt5")
@@ -33,6 +39,9 @@ CoinButton/constants/h_separation = 0
 CoinButton/constants/icon_max_width = 24
 CoinButton/font_sizes/font_size = 20
 CoinButton/icons/icon = ExtResource("2_4yyca")
+CoinLabel/base_type = &"Label"
+CoinLabel/colors/font_color = Color(0.45490196, 0.8117647, 0.8117647, 1)
+CoinLabel/colors/font_outline_color = Color(0.29803923, 0.28235295, 0.4862745, 1)
 InventorySlot/base_type = &"Button"
 InventorySlot/styles/hover = ExtResource("1_fhydx")
 InventorySlot/styles/hover_pressed = ExtResource("1_fhydx")
@@ -47,6 +56,7 @@ InvisiButton/styles/normal = SubResource("StyleBoxEmpty_fhydx")
 InvisiButton/styles/pressed = SubResource("StyleBoxEmpty_fhydx")
 Invisible/base_type = &"Panel"
 Invisible/styles/panel = SubResource("StyleBoxEmpty_0s7fu")
+Label/colors/font_color = Color(0.8, 0.8627451, 0.7882353, 1)
 Panel/styles/panel = ExtResource("3_up6q7")
 PanelContainer/styles/panel = ExtResource("3_tx53g")
 PanelDark/base_type = &"Panel"
