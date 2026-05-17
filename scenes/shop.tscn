@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://dye0vc4g0himf"]
 
-[ext_resource type="Script" uid="uid://dd3y7so2pvkc0" path="res://scripts/shop.gd" id="1_owsua"]
+[ext_resource type="Script" path="res://scripts/shop.gd" id="1_owsua"]
 [ext_resource type="Texture2D" uid="uid://cc1hkowr4obj5" path="res://shop-icon-svg-download-png-2534765.webp" id="2_grq1j"]
 [ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://Plant Picture Test Folder/BluePlantTest.jpg" id="3_grq1j"]
 

@@ -3,7 +3,7 @@ class_name Game extends Node2D
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
-@onready var shop: Shop = %Shop
+@onready var shop: Shop = %Shop 
 @onready var wallet: Wallet = %CoinOverlay
 @onready var daylight_cycle: DaylightCycle = %DaylightCycle
 
