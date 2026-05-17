@@ -1,5 +1,9 @@
 class_name Game extends Node2D
 
+signal attacks_complete
+signal transition_state_complete
+
+
 @onready var farm = %TileMapLayerFarm
 @onready var inventory: Inventory = %Hotbar
 @onready var grid: Grid = %Grid
@@ -84,6 +88,8 @@ func _handle_dawn() -> void:
 	_add_debris() # Place some debris on empty squares.
 	
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAWN)
+	await get_tree().create_timer(2.0).timeout
+	transition_state_complete.emit()
 	print("state is now dawn")
 	set_state(GameStates.DAY)
 	pass
@@ -91,6 +97,8 @@ func _handle_dawn() -> void:
 ## The player does most of their actions here
 func _handle_day() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.DAY)
+	await get_tree().create_timer(2.0).timeout
+	transition_state_complete.emit()
 	print("state is now day")
 	pass
 
@@ -99,9 +107,11 @@ func _handle_dusk() -> void:
 	var rng = RandomNumberGenerator.new()
 	var number_of_attacks = rng.randi_range(3,6)
 	daylight_cycle.transition_to(DaylightCycle.Phase.DUSK)
+	await get_tree().create_timer(2.0).timeout
+	transition_state_complete.emit()
 	print("state is now dusk")
 	enemy_attack.attack(EnemyAttack.Attacks.RANDOM,number_of_attacks)
-	# Wait until the attacks are done then transition to night
+	await attacks_complete # pause until all attacks finish
 	print("TEMP > Transition to night")
 	set_state(GameStates.NIGHT)
 	pass
@@ -109,6 +119,8 @@ func _handle_dusk() -> void:
 ## We check if the player survived at this stage.
 func _handle_night() -> void:
 	daylight_cycle.transition_to(DaylightCycle.Phase.NIGHT)
+	await get_tree().create_timer(2.0).timeout
+	transition_state_complete.emit()
 	print("state is now night")
 	print("TEMP > Transition to dawn")
 	set_state(GameStates.DAWN)
@@ -281,14 +293,18 @@ func _reset_wet_to_dry() -> void:
 func _attack_squares(marked_squares: Array[Vector2i]) -> void:
 	print("now attacking squares")
 	for square in marked_squares:
-		# Place a the attack marker on the square
-		attack_highlight_marker.position = farm.map_to_local(square)
+		# Place the attack marker on the square
+		attack_highlight_marker.global_position = farm.to_global(farm.map_to_local(square))
 		attack_highlight_marker.visible = true
-		if grid.at(square) is not Plant:
+		await get_tree().create_timer(0.2).timeout
+		if grid.at(square) is Plant:
+			print("HIT at",square)
+			var plant: Plant = grid.at(square)
+			plant.take_damage(70)
+		else:
 			print("MISS at",square)
-			continue # skip to next iteration
+		await get_tree().create_timer(0.2).timeout
 		#var plant = grid.at(square)
-		print("HIT at",square)
-		#TODO Deal damage to plant
 	attack_highlight_marker.visible = false
+	attacks_complete.emit()
 #endregion
