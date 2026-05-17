@@ -1,20 +1,22 @@
 extends CanvasLayer
 
-@onready var cabinButton: TextureButton = %cabinButton
-@onready var cabinScene: Panel = %cabinScene2
-@onready var seedPanel: Panel = %seedPanel2
-@onready var shopButton: TextureButton = %shopButton
+@onready var cabinButton: TextureButton = %CabinButton
+@onready var shopButton: TextureButton = %ShopButton
+@onready var cabin: Panel = %Cabin
+@onready var shop: Panel = %Shop
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	cabinButton.show()
-	seedPanel.hide()
+	shopButton.show()
+	cabin.hide()
+	shop.hide()
 	
 	cabinButton.pressed.connect(_on_cabin_button_pressed)
 	shopButton.pressed.connect(_on_shop_button_pressed)
 
 func _on_cabin_button_pressed() -> void:
-	cabinScene.show()
+	cabin.show()
 	
 func _on_shop_button_pressed() -> void:
-	seedPanel.show()
+	shop.show()

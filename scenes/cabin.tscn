@@ -1,82 +1,65 @@
-[gd_scene format=3 uid="uid://cmeb70wqmvn6q"]
+[gd_scene format=3 uid="uid://mbnwgcxrgbj1"]
 
-[ext_resource type="Script" uid="uid://cou5rapkugbdw" path="res://scripts/cabin.gd" id="1_ixm0y"]
-[ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="2_84mq0"]
-[ext_resource type="Texture2D" uid="uid://dmy84hk32qi14" path="res://art/room.png" id="2_qf7ms"]
-[ext_resource type="Script" path="res://scripts/toolTipCrafting.gd" id="4_em8ck"]
-[ext_resource type="Script" path="res://scripts/leave_back_to_game.gd" id="5_qf7ms"]
+[ext_resource type="Theme" uid="uid://w2av5bmjgecq" path="res://theme/ceres_theme.tres" id="1_em8ck"]
+[ext_resource type="Texture2D" uid="uid://dmy84hk32qi14" path="res://art/room.png" id="2_dn4fy"]
+[ext_resource type="Script" uid="uid://dhgmi7ecepwwx" path="res://scripts/bedToolTip.gd" id="3_16qgp"]
+[ext_resource type="Script" uid="uid://c37m8o7q1dt7a" path="res://scripts/toolTipCrafting.gd" id="4_1opua"]
+[ext_resource type="Script" uid="uid://dkh2q5psy1tun" path="res://scripts/leave_back_to_game.gd" id="5_u8rqo"]
 
-[node name="Cabin" type="Control" unique_id=1855923729]
-layout_mode = 3
+[node name="Cabin" type="Panel" unique_id=1657024557]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_em8ck")
+theme_type_variation = &"TranslucentPanel"
 
-[node name="cabinScene" type="Panel" parent="." unique_id=1651606717]
-unique_name_in_owner = true
+[node name="CabinTexture" type="TextureRect" parent="." unique_id=163915540]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -260.0
+offset_right = 260.0
+offset_bottom = 260.0
 grow_horizontal = 2
 grow_vertical = 2
-script = ExtResource("1_ixm0y")
-
-[node name="TextureRect" type="TextureRect" parent="cabinScene" unique_id=1604153008]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -480.0
-offset_right = 408.0
-offset_bottom = 16.0
-grow_horizontal = 2
-grow_vertical = 2
-texture = ExtResource("2_qf7ms")
+texture = ExtResource("2_dn4fy")
 expand_mode = 1
-metadata/_edit_lock_ = true
+stretch_mode = 5
 
-[node name="bedPanel" type="PanelContainer" parent="cabinScene" unique_id=1503879803]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.83300006
-anchor_top = 0.716
-anchor_right = 0.83300006
-anchor_bottom = 0.716
-offset_left = -191.61609
-offset_top = -183.96802
-offset_right = 192.38391
-offset_bottom = 184.03198
-grow_horizontal = 0
-
-[node name="bedButton" type="Button" parent="cabinScene/bedPanel" unique_id=635626433]
+[node name="BedButton" type="Button" parent="CabinTexture" unique_id=404796902]
 unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("2_1hpa6")
-
-[node name="cratingTablePanel" type="PanelContainer" parent="cabinScene" unique_id=52190991]
 layout_mode = 0
-offset_left = 40.0
-offset_top = 16.0
-offset_right = 528.0
-offset_bottom = 238.0
-script = ExtResource("4_em8ck")
+offset_left = 347.0
+offset_top = 219.0
+offset_right = 502.0
+offset_bottom = 492.0
+theme = ExtResource("1_em8ck")
+theme_type_variation = &"InvisiButton"
+script = ExtResource("3_16qgp")
 
-[node name="doorPanel" type="PanelContainer" parent="cabinScene" unique_id=1834853480]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.087000005
-anchor_top = 0.59900004
-anchor_right = 0.087000005
-anchor_bottom = 0.59900004
-offset_left = -60.224007
-offset_top = -68.15204
-offset_right = 59.775993
-offset_bottom = 67.84796
+[node name="CraftingPanel" type="Panel" parent="CabinTexture" unique_id=1627873114]
+layout_mode = 0
+offset_left = 18.0
+offset_top = 29.0
+offset_right = 238.0
+offset_bottom = 190.0
+theme = ExtResource("1_em8ck")
+theme_type_variation = &"Invisible"
+script = ExtResource("4_1opua")
 
-[node name="leaveBackToGame" type="Button" parent="cabinScene/doorPanel" unique_id=2027357327]
+[node name="BackButton" type="Button" parent="CabinTexture" unique_id=360641019]
 unique_name_in_owner = true
-layout_mode = 2
-script = ExtResource("5_qf7ms")
+layout_mode = 0
+offset_left = 20.0
+offset_top = 258.0
+offset_right = 97.0
+offset_bottom = 347.0
+theme = ExtResource("1_em8ck")
+theme_type_variation = &"InvisiButton"
+script = ExtResource("5_u8rqo")

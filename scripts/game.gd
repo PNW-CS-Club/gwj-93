@@ -40,9 +40,6 @@ func _ready():
 	inventory.add_item(HP_SEED_ITEM)
 	inventory.add_item(WATER_ITEM, 10)
 	inventory.add_item(SHOVEL_ITEM, 4)
-	
-	$CanvasLayerPopups/cabinScene2/bedPanel/bedButton.updateDayCounter.connect($CanvasLayerStatic/DayUI.updateDay)
-	
 
 
 func _click_tile(coords: Vector2i) -> void:

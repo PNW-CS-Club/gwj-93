@@ -2,22 +2,18 @@
 
 [ext_resource type="Script" uid="uid://gvtwx7xrxark" path="res://scripts/game.gd" id="1_e2o6t"]
 [ext_resource type="Texture2D" uid="uid://cc1hkowr4obj5" path="res://shop-icon-svg-download-png-2534765.webp" id="2_rysoc"]
-[ext_resource type="PackedScene" uid="uid://dye0vc4g0himf" path="res://scenes/shopUITest.tscn" id="4_0tnpc"]
 [ext_resource type="TileSet" uid="uid://csb6dh13xv76o" path="res://art/PlanetTerrain.tres" id="4_gee14"]
 [ext_resource type="Script" uid="uid://cgvha3slno473" path="res://scripts/farm_tile_layer.gd" id="4_u5sy4"]
 [ext_resource type="PackedScene" uid="uid://8qtvq6m7yo0l" path="res://scenes/Inventory/hotbar.tscn" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
 [ext_resource type="PackedScene" uid="uid://ccrvbuxgfrgqm" path="res://scenes/money_overlay.tscn" id="5_vtaks"]
-[ext_resource type="PackedScene" uid="uid://b7jvfgyrckqt6" path="res://scenes/objective_ui.tscn" id="6_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
-[ext_resource type="PackedScene" uid="uid://bmefmrdiflxhb" path="res://scenes/day_ui.tscn" id="7_kvuet"]
 [ext_resource type="Script" path="res://scripts/grid.gd" id="8_gee14"]
-[ext_resource type="Script" uid="uid://xak3q2fri7eh" path="res://scripts/canvas_layer_static.gd" id="9_ca42v"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
 [ext_resource type="Script" uid="uid://bgwxytwx4v5sd" path="res://scripts/canvas_layer_popup.gd" id="14_ssvqc"]
 [ext_resource type="Gradient" uid="uid://c5e4hlmqk1pja" path="res://resources/gradient_daylight.tres" id="15_ir15t"]
 [ext_resource type="Texture2D" uid="uid://bybua723bi5uv" path="res://pngtree-cartoon-style-triangular-roof-red-door-brown-cabin-clipart-png-image_3009536.jpg" id="17_ssvqc"]
-[ext_resource type="PackedScene" uid="uid://mbnwgcxrgbj1" path="res://scenes/cabin_scene_2.tscn" id="19_264po"]
+[ext_resource type="PackedScene" uid="uid://mbnwgcxrgbj1" path="res://scenes/cabin.tscn" id="19_264po"]
 [ext_resource type="Texture2D" uid="uid://b3arhxuevtg4u" path="res://Plant Picture Test Folder/BluePlantTest.jpg" id="20_5newe"]
 
 [sub_resource type="GradientTexture1D" id="GradientTexture1D_ir15t"]
@@ -29,10 +25,6 @@ bg_color = Color(0.014660836, 0.014660836, 0.014660836, 1)
 [node name="Game" type="Node2D" unique_id=1390331388]
 script = ExtResource("1_e2o6t")
 metadata/_edit_lock_ = true
-
-[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=226988863]
-layer = 0
-follow_viewport_enabled = true
 
 [node name="TileMapLayers" type="Node2D" parent="." unique_id=895478370]
 position = Vector2(580, 195)
@@ -86,24 +78,8 @@ script = ExtResource("13_trtic")
 _gradient_texture = SubResource("GradientTexture1D_ir15t")
 
 [node name="CanvasLayerStatic" type="CanvasLayer" parent="." unique_id=40402678]
-script = ExtResource("9_ca42v")
-
-[node name="DayUI" parent="CanvasLayerStatic" unique_id=1904100449 instance=ExtResource("7_kvuet")]
-unique_name_in_owner = true
-anchor_left = 0.080000006
-anchor_top = 0.062000003
-anchor_right = 0.080000006
-anchor_bottom = 0.062000003
-offset_left = -70.40001
-offset_top = -28.640003
-offset_right = 17.59999
-offset_bottom = 19.360012
 
 [node name="CoinOverlay" parent="CanvasLayerStatic" unique_id=1098571293 instance=ExtResource("5_vtaks")]
-unique_name_in_owner = true
-metadata/_edit_lock_ = true
-
-[node name="ChallengeUI" parent="CanvasLayerStatic" unique_id=1397068957 instance=ExtResource("6_kvpfn")]
 unique_name_in_owner = true
 metadata/_edit_lock_ = true
 
@@ -116,13 +92,22 @@ offset_bottom = -10.0
 size_flags_vertical = 8
 metadata/_edit_lock_ = true
 
-[node name="CanvasLayerPopups" type="CanvasLayer" parent="." unique_id=1318873441]
-script = ExtResource("14_ssvqc")
+[node name="ShopButton" type="TextureButton" parent="CanvasLayerStatic" unique_id=17798598]
+unique_name_in_owner = true
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -64.0
+offset_top = 8.0
+offset_right = -16.0
+offset_bottom = 56.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+texture_normal = ExtResource("2_rysoc")
+ignore_texture_size = true
+stretch_mode = 0
 
-[node name="ShopUI" parent="CanvasLayerPopups" unique_id=910207587 instance=ExtResource("4_0tnpc")]
-visible = false
-
-[node name="cabinButton" type="TextureButton" parent="CanvasLayerPopups" unique_id=1469764307]
+[node name="CabinButton" type="TextureButton" parent="CanvasLayerStatic" unique_id=1469764307]
 unique_name_in_owner = true
 offset_left = 72.0
 offset_top = 288.0
@@ -132,11 +117,14 @@ texture_normal = ExtResource("17_ssvqc")
 ignore_texture_size = true
 stretch_mode = 0
 
-[node name="cabinScene2" parent="CanvasLayerPopups" unique_id=1657024557 instance=ExtResource("19_264po")]
+[node name="CanvasLayerPopups" type="CanvasLayer" parent="." unique_id=1318873441]
+script = ExtResource("14_ssvqc")
+
+[node name="Cabin" parent="CanvasLayerPopups" unique_id=1657024557 instance=ExtResource("19_264po")]
 unique_name_in_owner = true
 visible = false
 
-[node name="seedPanel2" type="Panel" parent="CanvasLayerPopups" unique_id=956079069]
+[node name="Shop" type="Panel" parent="CanvasLayerPopups" unique_id=956079069]
 unique_name_in_owner = true
 visible = false
 anchors_preset = 8
@@ -152,7 +140,7 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_37s47")
 
-[node name="Label" type="Label" parent="CanvasLayerPopups/seedPanel2" unique_id=191648244]
+[node name="Label" type="Label" parent="CanvasLayerPopups/Shop" unique_id=191648244]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 0.492
@@ -167,7 +155,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Shop"
 
-[node name="firstRandomPlant" type="Control" parent="CanvasLayerPopups/seedPanel2" unique_id=1503848018]
+[node name="firstRandomPlant" type="Control" parent="CanvasLayerPopups/Shop" unique_id=1503848018]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -179,7 +167,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name1" type="Label" parent="CanvasLayerPopups/seedPanel2/firstRandomPlant" unique_id=617401686]
+[node name="name1" type="Label" parent="CanvasLayerPopups/Shop/firstRandomPlant" unique_id=617401686]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -196,7 +184,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc1" type="Label" parent="CanvasLayerPopups/seedPanel2/firstRandomPlant" unique_id=1962180714]
+[node name="desc1" type="Label" parent="CanvasLayerPopups/Shop/firstRandomPlant" unique_id=1962180714]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -214,7 +202,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="firstPlantPicture" type="TextureRect" parent="CanvasLayerPopups/seedPanel2/firstRandomPlant" unique_id=1822364243]
+[node name="firstPlantPicture" type="TextureRect" parent="CanvasLayerPopups/Shop/firstRandomPlant" unique_id=1822364243]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -230,7 +218,7 @@ grow_vertical = 2
 texture = ExtResource("20_5newe")
 expand_mode = 1
 
-[node name="firstButton" type="Button" parent="CanvasLayerPopups/seedPanel2/firstRandomPlant" unique_id=1391375991]
+[node name="firstButton" type="Button" parent="CanvasLayerPopups/Shop/firstRandomPlant" unique_id=1391375991]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -246,7 +234,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Purchase"
 
-[node name="secondRandomPlant" type="Control" parent="CanvasLayerPopups/seedPanel2" unique_id=2036567202]
+[node name="secondRandomPlant" type="Control" parent="CanvasLayerPopups/Shop" unique_id=2036567202]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -258,7 +246,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name2" type="Label" parent="CanvasLayerPopups/seedPanel2/secondRandomPlant" unique_id=49199052]
+[node name="name2" type="Label" parent="CanvasLayerPopups/Shop/secondRandomPlant" unique_id=49199052]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -275,7 +263,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc2" type="Label" parent="CanvasLayerPopups/seedPanel2/secondRandomPlant" unique_id=1891692439]
+[node name="desc2" type="Label" parent="CanvasLayerPopups/Shop/secondRandomPlant" unique_id=1891692439]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -293,7 +281,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="secondPlantPicture" type="TextureRect" parent="CanvasLayerPopups/seedPanel2/secondRandomPlant" unique_id=1008512123]
+[node name="secondPlantPicture" type="TextureRect" parent="CanvasLayerPopups/Shop/secondRandomPlant" unique_id=1008512123]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -309,7 +297,7 @@ grow_vertical = 2
 texture = ExtResource("20_5newe")
 expand_mode = 1
 
-[node name="secondButton" type="Button" parent="CanvasLayerPopups/seedPanel2/secondRandomPlant" unique_id=1085172722]
+[node name="secondButton" type="Button" parent="CanvasLayerPopups/Shop/secondRandomPlant" unique_id=1085172722]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -325,7 +313,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Purchase"
 
-[node name="thirdRandomPlant" type="Control" parent="CanvasLayerPopups/seedPanel2" unique_id=1330201907]
+[node name="thirdRandomPlant" type="Control" parent="CanvasLayerPopups/Shop" unique_id=1330201907]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -337,7 +325,7 @@ offset_bottom = -200.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="name3" type="Label" parent="CanvasLayerPopups/seedPanel2/thirdRandomPlant" unique_id=966017976]
+[node name="name3" type="Label" parent="CanvasLayerPopups/Shop/thirdRandomPlant" unique_id=966017976]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -354,7 +342,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="desc3" type="Label" parent="CanvasLayerPopups/seedPanel2/thirdRandomPlant" unique_id=1974653468]
+[node name="desc3" type="Label" parent="CanvasLayerPopups/Shop/thirdRandomPlant" unique_id=1974653468]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -372,7 +360,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="thirdPlantPicture" type="TextureRect" parent="CanvasLayerPopups/seedPanel2/thirdRandomPlant" unique_id=1400429590]
+[node name="thirdPlantPicture" type="TextureRect" parent="CanvasLayerPopups/Shop/thirdRandomPlant" unique_id=1400429590]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -388,7 +376,7 @@ grow_vertical = 2
 texture = ExtResource("20_5newe")
 expand_mode = 1
 
-[node name="thirdButton" type="Button" parent="CanvasLayerPopups/seedPanel2/thirdRandomPlant" unique_id=1522039755]
+[node name="thirdButton" type="Button" parent="CanvasLayerPopups/Shop/thirdRandomPlant" unique_id=1522039755]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -404,7 +392,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Purchase"
 
-[node name="healthPotion" type="Control" parent="CanvasLayerPopups/seedPanel2" unique_id=784369947]
+[node name="healthPotion" type="Control" parent="CanvasLayerPopups/Shop" unique_id=784369947]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -417,7 +405,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="healthPotionName" type="Label" parent="CanvasLayerPopups/seedPanel2/healthPotion" unique_id=2132329458]
+[node name="healthPotionName" type="Label" parent="CanvasLayerPopups/Shop/healthPotion" unique_id=2132329458]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -434,7 +422,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="descHealthPotion" type="Label" parent="CanvasLayerPopups/seedPanel2/healthPotion" unique_id=246416445]
+[node name="descHealthPotion" type="Label" parent="CanvasLayerPopups/Shop/healthPotion" unique_id=246416445]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -452,7 +440,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="healthPicture" type="TextureRect" parent="CanvasLayerPopups/seedPanel2/healthPotion" unique_id=683459744]
+[node name="healthPicture" type="TextureRect" parent="CanvasLayerPopups/Shop/healthPotion" unique_id=683459744]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -468,7 +456,7 @@ grow_vertical = 2
 texture = ExtResource("20_5newe")
 expand_mode = 1
 
-[node name="healthButton" type="Button" parent="CanvasLayerPopups/seedPanel2/healthPotion" unique_id=79418974]
+[node name="healthButton" type="Button" parent="CanvasLayerPopups/Shop/healthPotion" unique_id=79418974]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 8
@@ -484,7 +472,7 @@ grow_horizontal = 2
 grow_vertical = 2
 text = "Purchase"
 
-[node name="evasionPotion" type="Control" parent="CanvasLayerPopups/seedPanel2" unique_id=1542854869]
+[node name="evasionPotion" type="Control" parent="CanvasLayerPopups/Shop" unique_id=1542854869]
 unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
@@ -497,7 +485,7 @@ offset_bottom = -40.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="evasionPotionName" type="Label" parent="CanvasLayerPopups/seedPanel2/evasionPotion" unique_id=598378511]
+[node name="evasionPotionName" type="Label" parent="CanvasLayerPopups/Shop/evasionPotion" unique_id=598378511]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -514,7 +502,7 @@ text = "Name
 "
 horizontal_alignment = 1
 
-[node name="descEvasionPotion" type="Label" parent="CanvasLayerPopups/seedPanel2/evasionPotion" unique_id=1640499175]
+[node name="descEvasionPotion" type="Label" parent="CanvasLayerPopups/Shop/evasionPotion" unique_id=1640499175]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -532,7 +520,7 @@ text = "jfkdajfoweurowuroeur
 "
 horizontal_alignment = 1
 
-[node name="evasionPicture" type="TextureRect" parent="CanvasLayerPopups/seedPanel2/evasionPotion" unique_id=1109575175]
+[node name="evasionPicture" type="TextureRect" parent="CanvasLayerPopups/Shop/evasionPotion" unique_id=1109575175]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -548,7 +536,7 @@ grow_vertical = 2
 texture = ExtResource("20_5newe")
 expand_mode = 1
 
-[node name="evasionButton" type="Button" parent="CanvasLayerPopups/seedPanel2/evasionPotion" unique_id=1475406552]
+[node name="evasionButton" type="Button" parent="CanvasLayerPopups/Shop/evasionPotion" unique_id=1475406552]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -562,18 +550,3 @@ offset_bottom = 91.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Purchase"
-
-[node name="shopButton" type="TextureButton" parent="CanvasLayerPopups" unique_id=17798598]
-unique_name_in_owner = true
-anchors_preset = 1
-anchor_left = 1.0
-anchor_right = 1.0
-offset_left = -64.0
-offset_top = 8.0
-offset_right = -16.0
-offset_bottom = 56.0
-grow_horizontal = 0
-size_flags_horizontal = 8
-texture_normal = ExtResource("2_rysoc")
-ignore_texture_size = true
-stretch_mode = 0
