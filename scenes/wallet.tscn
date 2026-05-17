@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://ccrvbuxgfrgqm"]
 
 [ext_resource type="Script" uid="uid://cmpg4sqedp51b" path="res://scripts/wallet.gd" id="1_4mduv"]
-[ext_resource type="Texture2D" uid="uid://cv61i6tqfn7tl" path="res://art/Coin.jpg" id="2_veulk"]
+[ext_resource type="Texture2D" uid="uid://di04akv5g5qqk" path="res://art/phytion-icon.png" id="2_ox3ku"]
 
 [node name="Control" type="Control" unique_id=1098571293]
 layout_mode = 3
@@ -38,7 +38,10 @@ horizontal_alignment = 1
 
 [node name="TextureRect" type="TextureRect" parent="MarginContainer/moneyLabel" unique_id=1957696282]
 layout_mode = 0
-offset_left = 96.0
-offset_top = -29.0
-offset_right = 170.0
-offset_bottom = 38.0
+offset_left = 78.0
+offset_top = -7.0
+offset_right = 118.0
+offset_bottom = 33.0
+texture = ExtResource("2_ox3ku")
+expand_mode = 1
+stretch_mode = 4

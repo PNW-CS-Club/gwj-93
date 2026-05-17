@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" format=3 uid="uid://b7vb8hqa823uw"]
+
+[ext_resource type="Texture2D" uid="uid://boxtc0d5xyptt" path="res://theme/ui_images/panel-9-tile-button-pressed.png" id="1_fl5pw"]
+
+[resource]
+texture = ExtResource("1_fl5pw")
+texture_margin_left = 11.0
+texture_margin_top = 10.0
+texture_margin_right = 11.0
+texture_margin_bottom = 14.0

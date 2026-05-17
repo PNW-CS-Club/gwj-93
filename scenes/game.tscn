@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://cmeb70wqmvn6q" path="res://scenes/cabin.tscn" id="5_dinhu"]
 [ext_resource type="PackedScene" uid="uid://8qtvq6m7yo0l" path="res://scenes/Inventory/hotbar.tscn" id="5_kvpfn"]
 [ext_resource type="Texture2D" uid="uid://c8pnr85o7wt45" path="res://art/outline-bottom.png" id="5_p57ef"]
-[ext_resource type="PackedScene" uid="uid://j74cggjvrr25" path="res://scenes/wallet.tscn" id="5_vtaks"]
+[ext_resource type="PackedScene" uid="uid://ccrvbuxgfrgqm" path="res://scenes/wallet.tscn" id="5_vtaks"]
 [ext_resource type="Texture2D" uid="uid://bcngug00fieej" path="res://art/outline-top.png" id="6_u5sy4"]
 [ext_resource type="Script" uid="uid://d13umd61abc5s" path="res://scripts/grid.gd" id="8_gee14"]
 [ext_resource type="Script" uid="uid://b42o08pe4p5bg" path="res://scripts/day_night_cycle.gd" id="13_trtic"]
@@ -117,6 +117,7 @@ script = ExtResource("14_ssvqc")
 
 [node name="Shop" parent="CanvasLayerPopups" unique_id=910207587 instance=ExtResource("4_0tnpc")]
 unique_name_in_owner = true
+visible = false
 
 [node name="Cabin" parent="CanvasLayerPopups" unique_id=1657024557 instance=ExtResource("5_dinhu")]
 unique_name_in_owner = true

@@ -7,7 +7,6 @@ var dataDictionary = preload("res://scripts/dataDict.gd").new()
 
 
 #used for opening opening up the shop
-@onready var shopButton: TextureButton = %shopButton
 @onready var seedPanel: Panel = %seedPanel
 
 #three random plants
@@ -34,12 +33,6 @@ var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	seedPanel.hide()
-	
-	shopButton.pressed.connect(_on_shop_button_pressed)
-
-func _on_shop_button_pressed():
-	seedPanel.visible = not seedPanel.visible
-	
 	displayPlants()
 	displayPotions() 
 
