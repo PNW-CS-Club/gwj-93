@@ -46,6 +46,7 @@ theme_type_variation = &"InvisiButton"
 script = ExtResource("3_16qgp")
 
 [node name="CraftingPanel" type="Panel" parent="CabinTexture" unique_id=1627873114]
+visible = false
 layout_mode = 0
 offset_left = 18.0
 offset_top = 29.0

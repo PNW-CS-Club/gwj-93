@@ -37,23 +37,23 @@ var current_frame_texture: Texture2D
 func _ready():
 	sprite.hide()
 
-func _process(_delta: float):
-	var current_mouse_shape = Input.get_current_cursor_shape()
-
-	if current_mouse_shape != previous_mouse_shape:
-		set_shape(current_mouse_shape)
-		previous_mouse_shape = current_mouse_shape
-
-	current_animation = sprite.animation
-	current_frame_texture = sprite.sprite_frames.get_frame_texture(
-			current_animation, sprite.frame
-		)
-
-	Input.set_custom_mouse_cursor(
-		current_frame_texture,
-		Input.get_current_cursor_shape(),
-		sprite.offset
-	)
+func _process(_delta: float): pass
+	#var current_mouse_shape = Input.get_current_cursor_shape()
+#
+	#if current_mouse_shape != previous_mouse_shape:
+		#set_shape(current_mouse_shape)
+		#previous_mouse_shape = current_mouse_shape
+		#
+	#current_animation = sprite.animation
+	#current_frame_texture = sprite.sprite_frames.get_frame_texture(
+			#current_animation, sprite.frame
+		#)
+	#
+	#Input.set_custom_mouse_cursor(
+		#current_frame_texture,
+		#Input.get_current_cursor_shape(),
+		#sprite.offset
+	#)
 
 ## Gets the CursorShape in a formatted string without the prefix CURSOR_ Mainly used for changing animations
 func get_shape_name() -> StringName:
